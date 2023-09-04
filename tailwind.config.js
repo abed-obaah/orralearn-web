@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        figtree:"'Figtree', sans-serif",
+        cabin:"'Cabin', sans-serif",
+        sans:"'DM Sans', sans-serif",
+        alegreya:"'Alegreya Sans SC', sans-serif"
+      }
+    },
   },
   plugins: [],
 }

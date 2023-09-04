@@ -8,6 +8,8 @@ import FAQs from './pages/FAQs'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Navbar from './layout/navbar/Navbar'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 
 
 
@@ -21,6 +23,8 @@ function App() {
         <Route path='faqs' element={<FAQs/>}/>
         <Route path='about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/signIn' element={<SignIn/>}/>
+        <Route path='/signUp' element={<SignUp/>}/>
       </Routes>
     </main>
   )
