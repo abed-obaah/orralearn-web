@@ -34,7 +34,6 @@ function App() {
         <Route path='*'element={<Navigate to="/notfound" replace />}/>
       </Routes>
       <Footer/>
-    </main>
     </>
   )
   
