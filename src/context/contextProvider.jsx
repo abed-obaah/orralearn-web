@@ -48,7 +48,8 @@ export const ContextProvider = ({ children }) => {
     initialToken = tokenData.token;
   }
   const [token, setToken] = useState(initialToken);
-  const userLoggedIn = !!token;
+ // const userLoggedIn = true;
+   const userLoggedIn = !!token;
 
   const logoutHandler = useCallback(() => {
     localStorage.removeItem("token");

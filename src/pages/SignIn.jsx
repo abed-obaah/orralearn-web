@@ -1,20 +1,23 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useStateContext } from "../context/contextProvider";
 import logo from '../assets/shortLogo.svg'
 
 import Notification from "../components/shared/Notification";
-import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import {  signInWithEmailAndPassword,browserSessionPersistence ,setPersistence   } from 'firebase/auth';
 import { auth } from "../middleware/firebase";
 
 import {FcGoogle} from 'react-icons/fc'
 import {BiLogoFacebook} from 'react-icons/bi'
 import { Link ,useNavigate} from 'react-router-dom'
 import { useFormik } from "formik";
+import {FiEyeOff,FiEye} from 'react-icons/fi'
 //import axios from 'axios';
 
 
 const SignIn = () => {
   const [show, setShow] = useState(false)
+  const[showPassword,setShowPassword] = useState(false)
   const [type,setType] = useState('success')
   const [title,setTitle] = useState('Success')
   const [loading, setLoading] = useState(false);
@@ -37,6 +40,9 @@ const SignIn = () => {
     setTitle(title)
     setType(type)
   }
+  const showPaswordHnadler=()=>{
+    setShowPassword(!showPassword)
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -49,18 +55,19 @@ const SignIn = () => {
         setLoading(true)
       const httReqHandler = async () => {
         try {
+          await setPersistence(auth, browserSessionPersistence);
           const data = await signInWithEmailAndPassword(auth,values.email,values.password);
-          console.log(data)
+          console.log(data.user.accessToken)
           if (data) {
             setLoading(false)
-            // updateStateFunctions('Success','success')
-            // const remainingMilliseconds = 60 * 60 * 1000;
-            // const expirationTime = new Date(
-            //   new Date().getTime() + +remainingMilliseconds
-            // );
+            updateStateFunctions('Success','success')
+            const remainingMilliseconds = 60 * 60 * 1000;
+            const expirationTime = new Date(
+              new Date().getTime() + +remainingMilliseconds
+            );
           
-            // login(data.data.token, expirationTime.toISOString());
-            // navigate("/", { replace: true });
+            login(data.user.accessToken, expirationTime.toISOString());
+            navigate("/", { replace: true });
           }
           
         } catch (err) {
@@ -117,14 +124,18 @@ const SignIn = () => {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Password
                 </label>
                 <div className="mt-2">
+                  <div className="flex relative items-center">
                   <input
                     id="password"
                     name="password"
-                    type="password"
+                    type={showPassword ?"text":"password"}
                     autoComplete="current-password"
                     value={formik.values.password}
                     onChange={formik.handleChange}
@@ -132,9 +143,15 @@ const SignIn = () => {
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
-                    {formik.errors.password && formik.touched.password ? (
-              <p className="text-red-500 mb-0 mt-1">{formik.errors.password}</p>
-            ) : null}
+                  <div>
+                    {showPassword ? <FiEyeOff className="absolute right-2 top-2 text-gray-400 cursor-pointer text-lg" onClick={showPaswordHnadler}/> : <FiEye className="absolute right-2 top-2 text-gray-400 cursor-pointer text-lg" onClick={showPaswordHnadler}/> }
+                  </div>
+                  </div>
+                  {formik.errors.password && formik.touched.password ? (
+                    <p className="text-red-500 mb-0 mt-1">
+                      {formik.errors.password}
+                    </p>
+                  ) : null}
                 </div>
               </div>
 

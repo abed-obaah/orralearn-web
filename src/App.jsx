@@ -10,6 +10,7 @@ import Navbar from './layout/navbar/Navbar'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Notfound from './pages/Notfound'
+import AuthLayout from './layout/auth-layout/AuthLayout'
 
 import { Routes,Route ,useLocation,Navigate} from 'react-router-dom'
 
@@ -36,7 +37,7 @@ function App() {
   )
   
   if(isLoggedIn){
-  content =( <div> hello world </div>)
+  content =(<AuthLayout/>)
   }
   return (
     <main>{content}</main>
