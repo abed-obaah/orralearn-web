@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import FAQs from './FAQs'
+import CallToAction from './Components/CallToAction'
 
 const frequencies = [
   { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
@@ -99,7 +100,7 @@ export default function Pricing() {
             <div
               key={tier.id}
               className={classNames(
-                tier.mostPopular ? 'ring-2 ring-gray-100 bg-[#5300CA]' : 'ring-1 ring-gray-200',
+                tier.mostPopular ? 'ring-2 ring-gray-900 bg-[#5300CA]' : 'ring-1 ring-gray-900',
                 'rounded-3xl p-8 xl:p-10'
               )}
             >
@@ -121,7 +122,7 @@ export default function Pricing() {
               </div>
               <p className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600", "mt-4 text-sm leading-6 ")}>{tier.description}</p>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className={classNames(tier.mostPopular? "text-gray-100" : "text-gray-600","text-4xl font-bold tracking-tight")}>{tier.price[frequency.value]}</span>
+                <span className={classNames(tier.mostPopular? "text-white" : "text-gray-900","text-5xl font-bold tracking-tight")}>{tier.price[frequency.value]}</span>
                 <span className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600","text-sm font-semibold leading-6")}>{frequency.priceSuffix}</span>
               </p>
               <p className={classNames(tier.mostPopular? "text-white" : "text-black", 'mt-3')}>What's included</p>
@@ -151,6 +152,7 @@ export default function Pricing() {
       </div>
        {/**Freauently asked Questions */}
     <FAQs />
+    <CallToAction/>
     </div>
    
     </>
