@@ -72,11 +72,13 @@ const SignUp = () => {
     <Notification show={show} setShow={setShow} title={title} type={type}/>
     <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
+         <Link to='/' className="cursor-pointer">
           <img
             className="mx-auto h-10 w-auto"
             src={logo}
             alt="Your Company"
           />
+          </Link>
           <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign up to create your account
           </h2>
