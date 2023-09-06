@@ -17,4 +17,8 @@ export default {
      plugins: [
       require('@tailwindcss/forms'),
     ],
+  plugins: [
+    /*eslint-env node*/
+    require('@tailwindcss/forms'),
+  ],
 }
