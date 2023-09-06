@@ -3,12 +3,14 @@ import { useStateContext } from "../context/contextProvider";
 import logo from '../assets/shortLogo.svg'
 
 import Notification from "../components/shared/Notification";
+import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import { auth } from "../middleware/firebase";
 
 import {FcGoogle} from 'react-icons/fc'
 import {BiLogoFacebook} from 'react-icons/bi'
 import { Link ,useNavigate} from 'react-router-dom'
 import { useFormik } from "formik";
-import axios from 'axios';
+//import axios from 'axios';
 
 
 const SignIn = () => {
@@ -31,6 +33,11 @@ const SignIn = () => {
     return errors;
   };
 
+  const updateStateFunctions=(title,type)=>{
+    setTitle(title)
+    setType(type)
+  }
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -42,25 +49,25 @@ const SignIn = () => {
         setLoading(true)
       const httReqHandler = async () => {
         try {
-          const data = await axios.post(`${import.meta.env.VITE_API_PREFIX}/auth/signIn`, values);
-          if (data.status === 200) {
-            
-            const remainingMilliseconds = 60 * 60 * 1000;
-            const expirationTime = new Date(
-              new Date().getTime() + +remainingMilliseconds
-            );
-           
-            login(data.data.token, expirationTime.toISOString());
-            navigate("/", { replace: true });
+          const data = await signInWithEmailAndPassword(auth,values.email,values.password);
+          console.log(data)
+          if (data) {
+            setLoading(false)
+            // updateStateFunctions('Success','success')
+            // const remainingMilliseconds = 60 * 60 * 1000;
+            // const expirationTime = new Date(
+            //   new Date().getTime() + +remainingMilliseconds
+            // );
+          
+            // login(data.data.token, expirationTime.toISOString());
+            // navigate("/", { replace: true });
           }
           
         } catch (err) {
-          setLoading(false)
+          console.log(err)
+          updateStateFunctions('An error occured','error')
           setShow(true)
-          setTitle('An error occured')
-          setType('error')
-            console.log(err.code)
-          
+          setLoading(false)
         }
       };
       httReqHandler()
@@ -155,6 +162,7 @@ const SignIn = () => {
                 <button
                   type="submit"
                   className="flex w-full justify-center rounded-lg  bg-[#5E00D0] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#603ddd] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5E00D0]"
+                  disabled={loading}
                 >
                 { loading? 'laoding': 'Sign in'}
                 </button>

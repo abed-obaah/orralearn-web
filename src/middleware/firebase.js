@@ -1,0 +1,22 @@
+import {initializeApp} from "firebase/app"
+import { getAuth } from "firebase/auth";
+import {getFirestore} from "firebase/firestore";
+import {getStorage} from 'firebase/storage';
+
+const firebaseConfig = {
+  apiKey:import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: "auth-developement-7416c.firebaseapp.com",
+  projectId: "auth-developement-7416c",
+  storageBucket: "auth-developement-7416c.appspot.com",
+  messagingSenderId: "495427481825",
+  appId: "1:495427481825:web:fcd7e2258965f752ab07a0"
+}
+const app = initializeApp(firebaseConfig);
+export const  auth = getAuth();
+export const db = getFirestore(app);
+export const storage = getStorage(app);
+
+export default app;
+
+
+// /apiKey:import.meta.env.VITE_FIREBASE_API_KEY,

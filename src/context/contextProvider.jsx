@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import  { createContext, useContext, useState ,useEffect,useCallback} from 'react';
 
 let logoutTimer;
@@ -38,6 +39,7 @@ const retrieveStoredToken = () => {
   };
 };
 
+// eslint-disable-next-line react/prop-types
 export const ContextProvider = ({ children }) => {
   const tokenData = retrieveStoredToken();
 

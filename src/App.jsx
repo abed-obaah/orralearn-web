@@ -1,8 +1,7 @@
 
 import './App.css'
+import { useStateContext } from './context/contextProvider'
 import Home from './pages/Home'
-
-import { Routes,Route ,useLocation,Navigate} from 'react-router-dom'
 import Pricing from './pages/Pricing'
 import FAQs from './pages/FAQs'
 import About from './pages/About'
@@ -12,12 +11,15 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Notfound from './pages/Notfound'
 
+import { Routes,Route ,useLocation,Navigate} from 'react-router-dom'
 
 
 function App() {
+  const {isLoggedIn} = useStateContext()
   const location = useLocation()
-  return (
-    <main>
+
+  let content = (
+    <>
      {location.pathname !== '/notfound' && location.pathname !== '/signUp' && location.pathname !== '/signIn' && <Navbar/>}
       <Routes>
         <Route path="/" element={<Home/>} />
@@ -30,7 +32,15 @@ function App() {
         <Route path="notfound" element={<Notfound />} />
         <Route path='*'element={<Navigate to="/notfound" replace />}/>
       </Routes>
-    </main>
+    </>
+  )
+  
+  if(isLoggedIn){
+  content =( <div> hello world </div>)
+  }
+  return (
+    <main>{content}</main>
+   
   )
 }
 
