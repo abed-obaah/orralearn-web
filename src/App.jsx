@@ -11,6 +11,7 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Footer from './layout/footer/Footer'
 import Notfound from './pages/Notfound'
+import AuthLayout from './layout/auth-layout/AuthLayout'
 
 import { Routes,Route ,useLocation,Navigate} from 'react-router-dom'
 
@@ -38,11 +39,14 @@ function App() {
   )
   
   if(isLoggedIn){
-  content =( <div> hello world </div>)
+  content =(<AuthLayout/>)
   }
   return (
-    <main>{content}</main>
-     )
+    <main>
+      {content}
+    </main>
+   
+  )
 }
 
 export default App
