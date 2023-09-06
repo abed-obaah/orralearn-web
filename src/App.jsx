@@ -9,6 +9,7 @@ import Contact from './pages/Contact'
 import Navbar from './layout/navbar/Navbar'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import Footer from './layout/footer/Footer'
 import Notfound from './pages/Notfound'
 
 import { Routes,Route ,useLocation,Navigate} from 'react-router-dom'
@@ -32,6 +33,8 @@ function App() {
         <Route path="notfound" element={<Notfound />} />
         <Route path='*'element={<Navigate to="/notfound" replace />}/>
       </Routes>
+      <Footer/>
+    </main>
     </>
   )
   
@@ -40,8 +43,7 @@ function App() {
   }
   return (
     <main>{content}</main>
-   
-  )
+     )
 }
 
 export default App
