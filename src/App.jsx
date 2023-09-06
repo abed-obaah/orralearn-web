@@ -34,7 +34,7 @@ function App() {
         <Route path="notfound" element={<Notfound />} />
         <Route path='*'element={<Navigate to="/notfound" replace />}/>
       </Routes>
-      <Footer/>
+      {location.pathname !== '/notfound' && location.pathname !== '/signUp' && location.pathname !== '/signIn' &&<Footer/>}
     </>
   )
   
