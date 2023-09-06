@@ -40,7 +40,9 @@ function App() {
   content =(<AuthLayout/>)
   }
   return (
-    <main>{content}</main>
+    <main>
+      {content}
+    </main>
    
   )
 }
