@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Navbar from './layout/navbar/Navbar'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import Footer from './layout/footer/Footer'
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/signIn' element={<SignIn/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
       </Routes>
+      <Footer/>
     </main>
   )
 }
