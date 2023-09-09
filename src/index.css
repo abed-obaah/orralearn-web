@@ -18,4 +18,14 @@ html {
   .bgColorOne{
     background: var(--BG-COLOR, #FAF9FC);
   }
+.bgColorTwo{
+    background-color:#F7F7FF;
+    }
+
+    .textColorOne{
+        color: #6941C6;
+    }
+    .checkOutBorder{
+        border: 0.2px solid rgba(128, 128, 128, 0.70);
+    }
 }

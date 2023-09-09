@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { useStateContext } from "../../context/contextProvider";
-import { navigation ,teams} from '../../util/dummy-data'
+import { navigation ,teams} from '../../util/usefull-data.js'
 
 
 import { Dialog, Menu, Transition } from '@headlessui/react'
