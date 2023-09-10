@@ -10,7 +10,7 @@ const About = () => {
 
   return (
     <div className={`bgOne ${styles.paddingX} font-openSans ${styles.homePageGenPadding} flex flex-col gap-y-20`} >
-      <div className={'w-full  sm:w-4/5 md:w-1/2 flex flex-col gap-y-2'}>
+      <div className={'w-full  sm:w-4/5 md:w-[70%] flex flex-col gap-y-2 '}>
         <h6 className={`${styles.homeHeadingStyle} `}>About Us</h6>
         <p className={'text-2xl font-bold'}>We’re a Social Learning Platform for aspiring and established developers across <span className={'text-[#5E00D0]'}>Africa</span>.</p>
       </div>
@@ -23,7 +23,7 @@ const About = () => {
            <p className={'font-openSans text-black font-[300] text-opacity-70'}>We stand out by curating comprehensive learning curriculums using free YouTube tutorials, elimainating the need for our resources. We also foster supportive and collaborative community for developers to connect and grow together.</p>
         </div>
       </div>
-        <div className={'w'}>
+        <div className={'mb-20'}>
             <div className={'w-full  sm:w-4/5 md:w-1/2 flex flex-col gap-y-2'}>
                 <h6 className={`${styles.homeHeadingStyle} `}>About Us</h6>
                 <p className={'text-2xl font-bold'}>Meet Our Mentors.</p>
@@ -35,8 +35,8 @@ const About = () => {
                 className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4 lg:gap-8"
             >
                 {mentors.map((person) => (
-                    <li key={person.name} className="rounded-2xl bg-white px-8 py-10 ">
-                        <img className="mx-auto h-32 w-32 rounded-full md:h-20 md:w-20" src={person.image} alt="" />
+                    <li key={person.name} className="rounded-2xl bg-white px-8 py-10 borderTwo">
+                        <img className="mx-auto h-16 w-16 rounded-full md:h-16 md:w-16" src={person.image} alt="" />
                         <h3 className="mt-6 text-base leading-7 tracking-tight text-center font-[400]">{person.name}</h3>
                         <p className="text-sm leading-6 text-center text-[#5E00D0]">{person.title}</p>
                         <p className="text-sm leading-6 text-center text-[#555]">{person.subTitle}</p>

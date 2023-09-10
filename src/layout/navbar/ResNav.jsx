@@ -13,6 +13,7 @@ const ResNav = ({open,setOpen}) => {
             <div className={`w-full flex flex-col gap-4 items-center justify-center`}>
                 {navLinks.map(({title,path},i)=>(
                     <NavLink
+                        onClick={()=>{setOpen(false)}}
                         to={path}
                         key={i}
                         className={({ isActive }) => (isActive ? styles.navLinksColor: `hover:${styles.navLinksColor} ${styles.textTransitionHover} `)}

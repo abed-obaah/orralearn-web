@@ -36,4 +36,15 @@ html {
     .bgTwo{
         background: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(101deg, #EDECF9 -15.57%, #E8E7F4 31.75%, #EAF5FB 73.56%);
     }
+
+    .borderTwo{
+        border: 1px solid rgba(128, 128, 128, 0.60);
+
+    }
+    .inputStyle{
+        border-radius: 8.177px;
+        border: 0.5px solid rgba(128, 128, 128, 0.30);
+        background: var(--neutral-colors-100, #FFF);
+
+    }
 }
