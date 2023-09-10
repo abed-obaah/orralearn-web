@@ -11,7 +11,7 @@ const Popular = () => {
         {image:p3, cat:"Design",title:"Building User Interface..",name:"ATO Tech",period:"2023 Enrolled",usrImg:ato},
     ]
     return (
-        <div className={`${styles.paddingX} flex flex-col font-openSans  my-20`}>
+        <div className={`${styles.paddingX} flex flex-col font-openSans  my-20 bgTwo`}>
             <div className={'flex flex-col text-center'}>
                 <h6 className={`${styles.homeHeadingStyle}`}>Explore Programs</h6>
                 <h1 className={`${styles.homeSubHeadingStyle} mb-[5px] `}>Our Most Popular Class</h1>

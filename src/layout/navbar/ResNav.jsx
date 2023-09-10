@@ -5,7 +5,7 @@ import {AiOutlineCloseCircle} from 'react-icons/ai'
 // eslint-disable-next-line react/prop-types
 const ResNav = ({open,setOpen}) => {
     return (
-        <nav className={`  fixed w-full bg-white z-[999]  ${styles.paddingX} flex flex-col py-10 gap-14 lg:hidden transition-all duration-500 ease-in h-screen  ${open ? ' top-0':'top-[-100vh] '}`} >
+        <nav className={` bgOne  fixed w-full bg-white z-[999]  ${styles.paddingX} flex flex-col py-10 gap-14 lg:hidden transition-all duration-500 ease-in h-screen  ${open ? ' top-0':'top-[-100vh] '}`} >
             <div className={'w-full flex  justify-end'}>
 
               <AiOutlineCloseCircle onClick={()=>{setOpen(false)}} className={'text-4xl'}/>

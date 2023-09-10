@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 export default function CallToAction() {
     return (
-      <div className="relative isolate overflow-hidden bg-gray-900 rounded-xl font-figtree">
+      <div className="relative isolate overflow-hidden bg-gray-900 rounded-xl font-figtree ">
         <div className="px-6 py-10 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-[36px] md:text-[50px] font-bold tracking-normal text-white font-space">

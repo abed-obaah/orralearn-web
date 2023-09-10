@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <>
             <SectionOne/>
-            <div className={`bg-white ${styles.paddingX}`}>
+            <div className={`bg-white ${styles.paddingX} bgTwo`}>
                 <Advantages/>
                 <Checkout/>
             </div>
@@ -21,7 +21,7 @@ const Home = () => {
             <Learnmore/>
             <Practice/>
             <Popular/>
-            <div  className={`bg-white ${styles.paddingX} py-40`}>
+            <div  className={`bg-white ${styles.paddingX} py-40 bgTwo`}>
             <CallToAction/>
             </div>
         </>

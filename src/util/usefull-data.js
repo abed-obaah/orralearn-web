@@ -7,8 +7,17 @@ import {
     HomeIcon,
     UsersIcon,
   } from '@heroicons/react/24/outline'
+import imagePaul from '../assets/imagePaul.jpg'
+import ato from '../assets/ato.png'
+import lowe from '../assets/lowe.png'
+import avatar from '../assets/Avatar.png'
 
-
+export const mentors =[
+    {image:ato,name:"ATO Bradley",title:"Creator of Orralearn",subTitle:"Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",tweeter:"",linkedIn:""},
+    {image:lowe,name:"Florian Lowe",title:"GeekSaitama",subTitle:"Lead engineering teams at Figma, Pitch, and Protocol Labs.",tweeter:"",linkedIn:""},
+    {image:imagePaul,name:" Nji Paul Kamdoum ",title:"Azathot111",subTitle:"Full Stack Developer, Full stack developer at Orralearn Academy",skype:"",linkedIn:""},
+    {image:avatar,name:"Marvin McKinney",title:"SteveStrange",subTitle:"Former frontend dev for Linear, Coinbase, and Postscript.",tweeter:"",linkedIn:""},
+]
 export  const navLinks =[
     {title:"Home",path:"/"},
     {title:"Pricing",path:"/pricing"},

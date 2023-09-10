@@ -23,7 +23,7 @@ const checkouElements =[
 const Checkout = () => {
     return (
         <div>
-            <div className={'flex justify-center'}>
+            <div className={'flex justify-center bgTwo'}>
                 <img src={lines} alt={'lines'}/>
             </div>
             <div className={`${styles.homePageGenPadding} flex flex-col items-center`}>

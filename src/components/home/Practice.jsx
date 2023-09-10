@@ -5,7 +5,7 @@ import practice from "../../assets/practice.png";
 
 const Practice = () => {
     return (
-        <div className={`${styles.paddingX}  `}>
+        <div className={`${styles.paddingX} bgTwo `}>
 
             <div className={`flex flex-col gap-10 gap-y-12 py-10`}>
                 <div className={'font-openSans w-full'}>

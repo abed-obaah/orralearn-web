@@ -4,7 +4,7 @@ import lines from "../../assets/lines.png";
 
 const LearnMore = () => {
     return (
-        <div className={`${styles.paddingX}  `}>
+        <div className={`${styles.paddingX} bgTwo `}>
             <div className={'flex justify-center'}>
                 <img src={lines} alt={'lines'}/>
             </div>
