@@ -6,7 +6,7 @@ import {testimonials} from "../../util/usefull-data.js";
 
 const Testimonials = () => {
     return (
-        <div className={`${styles.homePageGenPadding} ${styles.paddingX} bgTwo bg-[#5E00D0] flex flex-col gap-y-[60px]`}>
+        <div className={`${styles.homePageGenPadding} ${styles.paddingX}  bg-[#5E00D0] flex flex-col gap-y-[60px]`}>
             <div className={'flex flex-col text-center'}>
                 <h6 className={`text-lg font-[400] text-white`}>Testimonials</h6>
                 <h1 className={`${styles.homeSubHeadingStyle} text-white pb-[5px]`}>Hear From Our Students</h1>
