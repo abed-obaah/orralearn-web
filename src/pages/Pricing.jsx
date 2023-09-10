@@ -87,7 +87,7 @@ export default function Pricing() {
               </p>
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               <p className={classNames(tier.mostPopular? "text-white" : "text-black", 'mt-3')}>What's included</p>
-              <ul role="list" className={classNames(tier.mostPopular? "text-gray-300" : "text-gray-600", "mt-4 space-y-3 text-sm leading-6  xl:mt-10")}>
+              <ul role="list" className={classNames(tier.mostPopular? "text-gray-300" : "text-gray-600", "mt-4 space-y-3 text-sm leading-6  min-h-[240px] xl:mt-10")}>
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon className={classNames(tier.mostPopular ? "text-[#5300CA] bg-white rounded-full": "text-white bg-[#5300CA] rounded-full" ,"h-6 flex-none justify-center")}aria-hidden="true" />
@@ -100,9 +100,9 @@ export default function Pricing() {
                 aria-describedby={tier.id}
                 className={classNames(
                   tier.mostPopular
-                    ? 'bg-white text-[#5300CA] shadow-sm hover:bg-[#5300CA]'
-                    : 'text-white bg-[#5300CA] ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300',
-                  'mt-6 block rounded-[30px] py-4 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                    ? 'bg-white text-[#5300CA] shadow-sm hover:bg-[#5300CA] hover:text-white hover:border-white border '
+                    : 'text-white bg-[#5300CA] ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 border-[#5300CA] hover:text-[#5300CA] hover:bg-white ',
+                  'mt-6 block rounded-[30px] py-4 px-3 text-center text-sm font-semibold leading-6  transition ease-out  duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                 )}
               >
                 Get Started
