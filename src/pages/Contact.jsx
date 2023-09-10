@@ -6,7 +6,7 @@ import {BiRightArrowAlt} from  'react-icons/bi'
 
 const Contact = () => {
   return (
-    <div className={`bgOne ${styles.paddingX} font-openSans ${styles.homePageGenPadding} font-openSans flex flex-col gap-y-20`}>
+    <div className={` generalNavPadding bgOne ${styles.paddingX} font-openSans ${styles.homePageGenPadding} font-openSans flex flex-col gap-y-20`}>
         <div className={'grid grid-cols-1 md:grid-cols-2 mb-20'}>
       <div className={'w-full  flex flex-col gap-y-4 '}>
         <h6 className={`${styles.homeHeadingStyle} `}>CONTACT US</h6>

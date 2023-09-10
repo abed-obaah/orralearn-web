@@ -10,12 +10,21 @@ import ResNav from "./ResNav.jsx";
 
 const Navbar = () => {
 const [open,setOpen] = useState(false)
+    const [colorChangeOnScroll, setColorChangeOnscroll] = useState(false);
+    const colorChangeOnScrollHandler = () => {
+        if (window.scrollY >= 64) {
+            setColorChangeOnscroll(true);
+        } else {
+            setColorChangeOnscroll(false);
+        }
+    };
+    window.addEventListener("scroll", colorChangeOnScrollHandler);
 
   
   return (
-      <header className={'relative'}>
+      <>
          <ResNav open={open} setOpen={setOpen}/>
-        <nav className={`flex bg-white items-center justify-between z-[900]   ${styles.paddingX} h-[100px] font-figtree  `}>
+        <nav className={` ${colorChangeOnScroll && 'shadow-lg'}  bgOne w-full flex items-center justify-between fixed z-[900]    ${styles.paddingX} h-[100px] font-figtree  `}>
           <img src={logo} alt='orralearn logo' className='w-[164px] h-[33px]'/>
           <div className=' hidden lg:flex items-center gap-8 text-[20px]  '>
             {navLinks.map((link,i)=>(
@@ -37,7 +46,7 @@ const [open,setOpen] = useState(false)
           </div>
           <RxHamburgerMenu className='flex lg:hidden text-2xl' onClick={()=>{setOpen(true)}}/>
         </nav>
-      </header>
+      </>
   )
 }
 

@@ -9,10 +9,10 @@ const About = () => {
 
 
   return (
-    <div className={`bgOne ${styles.paddingX} font-openSans ${styles.homePageGenPadding} flex flex-col gap-y-20`} >
-      <div className={'w-full  sm:w-4/5 md:w-[70%] flex flex-col gap-y-2 '}>
+    <div className={`generalNavPadding bgOne ${styles.paddingX} font-openSans ${styles.homePageGenPadding} flex flex-col gap-y-20`} >
+      <div className={'w-full  lg:w-4/5  flex flex-col gap-y-2 '}>
         <h6 className={`${styles.homeHeadingStyle} `}>About Us</h6>
-        <p className={'text-2xl font-bold'}>We’re a Social Learning Platform for aspiring and established developers across <span className={'text-[#5E00D0]'}>Africa</span>.</p>
+        <p className={`${styles.homeSubHeadingStyle}`}>We’re a Social Learning Platform for aspiring and established developers across <span className={'text-[#5E00D0]'}>Africa</span>.</p>
       </div>
 
       <div className={'w-full grid grid-cols-1   sm:grid-cols-2  gap-8'}>

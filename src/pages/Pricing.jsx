@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import { RadioGroup } from '@headlessui/react'
+import {Disclosure, RadioGroup} from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import FAQs from './FAQs'
 import CallToAction from './Components/CallToAction'
-import {frequencies, tiers} from "../util/usefull-data.js";
+import {faqs, frequencies, tiers} from "../util/usefull-data.js";
 import {styles} from "../util/genral-style.js";
+import {MinusSmallIcon, PlusSmallIcon} from "@heroicons/react/24/outline/index.js";
+
+import {Link} from 'react-router-dom'
 
 
 
@@ -17,7 +20,7 @@ export default function Pricing() {
 
   return (
     <>
-      <div className={`bg-white py-24 sm:py-32 ${styles.paddingX} bgOne `}>
+      <div className={ `generalNavPadding  pb-24 sm:pb-32 ${styles.paddingX} bgOne `}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-base font-semibold leading-7 text-[#5300CA]">PRICING</h2>
@@ -92,7 +95,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a
+              <Link to={''}
                 href={tier.href}
                 aria-describedby={tier.id}
                 className={classNames(
@@ -103,13 +106,42 @@ export default function Pricing() {
                 )}
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           ))}
         </div>
       </div>
        {/**Freauently asked Questions */}
-    <FAQs />
+        <div  className={'py-40 '}>
+          <h6 className={`${styles.homeHeadingStyle}`}>FAQs</h6>
+          <h2 className={`${styles.homeSubHeadingStyle}`}>Frequently asked questions</h2>
+          <dl className="mt-10 space-y-6 ">
+            {faqs.map((faq) => (
+                <Disclosure as="div" key={faq.question} className="bg-white p-4 rounded-[20px] ">
+                  {({ open }) => (
+                      <>
+                        <dt>
+                          <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                            <span className="text-base font-semibold leading-7">{faq.question}</span>
+                            <span className="ml-6 flex h-7 items-center">
+                          {open ? (
+                              <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                          ) : (
+                              <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                          )}
+                        </span>
+                          </Disclosure.Button>
+                        </dt>
+                        <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                          <p className="text-base leading-7 text-gray-600">{faq.answer}</p>
+                        </Disclosure.Panel>
+                      </>
+                  )}
+                </Disclosure>
+            ))}
+          </dl>
+        </div>
+
     <CallToAction/>
     </div>
    

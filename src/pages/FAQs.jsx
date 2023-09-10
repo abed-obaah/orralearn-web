@@ -1,18 +1,19 @@
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 import {faqs} from "../util/usefull-data.js";
+import CallToAction from "./Components/CallToAction.jsx";
+import {styles} from "../util/genral-style.js";
 
 
 
 const FAQs = () => {
   return (
-    <div className="bgOne">
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40 ">
-        <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-          <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
-          <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+    <div className={`bgOne generalNavPadding ${styles.paddingX}`}>
+        <h6 className={`${styles.homeHeadingStyle}`}>FAQs</h6>
+          <h2 className={`${styles.homeSubHeadingStyle}`}>Frequently asked questions</h2>
+          <dl className="mt-10 space-y-6 ">
             {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.question} className="pt-6">
+              <Disclosure as="div" key={faq.question} className="bg-white p-4 rounded-[20px] ">
                 {({ open }) => (
                   <>
                     <dt>
@@ -35,8 +36,9 @@ const FAQs = () => {
               </Disclosure>
             ))}
           </dl>
+        <div className={`py-40`}>
+                <CallToAction/>
         </div>
-      </div>
     </div>
   )
 }
