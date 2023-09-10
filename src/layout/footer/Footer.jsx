@@ -1,18 +1,8 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+
 import {styles} from "../../util/genral-style.js";
+import whiteLogo from  '../../assets/logo.svg'
+import apple from '../../assets/apple.png'
+import playStore from '../../assets/playstore.png'
 
 const navigation = {
     solutions: [
@@ -112,11 +102,18 @@ const navigation = {
         </h2>
         <div className="mx-auto max-w-7xl  pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div className={'flex flex-col space-y-4'}>
             <img
               className="h-7"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-              alt="Company name"
+              src={whiteLogo}
+              alt="orralearn"
             />
+              <p className={'text-white text-sm '}>Top learning experiences that create more talent in the world.</p>
+              <div className={'flex gap-2'}>
+                <img src={playStore} alt={''}/>
+                <img src={apple} alt={''}/>
+              </div>
+            </div>
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
