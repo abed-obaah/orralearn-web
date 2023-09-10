@@ -5,11 +5,14 @@ import Testimonials from "../components/home/Testimonials.jsx";
 import Learnmore from "../components/home/LearnMore.jsx";
 import Practice from "../components/home/Practice.jsx";
 import Popular from "../components/home/Popular.jsx";
+import CallToAction from "./Components/CallToAction.jsx";
+import SectionOne from "../components/home/SectionOne.jsx";
 
 const Home = () => {
 
     return (
         <>
+            <SectionOne/>
             <div className={`bg-white ${styles.paddingX}`}>
                 <Advantages/>
                 <Checkout/>
@@ -18,6 +21,9 @@ const Home = () => {
             <Learnmore/>
             <Practice/>
             <Popular/>
+            <div  className={`bg-white ${styles.paddingX} py-40`}>
+            <CallToAction/>
+            </div>
         </>
     )
 }

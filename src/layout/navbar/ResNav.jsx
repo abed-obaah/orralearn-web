@@ -1,13 +1,14 @@
 import {navLinks} from "../../util/usefull-data.js";
 import {styles} from "../../util/genral-style.js";
 import {NavLink} from "react-router-dom";
+import {AiOutlineCloseCircle} from 'react-icons/ai'
 // eslint-disable-next-line react/prop-types
 const ResNav = ({open,setOpen}) => {
     return (
-        <nav className={` absolute w-full bg-white z-0  ${styles.paddingX} flex flex-col py-10 gap-14 lg:hidden transition-all duration-500 ease-in h-screen  ${open ? ' top-0':'top-[-100vh] '}`} >
+        <nav className={`  fixed w-full bg-white z-[999]  ${styles.paddingX} flex flex-col py-10 gap-14 lg:hidden transition-all duration-500 ease-in h-screen  ${open ? ' top-0':'top-[-100vh] '}`} >
             <div className={'w-full flex  justify-end'}>
 
-                <div onClick={()=>{setOpen(false)}}>X</div>
+              <AiOutlineCloseCircle onClick={()=>{setOpen(false)}} className={'text-4xl'}/>
             </div>
             <div className={`w-full flex flex-col gap-4 items-center justify-center`}>
                 {navLinks.map(({title,path},i)=>(

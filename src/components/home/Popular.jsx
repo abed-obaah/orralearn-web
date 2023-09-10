@@ -11,19 +11,19 @@ const Popular = () => {
         {image:p3, cat:"Design",title:"Building User Interface..",name:"ATO Tech",period:"2023 Enrolled",usrImg:ato},
     ]
     return (
-        <div className={`${styles.paddingX} flex flex-col font-openSans `}>
+        <div className={`${styles.paddingX} flex flex-col font-openSans  my-20`}>
             <div className={'flex flex-col text-center'}>
                 <h6 className={`${styles.homeHeadingStyle}`}>Explore Programs</h6>
                 <h1 className={`${styles.homeSubHeadingStyle} mb-[5px] `}>Our Most Popular Class</h1>
-                <p className={`${styles.homeHeadingDescriptionStyle} mb-[60px] `}>Let's join our famous class, the knowledge provided will definitely be useful for you.</p>
+                <p className={`${styles.homeHeadingDescriptionStyle}  `}>Let's join our famous class, the knowledge provided will definitely be useful for you.</p>
             </div>
-            <div className={'grid grid-cols-1 sm:grid-cols-3 gap-8'}>
+            <div className={'isolate mx-auto  grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3  my-[40px]'}>
                 {populars.map((item,i)=>(
                     <div className={' checkOutBorder p-6 rounded-[8px]'} key={i}>
-                        <img className="aspect-[14/13] w-full rounded-2xl object-cover mb-10" src={item.image} alt="" />
+                        <img className="aspect-[14/13] w-full rounded-md object-cover mb-10" src={item.image} alt="" />
                         <div className={'flex flex-col'}>
                             <h6 className={'text-sm textColorOne mb-2'}>Programming</h6>
-                            <h1 className={'text-[24px] font-semibold mb-16'}>Introduction to JAVA Script</h1>
+                            <h1 className={'text-[24px] font-semibold mb-12'}>Introduction to JAVA Script</h1>
                             <div className={'flex justify-between items-center'}>
                                 <div className={'flex items-center gap-2'}>
                                     <img className="mx-auto h-12 w-12 rounded-full" src={item.usrImg} alt="" />
@@ -39,7 +39,7 @@ const Popular = () => {
                 ))}
 
             </div>
-            <div className={'flex justify-center my-[40px]'}>
+            <div className={'flex justify-center'}>
                 <div className={' py-[10px] px-[16px] w-[220px] checkOutBorder flex justify-center items-center font-semibold text-[18px] rounded-[8px] '}>Explore All Programs</div>
             </div>
         </div>

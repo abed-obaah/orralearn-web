@@ -12,7 +12,7 @@ const Testimonials = () => {
                 <h1 className={`${styles.homeSubHeadingStyle} text-white pb-[5px]`}>Hear From Our Students</h1>
                 <p className={`${styles.homeHeadingDescriptionStyle} text-white`}>See what our students have to say about learning on Orralearn and the results so far</p>
             </div>
-            <div className={'grid grid-cols-1 sm:grid-cols-2 gap-4 gap-y-4 font-openSans'}>
+            <div className={'isolate mx-auto  grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2  font-openSans'}>
                 {testimonials.map((item)=>(
                     <div className={'p-8 bg-[#CEBFEE] border-[1px] border-opacity-60  rounded-[41.037px] '} key={item.name}>
                         <p className={'font-[400] text-lg '}>{item.text}</p>

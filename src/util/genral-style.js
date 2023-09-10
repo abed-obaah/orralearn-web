@@ -5,7 +5,7 @@ export const styles ={
     textTransitionHover:"transition ease-in-out duration-300",
     navLinksColor:"text-[#5E00D0]",
     homeHeadingStyle:"textColorOne text-lg font-[400] ",
-    homeSubHeadingStyle:"text-2xl sm:text-[45px] font-bold leading-[35px] md:leading-[55px] font-space",
+    homeSubHeadingStyle:"text-2xl sm:text-[35px] lg:text-[45px] font-bold leading-[35px] lg:leading-[55px] font-space",
     homePageGenPadding:"py-20",
     homeHeadingDescriptionStyle:"text-black text-opacity-80 font-[400]  text-lg "
 }
