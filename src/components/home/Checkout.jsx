@@ -1,5 +1,5 @@
 import {styles} from "../../util/genral-style.js";
-import lines from '../../assets/lines.png'
+
 
 const checkouElements =[
     {icon:<svg xmlns="http://www.w3.org/2000/svg" width="115" height="115" viewBox="0 0 115 115" fill="none">
@@ -22,10 +22,8 @@ const checkouElements =[
 ]
 const Checkout = () => {
     return (
-        <div>
-            <div className={'flex justify-center bgTwo'}>
-                <img src={lines} alt={'lines'}/>
-            </div>
+        <div className={`${styles.paddingX} bgTwo`}>
+
             <div className={`${styles.homePageGenPadding} flex flex-col items-center`}>
                 <div className={'flex flex-col justify-center items-center'}>
                     <h6 className={`w-full text-center ${styles.homeHeadingStyle}`}>HOW IT WORKS</h6>
@@ -43,9 +41,7 @@ const Checkout = () => {
 
                 </div>
             </div>
-            <div className={'flex justify-center'}>
-                <img src={lines} alt={'lines'}/>
-            </div>
+
         </div>
     );
 };

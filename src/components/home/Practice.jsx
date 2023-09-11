@@ -1,5 +1,4 @@
 import {styles} from "../../util/genral-style.js";
-import lines from "../../assets/lines.png";
 import practice from "../../assets/practice.png";
 
 
@@ -40,9 +39,6 @@ const Practice = () => {
 
                     </div>
                 </div>
-            </div>
-            <div className={'flex justify-center'}>
-                <img src={lines} alt={'lines'}/>
             </div>
         </div>
     );

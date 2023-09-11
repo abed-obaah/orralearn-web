@@ -1,4 +1,4 @@
-import { styles } from '../../util/genral-style'
+import { styles } from '../../util/genral-style.js'
 
 import {Link} from 'react-router-dom'
 

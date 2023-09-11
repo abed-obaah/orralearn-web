@@ -3,6 +3,7 @@ import {MinusSmallIcon, PlusSmallIcon} from "@heroicons/react/24/outline/index.j
 import advantageImg from '../../assets/advantage.png'
 import {styles} from "../../util/genral-style.js";
 
+
 const svgStyle= ''
 const advantages = [
     {icon:<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 33" fill="none" className={`${svgStyle}`}>
@@ -25,7 +26,7 @@ const advantages = [
 
 const Advantages = () => {
     return (
-        <div className={`w-full h-full flex flex-col gap-y-16 py-20 bgTwo ${styles.homePageGenPadding}`}>
+        <div className={`w-full h-full flex flex-col gap-y-16  bgTwo ${styles.homePageGenPadding} ${styles.paddingX}`}>
             <div className={'font-openSans'}>
                 <h6 className={`${styles.homeHeadingStyle} `}>BENEFITS</h6>
                 <h1 className={`${styles.homeSubHeadingStyle}`}>Advantages of Using <br/>  Orralearn</h1>

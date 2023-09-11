@@ -1,6 +1,6 @@
 import {styles} from "../util/genral-style.js";
 import contact from '../assets/contact.png'
-import CallToAction from "./Components/CallToAction.jsx";
+import CallToAction from "../components/shared/CallToAction.jsx";
 import {BiRightArrowAlt} from  'react-icons/bi'
 
 

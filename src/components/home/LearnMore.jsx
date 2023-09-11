@@ -1,13 +1,11 @@
 import {styles} from "../../util/genral-style.js";
 import learnImg from  '../../assets/learnImg.png'
-import lines from "../../assets/lines.png";
+
 
 const LearnMore = () => {
     return (
         <div className={`${styles.paddingX} bgTwo `}>
-            <div className={'flex justify-center'}>
-                <img src={lines} alt={'lines'}/>
-            </div>
+
             <div className={`flex flex-col md:flex-row sm:justify-between gap-10 gap-y-16 py-20 md:py-40`}>
             <div className={'font-openSans w-full'}>
                 <h6 className={`${styles.homeHeadingStyle} uppercase`}>Learn more for less</h6>

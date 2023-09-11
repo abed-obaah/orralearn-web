@@ -1,7 +1,7 @@
 import {styles} from "../util/genral-style.js";
 import imageOne from '../assets/aboutImg.png'
 import {mentors} from "../util/usefull-data.js";
-import CallToAction from "./Components/CallToAction.jsx";
+import CallToAction from "../components/shared/CallToAction.jsx";
 
 
 

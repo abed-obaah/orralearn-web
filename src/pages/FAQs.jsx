@@ -1,7 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 import {faqs} from "../util/usefull-data.js";
-import CallToAction from "./Components/CallToAction.jsx";
+import CallToAction from "../components/shared/CallToAction.jsx";
 import {styles} from "../util/genral-style.js";
 
 
