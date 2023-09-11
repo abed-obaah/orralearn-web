@@ -1,12 +1,10 @@
 
-import {
-    CalendarIcon,
-    ChartPieIcon,
-    DocumentDuplicateIcon,
-    FolderIcon,
-    HomeIcon,
-    UsersIcon,
-  } from '@heroicons/react/24/outline'
+import {AiOutlineHome,AiOutlineInbox} from 'react-icons/ai'
+import {CgFileDocument} from 'react-icons/cg'
+import {BsBook} from 'react-icons/bs'
+import {BiGroup,BiCodeAlt,BiAward,BiHelpCircle} from 'react-icons/bi'
+
+
 import imagePaul from '../assets/imagePaul.jpg'
 import ato from '../assets/ato.png'
 import lowe from '../assets/lowe.png'
@@ -26,12 +24,14 @@ export  const navLinks =[
     {title:"Contact Us",path:"/contact"},
 ]
 export const navigation = [
-    { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-    { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-    { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-    { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
+    { name: 'Dashboard', path:"/", icon: AiOutlineHome },
+    { name: 'Courses', path:"/courses", icon: CgFileDocument  },
+    { name: 'Challenges', path:"/challenges", icon: BiAward  },
+    { name: 'Community', path:"/community", icon: BiGroup },
+    { name: 'Inbox', path:"/inbox", icon: AiOutlineInbox  },
+    { name: 'Learning Paths', path:"/learningPaths", icon: BsBook, },
+    { name: 'Coding Playground', path:"/codingPlayground", icon: BiCodeAlt  },
+    { name: 'Question & Answer', path:"/question&Answer", icon: BiHelpCircle  },
   ]
   export const teams = [
     { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },

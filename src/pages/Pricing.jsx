@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {Disclosure, RadioGroup} from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
-import FAQs from './FAQs'
 import CallToAction from './Components/CallToAction'
 import {faqs, frequencies, tiers} from "../util/usefull-data.js";
 import {styles} from "../util/genral-style.js";
