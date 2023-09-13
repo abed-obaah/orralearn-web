@@ -22,14 +22,14 @@ const checkouElements =[
 ]
 const Checkout = () => {
     return (
-        <div className={`${styles.paddingX} bgTwo`}>
+        <div className={` w-full ${styles.paddingX} bgTwo`}>
 
-            <div className={`${styles.homePageGenPadding} flex flex-col items-center`}>
-                <div className={'flex flex-col justify-center items-center'}>
-                    <h6 className={`w-full text-center ${styles.homeHeadingStyle}`}>HOW IT WORKS</h6>
-                    <h1 className={`text-center ${styles.homeSubHeadingStyle}`}>Check out this simple guides to <br/> get started</h1>
+            <div className={`w-full  ${styles.homePageGenPadding} flex flex-col items-center `}>
+                <div className={'w-full flex flex-col mb-[20px]'}>
+                    <h6 className={`w-full  ${styles.homeHeadingStyle}`}>HOW IT WORKS</h6>
+                    <h1 className={`w-full  ${styles.homeSubHeadingStyle}`}>Check out this simple guides to <br/> get started</h1>
                 </div>
-                <p className={`w-9/12 text-center ${styles.homeHeadingDescriptionStyle} mb-[60px]`}>We’re building an engine that educates people at scale and empowers them with in-demand skills of the future. Achieve this in four steps.</p>
+                <p className={`sm:w-9/12 ${styles.homeHeadingDescriptionStyle} mb-[60px]`}>We’re building an engine that educates people at scale and empowers them with in-demand skills of the future. Achieve this in four steps.</p>
                 <div className={'isolate mx-auto  grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-4 '}>
                     {checkouElements.map((element,i)=>(
                         <div className={'w-full flex flex-col gap-y-4  items-center p-6 rounded-[20px] h-[300px] checkOutBorder'} key={i}>

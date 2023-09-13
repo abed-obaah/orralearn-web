@@ -32,7 +32,7 @@ function App() {
         <Route path='/signIn' element={<SignIn/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
         <Route path="notfound" element={<Notfound />} />
-        <Route path='*'element={<Navigate to="/notfound" replace />}/>
+        <Route path='*'  element={<Navigate to="/notfound" replace />}/>
       </Routes>
       {location.pathname !== '/notfound' && location.pathname !== '/signUp' && location.pathname !== '/signIn' &&<Footer/>}
     </>
@@ -42,7 +42,7 @@ function App() {
   content =(<AuthLayout/>)
   }
   return (
-    <main>
+    <main className={'max-w-screen'}>
       {content}
     </main>
    

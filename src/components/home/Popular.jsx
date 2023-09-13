@@ -12,9 +12,10 @@ const Popular = () => {
     ]
     return (
         <div className={`${styles.paddingX} flex flex-col font-openSans  py-20 bgTwo`}>
-            <div className={'flex flex-col text-center'}>
+            <div className={'flex flex-col'}>
                 <h6 className={`${styles.homeHeadingStyle}`}>Explore Programs</h6>
-                <h1 className={`${styles.homeSubHeadingStyle} mb-[5px] `}>Our Most Popular Class</h1>
+                <h1 className={`${styles.homeSubHeadingStyle} mb-[20px] `}>Our Most Popular Class</h1>
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 <p className={`${styles.homeHeadingDescriptionStyle}  `}>Let's join our famous class, the knowledge provided will definitely be useful for you.</p>
             </div>
             <div className={'isolate mx-auto  grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3  my-[40px]'}>
@@ -32,7 +33,7 @@ const Popular = () => {
                                         <h6 className={'text-sm text-[#667085] '}>{item.period}</h6>
                                     </div>
                                 </div>
-                                <span className={`text-[#7F56D9] text-[26px] font-bold`}>Free</span>
+                                <span className={`text-[#7F56D9] text-xl sm:text-[26px] font-bold`}>Free</span>
                             </div>
                         </div>
                     </div>

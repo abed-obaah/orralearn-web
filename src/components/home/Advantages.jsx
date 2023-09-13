@@ -7,11 +7,11 @@ import {styles} from "../../util/genral-style.js";
 const svgStyle= ''
 const advantages = [
     {icon:<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 33" fill="none" className={`${svgStyle}`}>
-            <path d="M15.9992 32.5V23.535L0 16.4992H8.96501L15.9992 0.5V9.46501L32 16.4992H23.035L15.9992 32.5Z" fill="black" fill-opacity="0.8"/>
+            <path d="M15.9992 32.5V23.535L0 16.4992H8.96501L15.9992 0.5V9.46501L32 16.4992H23.035L15.9992 32.5Z" fill="black" fillOpacity="0.8"/>
         </svg>,text:"Quality Learning Content",description:"OrraLearn provides access to high-quality learning materials, including video tutorials, reading materials, and hands-on coding exercises. "},
     {icon:<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none" className={`${svgStyle}`}>
-            <g clip-path="url(#clip0_401_31)">
-                <path d="M15.9279 3.52539C15.9279 -5.12007 21.3302 7.13515 19.173 10.8785C21.334 7.13515 34.6505 5.68629 27.1618 10.01C34.6505 5.68629 26.7382 16.5003 22.4162 16.5003C26.7382 16.5003 34.6505 27.3085 27.1618 22.9906C34.6505 27.3142 21.334 25.8654 19.173 22.1221C21.334 25.8654 15.9279 38.1206 15.9279 29.4752C15.9279 38.1206 10.5238 25.8654 12.6828 22.1221C10.5219 25.8654 -2.79468 27.3142 4.69397 22.9906C-2.79468 27.3142 5.11775 16.5003 9.44143 16.5003C5.11775 16.5003 -2.79468 5.69201 4.69397 10.01C-2.79468 5.68629 10.5219 7.13515 12.6828 10.8785C10.5238 7.13133 15.9279 -5.12007 15.9279 3.52539Z" fill="black" fill-opacity="0.8"/>
+            <g clipPath="url(#clip0_401_31)">
+                <path d="M15.9279 3.52539C15.9279 -5.12007 21.3302 7.13515 19.173 10.8785C21.334 7.13515 34.6505 5.68629 27.1618 10.01C34.6505 5.68629 26.7382 16.5003 22.4162 16.5003C26.7382 16.5003 34.6505 27.3085 27.1618 22.9906C34.6505 27.3142 21.334 25.8654 19.173 22.1221C21.334 25.8654 15.9279 38.1206 15.9279 29.4752C15.9279 38.1206 10.5238 25.8654 12.6828 22.1221C10.5219 25.8654 -2.79468 27.3142 4.69397 22.9906C-2.79468 27.3142 5.11775 16.5003 9.44143 16.5003C5.11775 16.5003 -2.79468 5.69201 4.69397 10.01C-2.79468 5.68629 10.5219 7.13515 12.6828 10.8785C10.5238 7.13133 15.9279 -5.12007 15.9279 3.52539Z" fill="black" fillOpacity="0.8"/>
             </g>
             <defs>
                 <clipPath id="clip0_401_31">
@@ -20,7 +20,7 @@ const advantages = [
             </defs>
         </svg>,text:"Flexible Learning Experience",description:"OrraLearn provides access to high-quality learning materials, including video tutorials, reading materials, and hands-on coding exercises. "},
     {icon:<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 33" fill="none" className={`${svgStyle}`}>
-            <path d="M16 2.5L21.12 18.18L32 30.5L16 27.14L0 30.5L10.88 18.18L16 2.5Z" fill="black" fill-opacity="0.8"/>
+            <path d="M16 2.5L21.12 18.18L32 30.5L16 27.14L0 30.5L10.88 18.18L16 2.5Z" fill="black" fillOpacity="0.8"/>
         </svg>,text:"Supportive Community & Mentorship",description:"OrraLearn provides access to high-quality learning materials, including video tutorials, reading materials, and hands-on coding exercises. "}
 ]
 

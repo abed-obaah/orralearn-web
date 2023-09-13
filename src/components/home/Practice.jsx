@@ -6,7 +6,7 @@ const Practice = () => {
     return (
         <div className={`${styles.paddingX} bgTwo `}>
 
-            <div className={`flex flex-col gap-10 gap-y-12 py-10`}>
+            <div className={`flex flex-col gap-10 gap-y-12 py-20`}>
                 <div className={'font-openSans w-full'}>
                     <h6 className={`${styles.homeHeadingStyle}  uppercase`}>Hands on Exercise</h6>
                     <h1 className={`${styles.homeSubHeadingStyle}`}>Hands on Exercise</h1>
