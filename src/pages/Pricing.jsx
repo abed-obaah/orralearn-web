@@ -20,14 +20,15 @@ export default function Pricing() {
   return (
     <>
       <div className={ `generalNavPadding  pb-24 sm:pb-32 ${styles.paddingX} bgOne `}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-[#5300CA]">PRICING</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+      <div className="sm:mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="sm:mx-auto max-w-4xl sm:text-center">
+          <h2 className={`${styles.homeHeadingStyle}`}>PRICING</h2>
+          <p className={`${styles.homeSubHeadingStyle}`}>
             Pricing plans for&nbsp;all&nbsp;your learning needs
           </p>
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
+        {/*<p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">*/}
+        <p className="mx-auto mt-6 max-w-2xl sm:text-center text-lg leading-8 text-gray-600">
           Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer
           loyalty, and driving sales.
         </p>
@@ -54,12 +55,12 @@ export default function Pricing() {
             ))}
           </RadioGroup>
         </div>
-        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3 font-openSans">
           {tiers.map((tier) => (
             <div
               key={tier.id}
               className={classNames(
-                tier.mostPopular ? 'ring-2 ring-gray-900 bg-[#5300CA]' : 'ring-1 ring-gray-900',
+                tier.mostPopular ? 'ring-2 ring-gray-900 bg-[#5300CA]' : 'ring-1 bgThree',
                 'rounded-3xl p-8 xl:p-10'
               )}
             >
@@ -79,17 +80,17 @@ export default function Pricing() {
                   </p>
                 ) : null}
               </div>
-              <p className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600", "mt-4 text-sm leading-6 ")}>{tier.description}</p>
-              <p className="mt-6 flex items-baseline gap-x-1">
+              {/*<p className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600", "mt-4 text-sm leading-6 ")}>{tier.description}</p>*/}
+              <p className="mt-12 flex items-baseline gap-x-1">
                 <span className={classNames(tier.mostPopular? "text-white" : "text-gray-900","text-5xl font-bold tracking-tight")}>{tier.price[frequency.value]}</span>
                 <span className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600","text-sm font-semibold leading-6")}>{frequency.priceSuffix}</span>
               </p>
               {/* eslint-disable-next-line react/no-unescaped-entities */}
-              <p className={classNames(tier.mostPopular? "text-white" : "text-black", 'mt-3')}>What's included</p>
+              <p className={classNames(tier.mostPopular? "text-white" : "text-black", 'mt-6 font-bold')}>What's included</p>
               <ul role="list" className={classNames(tier.mostPopular? "text-gray-300" : "text-gray-600", "mt-4 space-y-3 text-sm leading-6  min-h-[240px] xl:mt-10")}>
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
-                    <CheckIcon className={classNames(tier.mostPopular ? "text-[#5300CA] bg-white rounded-full": "text-white bg-[#5300CA] rounded-full" ,"h-6 flex-none justify-center")}aria-hidden="true" />
+                    <CheckIcon className={classNames(tier.mostPopular ? "text-[#5300CA] bg-white rounded-full": "text-white bg-[#5300CA] rounded-full" ,"h-6 flex-none justify-center font-sans")}aria-hidden="true" />
                     {feature}
                   </li>
                 ))}
@@ -121,7 +122,7 @@ export default function Pricing() {
                       <>
                         <dt>
                           <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
-                            <span className="text-base font-semibold leading-7">{faq.question}</span>
+                            <span className="text-base font-semibold leading-7  font-space">{faq.question}</span>
                             <span className="ml-6 flex h-7 items-center">
                           {open ? (
                               <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
