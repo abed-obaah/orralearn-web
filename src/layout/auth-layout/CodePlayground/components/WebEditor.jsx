@@ -4,7 +4,9 @@ import Editor from './Editor'
 const WebEditor = () => {
   return (
     <>
-     
+     <div>
+        
+     </div>
     </>
    
   )
