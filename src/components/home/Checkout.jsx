@@ -27,7 +27,7 @@ const Checkout = () => {
             <div className={`w-full  ${styles.homePageGenPadding} flex flex-col items-center `}>
                 <div className={'w-full flex flex-col mb-[20px]'}>
                     <h6 className={`w-full sm:text-center ${styles.homeHeadingStyle}`}>HOW IT WORKS</h6>
-                    <h1 className={`w-full sm:text-center ${styles.homeSubHeadingStyle}`}>Check out this simple guides to <br/> get started</h1>
+                    <h1 className={`w-full sm:text-center ${styles.homeSubHeadingStyle}`}>Check out this simple guides to <br className={'hidden sm:block'}/> get started</h1>
                 </div>
                 <p className={`sm:w-9/12 sm:text-center ${styles.homeHeadingDescriptionStyle} mb-[60px]`}>We’re building an engine that educates people at scale and empowers them with in-demand skills of the future. Achieve this in four steps.</p>
                 <div className={'isolate mx-auto  grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-4 '}>
