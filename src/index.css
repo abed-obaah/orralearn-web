@@ -56,6 +56,10 @@ html {
         border: 1px solid rgba(128, 128, 128, 0.60);
 
     }
+    .borderThree{
+        border: 1px solid rgba(128, 128, 128, 0.10);
+        background: var(--light-accent, #F9FAFB);
+    }
     .inputStyle{
         border-radius: 8.177px;
         border: 0.5px solid rgba(128, 128, 128, 0.30);
@@ -65,6 +69,8 @@ html {
     .generalNavPadding{
         padding-top: 200px;
     }
-
+    .boxShadowOne{
+        box-shadow: 0px 1px 4px 0px rgba(75, 75, 75, 0.08);
+    }
 
 }
