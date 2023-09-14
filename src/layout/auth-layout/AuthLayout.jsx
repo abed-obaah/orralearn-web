@@ -15,7 +15,8 @@ import {
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {Link, NavLink, Route, Routes} from 'react-router-dom';
 import Dashboard from "../../pages/auth-section/Dashboard.jsx";
-
+import CodingPlayground from './CodingPlayground';
+import WebEditor from './CodePlayground/components/WebEditor';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -302,6 +303,8 @@ const AuthLayout = () => {
             <div className="px-4 sm:px-6 lg:px-8">
                 <Routes>
                     <Route path={'/'} element={<Dashboard/>}/>
+                    <Route path={'/codingPlayground'} element={<CodingPlayground/>}/>
+                    <Route path={'/webEditor'} element={<WebEditor/>}/>
                 </Routes>
             </div>
           </main>
