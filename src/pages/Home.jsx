@@ -20,8 +20,6 @@ const Home = () => {
                  backgroundSize: 'cover',
                  backgroundRepeat: 'no-repeat',
                  backgroundAttachment: 'fixed',
-
-
              }}
         >
             <SectionOne/>

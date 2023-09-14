@@ -25,6 +25,9 @@ html {
     .textColorOne{
         color: #6941C6;
     }
+    .bgColorTwo{
+        background: #5E00D0;
+    }
     .checkOutBorder{
         border: 0.2px solid rgba(128, 128, 128, 0.70);
     }
