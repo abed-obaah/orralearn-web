@@ -24,11 +24,6 @@ export  const navLinks =[
     {title:"Contact Us",path:"/contact"},
 ]
 
-export const codeEditorNavigationOptions = [
-    { name: 'WebEditor', path:"/webeditor", icon: AiOutlineHome },
-    { name: 'CodeEditor', path:"/language", icon: CgFileDocument  },
-
-]
 
 export const navigation = [
     { name: 'Dashboard', path:"/", icon: AiOutlineHome },

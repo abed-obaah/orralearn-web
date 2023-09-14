@@ -10,12 +10,12 @@ import { Link, NavLink } from 'react-router-dom';
 
 const AllEditors = () => {
   const editors = [
-    { id: 1, name: 'HTML/CSS/JS', description: 'Web Frontend Basics', imgSrc: html1 },
-    { id: 2, name: 'Java', description: 'Object-Oriented Programming', imgSrc: java },
-    { id: 3, name: 'Python', description: 'Data Science & Web Development', imgSrc: python },
-    { id: 4, name: 'NodeJS', description: 'JavaScript Server Side', imgSrc: nodejs },
-    { id: 5, name: 'ReactJS', description: 'JavaScript Library for UI', imgSrc: react},
-    { id: 6, name: 'C++', description: 'Systems Programming', imgSrc: cpp }
+    { id: 1, name: 'HTML/CSS/JS', description: 'Web Frontend Basics', imgSrc: html1, path: '/webeditor', type: 'web' },
+    { id: 2, name: 'Java', description: 'Object-Oriented Programming', imgSrc: java, path: '/codeeditor/java', type: 'code' },
+    { id: 3, name: 'Python', description: 'Data Science & Web Development', imgSrc: python, path: '/codeeditor/python', type: 'code' },
+    { id: 4, name: 'NodeJS', description: 'JavaScript Server Side', imgSrc: nodejs, path: '/codeeditor/nodejs', type: 'code' },
+    { id: 5, name: 'ReactJS', description: 'JavaScript Library for UI', imgSrc: react, path: '/codeeditor/reactjs', type: 'code'},
+    { id: 6, name: 'C++', description: 'Systems Programming', imgSrc: cpp, path: '/codeeditor/cpp', type: 'code' }
   ];
 
   const projects = [
@@ -27,14 +27,17 @@ const AllEditors = () => {
     <div className="w-full">
     <div className="text-xl text-gray-700 mb-6 pl-4">Select Your Playground</div>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pl-4 pr-4">
-     {editors.map(editor => (
-          <div key={editor.id} className="flex items-center p-2 border rounded-lg hover:border-purple-900 cursor-pointer transition-all duration-300">
-            <img className="w-10 h-10" src={editor.imgSrc} alt={`${editor.name} icon`} />
-            <div className="ml-2">
-              <p className="text-md font-semibold">{editor.name}</p>
-              <p className="text-xs text-gray-600">{editor.description}</p>
+    {editors.map(editor => (
+          <NavLink to={editor.path} key={editor.id}>
+            <div className="flex items-center p-2 border rounded-lg hover:border-purple-900 cursor-pointer transition-all duration-300">
+              <img className="w-10 h-10" src={editor.imgSrc} alt={`${editor.name} icon`} />
+              <div className="ml-2">
+                <p className="text-md font-semibold">{editor.name}</p>
+                <p className="text-xs text-gray-600">{editor.description}</p>
+                <p className="text-xs text-gray-600">Click to open {editor.type === 'web' ? 'Web Editor' : 'Code Editor'}</p>
+              </div>
             </div>
-          </div>
+          </NavLink>
         ))}
       </div>
 
