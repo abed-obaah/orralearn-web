@@ -35,13 +35,18 @@ html {
 
     .bgTwo{
         background: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(101deg, #EDECF9 -15.57%, #E8E7F4 31.75%, #EAF5FB 73.56%);
-
-
     }
     .bgThree{
         background: var(--neutral-100, #FFF);
-
-
+    }
+    .bgFour{
+        background: #07F;
+    }
+    .bgFive{
+        background: linear-gradient(101deg, #EDECF9 -15.57%, #E8E7F4 31.75%, #EAF5FB 73.56%);
+    }
+    .bgSix{
+        background: var(--light-accent, #F9FAFB);
     }
 
     .borderTwo{
@@ -57,8 +62,9 @@ html {
         background: var(--neutral-colors-100, #FFF);
 
     }
-
     .generalNavPadding{
         padding-top: 200px;
     }
+
+
 }

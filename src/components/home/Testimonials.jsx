@@ -7,7 +7,7 @@ import {testimonials} from "../../util/usefull-data.js";
 const Testimonials = () => {
     return (
         <div className={`${styles.homePageGenPadding} ${styles.paddingX}  bg-[#5E00D0] flex flex-col gap-y-[60px]`}>
-            <div className={'flex flex-col '}>
+            <div className={'flex flex-col sm:text-center '}>
                 <h6 className={`text-lg font-[400] text-white uppercase`}>Testimonials</h6>
                 <h1 className={`${styles.homeSubHeadingStyle} text-white mb-[20px]`}>Hear From Our Students</h1>
                 <p className={`${styles.homeHeadingDescriptionStyle} text-white `}>See what our students have to say about learning on Orralearn and the results so far</p>

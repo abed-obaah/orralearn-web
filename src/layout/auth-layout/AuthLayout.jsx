@@ -34,7 +34,7 @@ const AuthLayout = () => {
       <body class="h-full">
       ```
     */}
-      <div>
+      <div >
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as="div"
@@ -53,7 +53,7 @@ const AuthLayout = () => {
               <div className="fixed inset-0 bg-gray-900/80" />
             </Transition.Child>
 
-            <div className="fixed inset-0 flex">
+            <div className="fixed inset-0 flex ">
               <Transition.Child
                 as={Fragment}
                 enter="transition ease-in-out duration-300 transform"
@@ -198,7 +198,7 @@ const AuthLayout = () => {
               aria-hidden="true"
             />
 
-            <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
+            <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6 bg-white">
               <form className="relative flex flex-1" action="#" method="GET">
                 <label htmlFor="search-field" className="sr-only">
                   Search
@@ -298,8 +298,8 @@ const AuthLayout = () => {
             </div>
           </div>
 
-          <main className="py-10">
-            <div className="px-4 sm:px-6 lg:px-8">
+          <main className="py-10 bgFive min-h-screen">
+            <div className="px-4 sm:px-6 lg:px-8 ">
                 <Routes>
                     <Route path={'/'} element={<Dashboard/>}/>
                 </Routes>

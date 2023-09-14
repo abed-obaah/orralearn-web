@@ -84,7 +84,7 @@ const SignIn = () => {
   return (
     <>
     <Notification show={show} setShow={setShow} title={title} type={type}/>
-    <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 bgOne h-screen">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Link to='/' className="cursor-pointer">
           <img
@@ -99,7 +99,7 @@ const SignIn = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+          <div className="bg-white px-6 py-12 shadow-2xl sm:rounded-lg sm:px-12">
             <form className="space-y-6" action="#"  onSubmit={formik.handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">

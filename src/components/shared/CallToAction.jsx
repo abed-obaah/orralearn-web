@@ -1,19 +1,29 @@
+import logo from '../../assets/logo.svg'
 import { styles } from '../../util/genral-style.js'
 
-import {Link} from 'react-router-dom'
+import {Link,NavLink} from 'react-router-dom'
+import {RxHamburgerMenu} from 'react-icons/rx'
 
+
+const links =[
+    {title:"Home",path:"/"},
+    {title:"Pricing",path:"/pricing"},
+    {title:"FAQs",path:"/faqs"},
+    {title:"About Us",path:"/about"},
+    {title:"Contact Us",path:"/contact"},
+  ]
 
 export default function CallToAction() {
     return (
-      <div className="relative isolate overflow-hidden bg-gray-900 rounded-xl font-figtree ">
-        <div className="px-6 py-10 lg:px-8">
+      <div className="relative isolate overflow-hidden bg-gray-900">
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-[36px] md:text-[50px] font-bold tracking-normal text-white font-space">
+            <h2 className="text-3xl font-bold tracking-normal text-white sm:text-5xl ">
               Get Started With 
               <br />
               Orralearn Today.
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300 ">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
               Create an account in minutes and start your learning journey today.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">

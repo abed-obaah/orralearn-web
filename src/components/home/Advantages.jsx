@@ -2,6 +2,7 @@ import { Disclosure } from '@headlessui/react'
 import {MinusSmallIcon, PlusSmallIcon} from "@heroicons/react/24/outline/index.js";
 import advantageImg from '../../assets/advantage.png'
 import {styles} from "../../util/genral-style.js";
+import {Link} from 'react-router-dom'
 
 
 const svgStyle= ''
@@ -66,7 +67,7 @@ const Advantages = () => {
                             )}
                         </Disclosure>
                     ))}
-                    <div className={`${styles.buttonStyle} mt-8 text-lg  w-[210px]`}>Get Started its free </div>
+                    <Link to={'/signUp'} className={`${styles.buttonStyle} mt-8 text-lg  w-[210px]`}>Get Started its free </Link>
                 </dl>
             </div>
 

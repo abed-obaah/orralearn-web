@@ -12,7 +12,7 @@ const Popular = () => {
     ]
     return (
         <div className={`${styles.paddingX} flex flex-col font-openSans  py-20 bgTwo`}>
-            <div className={'flex flex-col'}>
+            <div className={'flex flex-col sm:items-center'}>
                 <h6 className={`${styles.homeHeadingStyle}`}>Explore Programs</h6>
                 <h1 className={`${styles.homeSubHeadingStyle} mb-[20px] `}>Our Most Popular Class</h1>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}

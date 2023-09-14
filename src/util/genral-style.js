@@ -7,5 +7,6 @@ export const styles ={
     homeHeadingStyle:"textColorOne text-lg font-[400] ",
     homeSubHeadingStyle:"text-2xl sm:text-[35px]  font-bold leading-[35px] lg:leading-[55px] font-space",
     homePageGenPadding:"py-20",
-    homeHeadingDescriptionStyle:"text-black text-opacity-80 font-[400]  text-base sm:text-lg "
+    homeHeadingDescriptionStyle:"text-black text-opacity-80 font-[400]  text-base sm:text-lg ",
+    dashboardHeadingOne:"text-[20px] font-openSans font-bold"
 }

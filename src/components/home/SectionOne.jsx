@@ -11,7 +11,7 @@ const SectionOne = () => {
                     Up your <span className={'text-[#7F56D9]'}>Skills</span> <br/>  to Advance Your  <span className={'text-[#7F56D9]'}>Career</span> <br className={'hidden sm:flex'}/> Path
                 </h1>
                 <p className={`px-6 ${styles.homeHeadingDescriptionStyle} md:w-1/2 text-center`}>Discover an innovative approach to learning programming – It’s all made effortlessly easy! Learn, code and find opportunity on Orralearn Community.</p>
-                <Link to={'/'} className={`${styles.buttonStyle}`}>Get Started its free</Link>
+                <Link to={'/signUp'} className={`${styles.buttonStyle}`}>Get Started its free</Link>
             </div>
             <div className={'hidden xs:flex xs:mt-[230px] sm:mt-80'}>
             <div className={'relative flex  items-center justify-center'}>
