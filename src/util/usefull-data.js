@@ -3,7 +3,9 @@ import {AiOutlineHome,AiOutlineInbox} from 'react-icons/ai'
 import {CgFileDocument} from 'react-icons/cg'
 import {BsBook} from 'react-icons/bs'
 import {BiGroup,BiCodeAlt,BiAward,BiHelpCircle} from 'react-icons/bi'
-
+import image1 from '../assets/image.png'
+import image2 from '../assets/image2.png'
+import image3 from '../assets/image3.png'
 
 import imagePaul from '../assets/imagePaul.jpg'
 import ato from '../assets/ato.png'
@@ -127,3 +129,23 @@ export const testimonials = [
     {text:"Orralearn is a coding gem! I’ve been exploring various online coding platforms, but Orralearn’s approach stands out.",name:"Mark Thompson",tag:"Software Developer"},
 ]
 
+
+export  const recommendedEbooks =[
+    {title:"Learn Web Development with React",oldPrice:"$8.50" ,newPrice:"$5.50",bgColr:"bg-[#333738]",ctnH:"Learning Path",ctnText:"Learn Web Development with React",textColor:"text-[#E47131]"},
+    {title:"Understanding React and Node.Js",oldPrice:"$3.50" ,newPrice:"$4.50",bgColr:"bg-[#462D7E]",ctnH:"Learning Path",ctnText:"Understanding React and Node.js",textColor:"text-[#D4C8C1] "},
+]
+
+
+export const upcomming=[
+    {title: "Python Bootcamp",date:"8th - 10th Oct 2023",time:"8 A.M - 9 A.M ",number:"8",platform:"Zoom platform",color:" bg-[#F0F7FF]" ,figurebg:"bg-[#07F]"},
+    {title: "Java Bootcamp",date:"13th July 2023",time:"8 A.M - 9 A.M ",number:"13",platform:"Google Meet",color:"bg-[#FFF0F7]",figurebg:" bg-[#FF1D86]"},
+    {title: "Step-by-Step guide to Web Dev",date:"8th - 10th Oct 2023",time:"8 A.M - 9 A.M ",number:"18",platform:"**To be submitted via Email",color:" bg-[#F0FFF3]",figurebg:" bg-[#16D03B]"},
+    {title: "ATO Bradley meet & greet",date:"8th - 10th Oct 2023",time:"8 A.M - 9 A.M ",number:"23",platform:"Google Meet",color:"bg-[#FFF5F0]",figurebg:" bg-[#FF7E3E]"},
+
+]
+
+export const otherSections = [
+    {img:image1,title:"Continue Learning",subTitle:"You haven’t enrolled in a course yet",text:"Accelerate your learning by starting a curated learning path that fits your interests.",button:"Explore learning paths"},
+    {img:image2,title:"Playgrounds",subTitle:"Boot a playground IDE",text:"Pick a playground to build a project or code collaboratively with your friends",button:"Explore Playgrounds"},
+    {img:image3,title:"Challenges",subTitle:"",text:"Our challenges section is your gateway to a world of hands-on experience.",button:"Explore Challenges"}
+]

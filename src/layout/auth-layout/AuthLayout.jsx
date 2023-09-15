@@ -1,11 +1,11 @@
 import { Fragment, useState } from 'react'
 import { useStateContext } from "../../context/contextProvider";
-import { navigation ,teams} from '../../util/usefull-data.js'
+import { navigation} from '../../util/usefull-data.js'
 
+import Dashboard from "../../pages/auth-section/Dashboard.jsx";
+import logo from '../../assets/logo white.svg'
 
 import { Dialog, Menu, Transition } from '@headlessui/react'
-
-
 import {
   Bars3Icon,
   BellIcon,
@@ -14,8 +14,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {Link, NavLink, Route, Routes} from 'react-router-dom';
-import Dashboard from "../../pages/auth-section/Dashboard.jsx";
-
+import Courses from "../../pages/auth-section/Courses.jsx";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -92,7 +91,7 @@ const AuthLayout = () => {
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                        src={logo}
                         alt="Your Company"
                       />
                     </div>
@@ -142,7 +141,7 @@ const AuthLayout = () => {
             <div className="flex h-16 shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                src={logo}
                 alt="Your Company"
               />
             </div>
@@ -302,6 +301,7 @@ const AuthLayout = () => {
             <div className="px-4 sm:px-6 lg:px-8 ">
                 <Routes>
                     <Route path={'/'} element={<Dashboard/>}/>
+                    <Route path={'/courses'} element={<Courses/>}/>
                 </Routes>
             </div>
           </main>
