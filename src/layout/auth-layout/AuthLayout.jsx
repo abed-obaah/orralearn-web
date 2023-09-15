@@ -14,6 +14,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {Link, NavLink, Route, Routes} from 'react-router-dom';
+import Courses from "../../pages/auth-section/Courses.jsx";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -300,6 +301,7 @@ const AuthLayout = () => {
             <div className="px-4 sm:px-6 lg:px-8 ">
                 <Routes>
                     <Route path={'/'} element={<Dashboard/>}/>
+                    <Route path={'/courses'} element={<Courses/>}/>
                 </Routes>
             </div>
           </main>

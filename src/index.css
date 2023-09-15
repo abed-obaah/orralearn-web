@@ -1,3 +1,23 @@
+html {
+    scroll-behavior: smooth;
+}
+img {
+    display: unset !important;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(216, 216, 216);
+    border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,6 +44,9 @@ html {
 
     .textColorOne{
         color: #6941C6;
+    }
+    .bgColorTwo{
+        background: #5E00D0;
     }
     .checkOutBorder{
         border: 0.2px solid rgba(128, 128, 128, 0.70);
