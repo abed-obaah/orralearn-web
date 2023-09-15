@@ -1,4 +1,3 @@
-
 import {styles} from "../../util/genral-style.js";
 import whiteLogo from  '../../assets/logo white.svg'
 import apple from '../../assets/apple.png'
