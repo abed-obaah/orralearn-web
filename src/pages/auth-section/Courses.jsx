@@ -1,4 +1,4 @@
-import {useState,useEffect} from "react";
+import {useState} from "react";
 import background from '../../assets/coursebackground.png'
 import ReusableSelect from "../../components/ReusableSelect.jsx";
 import image1 from '../../assets/Course1.png'
@@ -7,7 +7,7 @@ import image3 from '../../assets/Course3.png'
 
 import {AiFillStar} from  'react-icons/ai'
 import {BsPerson} from "react-icons/bs";
-import {styles} from "../../util/genral-style.js";
+
 
 const Courses = () => {
 
@@ -45,7 +45,7 @@ const Courses = () => {
                     </svg>
                     <h3 className={'font-semibold text-lg'}>Hands-on Learning</h3>
                 </div>
-                <p className={'pl-10 text-lg  w-full pr-10 md:pr-0 md:w-2/5'}>Time to get hands-on and dive into our courses! We believe in learning by doing, so our interactive lessons seamlessly integrate videos with practical exercises for an immersive learning experience."
+                <p className={'pl-10 text-lg  w-full pr-10 md:pr-0 md:w-2/5'}>Time to get hands-on and dive into our courses! We believe in learning by doing, so our interactive lessons seamlessly integrate videos with practical exercises for an immersive learning experience.
                 </p>
 
             </div>
