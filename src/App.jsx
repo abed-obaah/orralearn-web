@@ -14,6 +14,9 @@ import Notfound from './pages/Notfound'
 import AuthLayout from './layout/auth-layout/AuthLayout'
 
 import { Routes,Route ,useLocation,Navigate} from 'react-router-dom'
+import Dashboard from "./pages/auth-section/Dashboard.jsx";
+import Courses from "./pages/auth-section/Courses.jsx";
+import CodingPlayground from "./pages/auth-section/CodingPlayground.jsx";
 
 
 function App() {
@@ -27,7 +30,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path='/pricing' element={<Pricing/>}/>
         <Route path='faqs' element={<FAQs/>}/>
-        <Route path='about' element={<About/>}/>
+        <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/signIn' element={<SignIn/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
@@ -39,7 +42,18 @@ function App() {
   )
   
   if(isLoggedIn){
-  content =(<AuthLayout/>)
+      content =(
+
+          <Routes>
+              <Route to={'/'} element={<AuthLayout/>}>
+                  <Route index element={<Dashboard/>} />
+                  <Route path={'courses'} element={<Courses/>}/>
+              </Route>
+              <Route to={'/codingPlayGround'} element={<CodingPlayground/>} />
+              <Route path='*'  element={<Navigate to="/notfound" replace />}/>
+          </Routes>
+      )
+  // content =(<AuthLayout/>)
   }
   return (
     <main className={'max-w-screen'}>

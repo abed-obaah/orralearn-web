@@ -32,7 +32,7 @@ export const navigation = [
     { name: 'Community', path:"/community", icon: BiGroup },
     { name: 'Inbox', path:"/inbox", icon: AiOutlineInbox  },
     { name: 'Learning Paths', path:"/learningPaths", icon: BsBook, },
-    { name: 'Coding Playground', path:"/codingPlayground", icon: BiCodeAlt  },
+    { name: 'Coding Playground', path:"/codingPlayGround", icon: BiCodeAlt  },
     { name: 'Question & Answer', path:"/question&Answer", icon: BiHelpCircle  },
   ]
   export const teams = [

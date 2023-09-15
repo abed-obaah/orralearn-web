@@ -13,7 +13,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import {Link, NavLink, Route, Routes} from 'react-router-dom';
+import {Link, NavLink, Outlet, Route, Routes} from 'react-router-dom';
 import Courses from "../../pages/auth-section/Courses.jsx";
 
 function classNames(...classes) {
@@ -299,10 +299,11 @@ const AuthLayout = () => {
 
           <main className="py-10 bgFive min-h-screen">
             <div className="px-4 sm:px-6 lg:px-8 ">
-                <Routes>
-                    <Route path={'/'} element={<Dashboard/>}/>
-                    <Route path={'/courses'} element={<Courses/>}/>
-                </Routes>
+              <Outlet/>
+                {/*<Routes>*/}
+                {/*    <Route path={'/'} element={<Dashboard/>}/>*/}
+                {/*    <Route path={'/courses'} element={<Courses/>}/>*/}
+                {/*</Routes>*/}
             </div>
           </main>
         </div>
