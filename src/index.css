@@ -1,0 +1,99 @@
+html {
+    scroll-behavior: smooth;
+}
+img {
+    display: unset !important;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(216, 216, 216);
+    border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@layer utilities {
+    .button-box-shadow{
+        box-shadow: 0px 0px 0px 4px #F4EBFF, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    }
+    .bgColorOne{
+        background: var(--BG-COLOR, #FAF9FC);
+    }
+    .bgColorTwo{
+        background-color:#F7F7FF;
+    }
+
+    .textColorOne{
+        color: #6941C6;
+    }
+    .bgColorTwo{
+        background: #5E00D0;
+    }
+    .checkOutBorder{
+        border: 0.2px solid rgba(128, 128, 128, 0.70);
+    }
+
+    .bgOne{
+        background: var(--bg-gradient, linear-gradient(101deg, #EDECF9 -15.57%, #E8E7F4 31.75%, #EAF5FB 73.56%));
+    }
+
+    .bgTwo{
+        background: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(101deg, #EDECF9 -15.57%, #E8E7F4 31.75%, #EAF5FB 73.56%);
+    }
+    .bgThree{
+        background: var(--neutral-100, #FFF);
+    }
+    .bgFour{
+        background: #07F;
+    }
+    .bgFive{
+        background: linear-gradient(101deg, #EDECF9 -15.57%, #E8E7F4 31.75%, #EAF5FB 73.56%);
+    }
+    .bgSix{
+        background: var(--light-accent, #F9FAFB);
+    }
+
+    .borderTwo{
+        border: 1px solid rgba(128, 128, 128, 0.60);
+
+    } .borderTwo{
+          border: 1px solid rgba(128, 128, 128, 0.60);
+
+      }
+    .borderThree{
+        border: 1px solid rgba(128, 128, 128, 0.10);
+        background: var(--light-accent, #F9FAFB);
+    }
+    .inputStyle{
+        border-radius: 8.177px;
+        border: 0.5px solid rgba(128, 128, 128, 0.30);
+        background: var(--neutral-colors-100, #FFF);
+
+    }
+    .generalNavPadding{
+        padding-top: 200px;
+    }
+    .boxShadowOne{
+        box-shadow: 0px 1px 4px 0px rgba(75, 75, 75, 0.08);
+    }
+
+}
