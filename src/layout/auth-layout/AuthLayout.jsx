@@ -15,6 +15,7 @@ import {
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {Link, NavLink, Route, Routes} from 'react-router-dom';
 import Courses from "../../pages/auth-section/Courses.jsx";
+import Challenges from "../../pages/auth-section/Challenges.jsx";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -302,6 +303,7 @@ const AuthLayout = () => {
                 <Routes>
                     <Route path={'/'} element={<Dashboard/>}/>
                     <Route path={'/courses'} element={<Courses/>}/>
+                    <Route path={'/challenges'} element={<Challenges/>}/>
                 </Routes>
             </div>
           </main>

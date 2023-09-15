@@ -2,7 +2,7 @@
 const Challenges = () => {
     return (
         <div>
-
+                
         </div>
     );
 };
