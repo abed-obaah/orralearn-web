@@ -91,6 +91,9 @@ const Courses = () => {
                 ))}
 
             </div>
+            <div className={'flex justify-center items-center'}>
+                <button className={'rounded-[16px] w-40 p-4 border-[1px] border-[#0D0B32]'}>See More</button>
+            </div>
         </div>
     );
 };
