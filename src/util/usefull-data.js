@@ -25,6 +25,8 @@ export  const navLinks =[
     {title:"About Us",path:"/about"},
     {title:"Contact Us",path:"/contact"},
 ]
+
+
 export const navigation = [
     { name: 'Dashboard', path:"/", icon: AiOutlineHome },
     { name: 'Courses', path:"/courses", icon: CgFileDocument  },
