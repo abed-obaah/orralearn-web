@@ -2,19 +2,19 @@ import { Fragment, useState } from 'react'
 import { useStateContext } from "../../context/contextProvider";
 import { navigation} from '../../util/usefull-data.js'
 
-import Dashboard from "../../pages/auth-section/Dashboard.jsx";
+
 import logo from '../../assets/logo white.svg'
 
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
   BellIcon,
-  Cog6ToothIcon,
+  Cog6ToothIcon,git m
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import {Link, NavLink, Outlet, Route, Routes} from 'react-router-dom';
-import Courses from "../../pages/auth-section/Courses.jsx";
+import {Link, NavLink, Outlet} from 'react-router-dom';
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
