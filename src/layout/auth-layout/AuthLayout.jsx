@@ -15,8 +15,8 @@ import {
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {Link, NavLink, Route, Routes} from 'react-router-dom';
 import Courses from "../../pages/auth-section/Courses.jsx";
-import CodingPlayground from './CodingPlayground';
-import WebEditor from './CodePlayground/components/WebEditor';
+import CodingPlayground from '../../pages/auth-section/CodingPlayground.jsx';
+import WebEditor from '../../pages/auth-section/WebEditor.jsx';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
