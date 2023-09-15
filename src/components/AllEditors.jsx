@@ -1,10 +1,10 @@
 import React from 'react';
-import html1 from '../../../assets/html1.png';
-import java from '../../../assets/java.jpeg';
-import python from '../../../assets/python.png';
-import nodejs from '../../../assets/nodejs.png';
-import react from '../../../assets/REACT.png';
-import cpp from '../../../assets/CPP.png';
+import html1 from '../assets/html1.png';
+import java from '../assets/java.jpeg';
+import python from '../assets/python.png';
+import nodejs from '../assets/nodejs.png';
+import react from '../assets/REACT.png';
+import cpp from '../assets/CPP.png';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
