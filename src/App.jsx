@@ -48,8 +48,9 @@ function App() {
               <Route to={'/'} element={<AuthLayout/>}>
                   <Route index element={<Dashboard/>} />
                   <Route path={'courses'} element={<Courses/>}/>
+                  <Route to={'/codingPlayGround'} element={<CodingPlayground/>} />
               </Route>
-              <Route to={'/codingPlayGround'} element={<CodingPlayground/>} />
+              <Route path="notfound" element={<Notfound />} />
               <Route path='*'  element={<Navigate to="/notfound" replace />}/>
           </Routes>
       )
