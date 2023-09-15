@@ -1,6 +1,7 @@
 
+
 import {styles} from "../../util/genral-style.js";
-import whiteLogo from  '../../assets/logo white.svg'
+import whiteLogo from  '../../assets/logo.svg'
 import apple from '../../assets/apple.png'
 import playStore from '../../assets/playstore.png'
 
@@ -104,7 +105,7 @@ const navigation = {
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className={'flex flex-col space-y-4'}>
             <img
-              className="w-40"
+              className="h-7"
               src={whiteLogo}
               alt="orralearn"
             />
