@@ -86,7 +86,7 @@ const SignIn = () => {
     <Notification show={show} setShow={setShow} title={title} type={type}/>
     <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 bgOne h-screen">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <Link to='/' className="cursor-pointer">
+        <Link to='/' className="cursor-pointer flex justify-center">
           <img
             className="mx-auto h-10 w-auto"
             src={logo}

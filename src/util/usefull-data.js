@@ -37,15 +37,17 @@ export  const navLinks =[
     {title:"About Us",path:"/about"},
     {title:"Contact Us",path:"/contact"},
 ]
+
+
 export const navigation = [
     { name: 'Dashboard', path:"/", icon: AiOutlineHome },
-    { name: 'Courses', path:"/courses", icon: CgFileDocument  },
-    { name: 'Challenges', path:"/challenges", icon: BiAward  },
-    { name: 'Community', path:"/community", icon: BiGroup },
-    { name: 'Inbox', path:"/inbox", icon: AiOutlineInbox  },
+    { name: 'Courses', path:"courses", icon: CgFileDocument  },
+    { name: 'Challenges', path:"challenges", icon: BiAward  },
+    { name: 'Community', path:"community", icon: BiGroup },
+    { name: 'Inbox', path:"inbox", icon: AiOutlineInbox  },
     { name: 'Learning Paths', path:"/learningPaths", icon: BsBook, },
-    { name: 'Coding Playground', path:"/codingPlayground", icon: BiCodeAlt  },
-    { name: 'Question & Answer', path:"/question&Answer", icon: BiHelpCircle  },
+    { name: 'Coding Playground', path:"codingPlayGround", icon: BiCodeAlt  },
+    { name: 'Question & Answer', path:"question&Answer", icon: BiHelpCircle  },
   ]
   export const teams = [
     { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },

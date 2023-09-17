@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { useStateContext } from "../../context/contextProvider";
 import { navigation} from '../../util/usefull-data.js'
 
-import Dashboard from "../../pages/auth-section/Dashboard.jsx";
+
 import logo from '../../assets/logo white.svg'
 
 import { Dialog, Menu, Transition } from '@headlessui/react'
@@ -13,14 +13,8 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import {Link, NavLink, Route, Routes} from 'react-router-dom';
-import Courses from "../../pages/auth-section/Courses.jsx";
-import Challenges from "../../pages/auth-section/Challenges.jsx";
-import CodingPlayground from "../../pages/auth-section/CodingPlayground.jsx";
-import Community from "../../pages/auth-section/Community.jsx";
-import Inbox from "../../pages/auth-section/Inbox.jsx";
-import LearningPaths from "../../pages/auth-section/LeaningPaths.jsx";
-import Settings from "../../pages/auth-section/Settings.jsx";
+import {Link, NavLink, Outlet} from 'react-router-dom';
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -120,8 +114,7 @@ const AuthLayout = () => {
                         </li>
 
                         <li className="mt-auto">
-                          <a
-                            href="#"
+                          <Link to={'settings'}
                             className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
                           >
                             <Cog6ToothIcon
@@ -129,7 +122,7 @@ const AuthLayout = () => {
                               aria-hidden="true"
                             />
                             Settings
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </nav>
@@ -307,17 +300,7 @@ const AuthLayout = () => {
 
           <main className="py-10 bgFive min-h-screen">
             <div className="px-4 sm:px-6 lg:px-8 ">
-                <Routes>
-                    <Route path={'/'} element={<Dashboard/>}/>
-                    <Route path={'/courses'} element={<Courses/>}/>
-                    <Route path={'/challenges'} element={<Challenges/>}/>
-                    <Route path={'/codingPlayground'} element={<CodingPlayground/>}/>
-                    <Route path={'/community'} element={<Community/>}/>
-                    <Route path={'/inbox'} element={<Inbox/>}/>
-                    <Route path={'/learningpath'} element={<LearningPaths/>}/>
-                    <Route path={'/settings'} element={<Settings/>}/>
-                    {/* <Route path={'/q&a'} element={<Q/>}/> */}
-                </Routes>
+              <Outlet/>
             </div>
           </main>
         </div>

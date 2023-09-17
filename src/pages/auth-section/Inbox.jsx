@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 
-
-
-
-
 const Inbox = () => {
     const [toValue, setToValue] = useState('');
 
