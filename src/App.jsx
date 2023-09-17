@@ -17,6 +17,9 @@ import { Routes,Route ,useLocation,Navigate} from 'react-router-dom'
 import Dashboard from "./pages/auth-section/Dashboard.jsx";
 import Courses from "./pages/auth-section/Courses.jsx";
 import CodingPlayground from "./pages/auth-section/CodingPlayground.jsx";
+import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
+import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
+import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
 
 
 function App() {
@@ -49,6 +52,10 @@ function App() {
                   <Route index element={<Dashboard/>} />
                   <Route path={'courses'} element={<Courses/>}/>
                   <Route path={'codingPlayGround'} element={<CodingPlayground/>} />
+              </Route>
+              <Route to={'/ebooks'} element={<Ebooks/>}>
+                  <Route index element={<EbookDashboard/>}/>
+                  <Route path={':id'} element={<EbooksDetails/>}/>
               </Route>
               <Route path="notfound" element={<Notfound />} />
               <Route path='*'  element={<Navigate to="/notfound" replace />}/>
