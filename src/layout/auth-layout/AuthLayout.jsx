@@ -16,6 +16,11 @@ import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {Link, NavLink, Route, Routes} from 'react-router-dom';
 import Courses from "../../pages/auth-section/Courses.jsx";
 import Challenges from "../../pages/auth-section/Challenges.jsx";
+import CodingPlayground from "../../pages/auth-section/CodingPlayground.jsx";
+import Community from "../../pages/auth-section/Community.jsx";
+import Inbox from "../../pages/auth-section/Inbox.jsx";
+import LearningPaths from "../../pages/auth-section/LeaningPaths.jsx";
+import Settings from "../../pages/auth-section/Settings.jsx";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -165,16 +170,18 @@ const AuthLayout = () => {
                 </li>
 
                 <li className="mt-auto">
-                  <a
-                    href="#"
-                    className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
-                  >
-                    <Cog6ToothIcon
-                      className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
-                      aria-hidden="true"
-                    />
-                    Settings
-                  </a>
+                  <NavLink
+                  to="/settings"
+                  className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
+                     
+                        <Cog6ToothIcon
+                          className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
+                          aria-hidden="true"
+                        />
+                        Settingss
+                 
+                  </NavLink>
+                  
                 </li>
               </ul>
             </nav>
@@ -304,6 +311,12 @@ const AuthLayout = () => {
                     <Route path={'/'} element={<Dashboard/>}/>
                     <Route path={'/courses'} element={<Courses/>}/>
                     <Route path={'/challenges'} element={<Challenges/>}/>
+                    <Route path={'/codingPlayground'} element={<CodingPlayground/>}/>
+                    <Route path={'/community'} element={<Community/>}/>
+                    <Route path={'/inbox'} element={<Inbox/>}/>
+                    <Route path={'/learningpath'} element={<LearningPaths/>}/>
+                    <Route path={'/settings'} element={<Settings/>}/>
+                    {/* <Route path={'/q&a'} element={<Q/>}/> */}
                 </Routes>
             </div>
           </main>
