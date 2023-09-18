@@ -2,7 +2,7 @@
 const EbooksDetails = () => {
     return (
         <div>
-            
+            hello
         </div>
     );
 };
