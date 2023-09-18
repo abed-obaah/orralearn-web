@@ -3,6 +3,7 @@ import {AiOutlineHome,AiOutlineInbox, AiOutlineProject} from 'react-icons/ai'
 import {CgFileDocument} from 'react-icons/cg'
 import {BsBook} from 'react-icons/bs'
 import {BiGroup,BiCodeAlt,BiAward,BiHelpCircle} from 'react-icons/bi'
+
 import image1 from '../assets/image.png'
 import image2 from '../assets/image2.png'
 import image3 from '../assets/image3.png'
@@ -11,6 +12,17 @@ import imagePaul from '../assets/imagePaul.jpg'
 import ato from '../assets/ato.png'
 import lowe from '../assets/lowe.png'
 import avatar from '../assets/Avatar.png'
+
+import javascript from '../assets/jsv.png'
+import HTMLBlogCover from '../assets/HTML-BlogCover.png'
+import CSS from '../assets/CSS.jpg'
+import python from '../assets/python3.jpg'
+import vuejs from '../assets/uigradients-vuejs (1).png'
+import python2 from '../assets/python3.jpg'
+import reactjs from '../assets/Best-Practices (2).png'
+import java from '../assets/Java-Logo-PNGs.png'
+
+
 
 export const mentors =[
     {image:ato,name:"ATO Bradley",title:"Creator of Orralearn",subTitle:"Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",tweeter:"",linkedIn:""},
@@ -152,3 +164,95 @@ export const otherSections = [
     {img:image2,title:"Playgrounds",subTitle:"Boot a playground IDE",text:"Pick a playground to build a project or code collaboratively with your friends",button:"Explore Playgrounds"},
     {img:image3,title:"Challenges",subTitle:"",text:"Our challenges section is your gateway to a world of hands-on experience.",button:"Explore Challenges"}
 ]
+
+export const courses = [
+    {
+      title: 'HTML Challenge',
+      image: HTMLBlogCover, // Replace with the actual image path
+      description: 'Learn the basics of web development from scratch.',
+      instructor: 'John Doe',
+      duration: '8 weeks',
+      startDate: 'October 15, 2023',
+      location: 'Online',
+      btnName:"Opened",
+      participantCount:"1.23k"
+    },
+    {
+        title: 'CSS Challenge',
+        image: CSS, // Replace with the actual image path
+        description: 'Master JavaScript programming with hands-on projects.',
+        instructor: 'Jane Smith',
+        duration: '10 weeks',
+        startDate: 'November 5, 2023',
+        location: 'Online',
+        btnName:"Finished",
+        participantCount:"800"
+      },
+    {
+      title: 'JavaScript Challenge',
+      image: javascript, // Replace with the actual image path
+      description: 'Master JavaScript programming with hands-on projects.',
+      instructor: 'Jane Smith',
+      duration: '10 weeks',
+      startDate: 'November 5, 2023',
+      location: 'Online',
+      btnName:"Finished",
+      participantCount:"800"
+    },
+    {
+      title: 'PYTHON Challenge',
+      image: python, // Replace with the actual image path
+      description: 'Master JavaScript programming with hands-on projects.',
+      instructor: 'Jane Smith',
+      duration: '10 weeks',
+      startDate: 'November 5, 2023',
+      location: 'Online',
+      btnName:"Opened",
+      participantCount:"800"
+    },
+    {
+      title: 'vuejs Challenge',
+      image: vuejs, // Replace with the actual image path
+      description: 'Master JavaScript programming with hands-on projects.',
+      instructor: 'Jane Smith',
+      duration: '10 weeks',
+      startDate: 'November 5, 2023',
+      location: 'Online',
+      btnName:"Opened",
+      participantCount:"800"
+    },
+    {
+      title: 'Reactjs Challenge',
+      image:reactjs, // Replace with the actual image path
+      description: 'Master JavaScript programming with hands-on projects.',
+      instructor: 'Jane Smith',
+      duration: '10 weeks',
+      startDate: 'November 5, 2023',
+      location: 'Online',
+      btnName:"Opened",
+      participantCount:"800"
+    },
+    {
+      title: 'PYTHON Challenge',
+      image: python2, // Replace with the actual image path
+      description: 'Master JavaScript programming with hands-on projects.',
+      instructor: 'Jane Smith',
+      duration: '10 weeks',
+      startDate: 'November 5, 2023',
+      location: 'Online',
+      btnName:"Opened",
+      participantCount:"800"
+    },
+    {
+      title: 'JAVA Challenge',
+      image: java, // Replace with the actual image path
+      description: 'Master JavaScript programming with hands-on projects.',
+      instructor: 'Jane Smith',
+      duration: '10 weeks',
+      startDate: 'November 5, 2023',
+      location: 'Online',
+      btnName:"Opened",
+      participantCount:"800"
+    }
+    
+  ];
