@@ -22,6 +22,9 @@ import Inbox from "./pages/auth-section/Inbox.jsx";
 import ChallengesDetails from "./pages/auth-section/challenges/ChallengesDetails.jsx";
 import Projects from "./pages/auth-section/Projects.jsx";
 import FrontEndEditor from "./components/FrontEndEditor.jsx";
+import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
+import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
+import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
 
 function App() {
   const { isLoggedIn } = useStateContext();
@@ -57,10 +60,14 @@ function App() {
           <Route path={"courses"} element={<Courses />} />
           <Route path={"Challenges"} element={<Challenges />} />
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
-          <Route path={"settings"} element={<Settings />} />
+            <Route path={'ebooks'} elments={<Ebooks/>}>
+                <Route index element={<EbookDashboard/>}/>
+                <Route path={':id'} element={<EbooksDetails/>}/>
+            </Route>
           <Route path={"inbox"} element={<Inbox />} />
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
           <Route path={"projects"} element={<Projects />} />
+          <Route path={"settings"} element={<Settings />} />
         </Route>
         <Route path={"editor"} element={<FrontEndEditor />} />
         <Route path="notfound" element={<Notfound />} />
