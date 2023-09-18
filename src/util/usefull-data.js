@@ -1,5 +1,5 @@
 
-import {AiOutlineHome,AiOutlineInbox} from 'react-icons/ai'
+import {AiOutlineHome,AiOutlineInbox, AiOutlineProject} from 'react-icons/ai'
 import {CgFileDocument} from 'react-icons/cg'
 import {BsBook} from 'react-icons/bs'
 import {BiGroup,BiCodeAlt,BiAward,BiHelpCircle} from 'react-icons/bi'
@@ -29,6 +29,7 @@ export  const navLinks =[
 
 export const navigation = [
     { name: 'Dashboard', path:"/", icon: AiOutlineHome },
+    { name: 'Projects', path:"/projects", icon: AiOutlineProject },
     { name: 'Courses', path:"courses", icon: CgFileDocument  },
     { name: 'Challenges', path:"challenges", icon: BiAward  },
     { name: 'Community', path:"community", icon: BiGroup },
