@@ -19,7 +19,7 @@ const ResNav = ({open,setOpen}) => {
                         className={({ isActive }) => (isActive ? styles.navLinksColor: `hover:${styles.navLinksColor} ${styles.textTransitionHover} `)}
                     >{title}</NavLink>
                 ))}
-                <NavLink to={'/signUp'} className={``}>Sign In</NavLink>
+                <NavLink to={'/signIn'} className={``}>Sign In</NavLink>
                 <NavLink to={'/signUp'} className={`w-32 py-[10px] px-[16px] bg-[#5E00D0] rounded-[8px] shrink-0 text-white text-[20px] flex items-center justify-center transition ease-out  duration-300`}>Sign Up</NavLink>
             </div>
         </nav>

@@ -1,11 +1,19 @@
+import logo from '../../../assets/logo.svg'
+import {useStateContext} from "../../../context/contextProvider.jsx";
+
 import {ChevronDownIcon, MagnifyingGlassIcon} from "@heroicons/react/20/solid/index.js";
 import {BellIcon} from "@heroicons/react/24/outline/index.js";
 import {Menu, Transition} from "@headlessui/react";
 import {Fragment} from "react";
 import {Link} from "react-router-dom";
-import logo from '../../../assets/logo.svg'
 
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
 const ReusableNavbar = () => {
+
+    const {logout} = useStateContext()
     return (
         <div className="flex  justify-between  lg:gap-x-6 bg-white py-4 px-10">
             <Link to={'/'} >
