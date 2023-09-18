@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 const AllEditors = () => {
   const editors = [
-    { id: 1, name: 'HTML/CSS/JS', description: 'Web Frontend Basics', imgSrc: html1, path: '/webeditor', type: 'web' },
+    { id: 1, name: 'HTML/CSS/JS', description: 'Web Frontend Basics', imgSrc: html1, path: '/projects', type: 'web' },
     { id: 2, name: 'Java', description: 'Object-Oriented Programming', imgSrc: java, path: '/codeeditor/java', type: 'code' },
     { id: 3, name: 'Python', description: 'Data Science & Web Development', imgSrc: python, path: '/codeeditor/python', type: 'code' },
     { id: 4, name: 'NodeJS', description: 'JavaScript Server Side', imgSrc: nodejs, path: '/codeeditor/nodejs', type: 'code' },
