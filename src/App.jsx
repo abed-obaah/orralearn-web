@@ -60,15 +60,15 @@ function App() {
           <Route path={"courses"} element={<Courses />} />
           <Route path={"Challenges"} element={<Challenges />} />
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
-            <Route path={'ebooks'} elments={<Ebooks/>}>
-                <Route index element={<EbookDashboard/>}/>
-                <Route path={':id'} element={<EbooksDetails/>}/>
-            </Route>
           <Route path={"inbox"} element={<Inbox />} />
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
           <Route path={"projects"} element={<Projects />} />
           <Route path={"settings"} element={<Settings />} />
         </Route>
+          <Route path={'/ebooks'} element={<Ebooks/>}>
+              <Route index element={<EbookDashboard/>}/>
+              <Route path={':id'} element={<EbooksDetails/>}/>
+          </Route>
         <Route path={"editor"} element={<FrontEndEditor />} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
