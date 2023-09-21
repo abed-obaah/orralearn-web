@@ -8,6 +8,8 @@ import image1 from '../assets/image.png'
 import image2 from '../assets/image2.png'
 import image3 from '../assets/image3.png'
 
+
+
 import imagePaul from '../assets/imagePaul.jpg'
 import ato from '../assets/ato.png'
 import lowe from '../assets/lowe.png'
@@ -21,6 +23,9 @@ import vuejs from '../assets/uigradients-vuejs (1).png'
 import python2 from '../assets/python3.jpg'
 import reactjs from '../assets/Best-Practices (2).png'
 import java from '../assets/Java-Logo-PNGs.png'
+
+import frames from '../assets/frames-iphone-removebg-preview.png';
+import anotherFrames from '../assets/appstoreFrame-removebg-preview.png';
 
 
 
@@ -492,3 +497,12 @@ export const courses = [
     }
     
   ];
+
+export const storeImages = [
+    {
+        imageUrl: [anotherFrames,]
+    },
+  {
+    imageUrl: [frames, frames],
+  },
+];

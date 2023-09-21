@@ -18,6 +18,7 @@ import Courses from "./pages/auth-section/Courses.jsx";
 import CodingPlayground from "./pages/auth-section/CodingPlayground.jsx";
 import Challenges from "./pages/auth-section/challenges/Challenges.jsx";
 import Settings from "./pages/auth-section/Settings.jsx";
+import Community from "./pages/auth-section/Community.jsx";
 import Inbox from "./pages/auth-section/Inbox.jsx";
 import ChallengesDetails from "./pages/auth-section/challenges/ChallengesDetails.jsx";
 import Projects from "./pages/auth-section/Projects.jsx";
@@ -60,6 +61,7 @@ function App() {
           <Route path={"courses"} element={<Courses />} />
           <Route path={"Challenges"} element={<Challenges />} />
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
+          <Route path={"community"} element={<Community />} />
           <Route path={"inbox"} element={<Inbox />} />
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
           <Route path={"projects"} element={<Projects />} />
