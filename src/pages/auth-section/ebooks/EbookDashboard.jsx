@@ -1,49 +1,15 @@
-import image1 from '../../../assets/html1.png'
-import image2 from '../../../assets/python3.jpg'
+
 import CheckboxesList from "../../../components/ebooks/CheckboxesList.jsx";
 import {FaAngleDoubleRight} from "react-icons/fa";
 import Card from "../../../components/ebooks/Card.jsx";
+import {books, categories, coverStyle, languages, other, sizes} from "../../../util/usefull-data.js";
 
 
 const EbookDashboard = () => {
 
-    const categories = [
-        {name: 'programming', title: 'Programming', described: 'programming-description'},
-        {name: 'design', title: 'Design', described: 'design-description'},
-        {name: 'educational', title: 'Educational', described: 'educational-description'},
-        {name: 'business', title: 'Business', described: 'business-description'},
-    ]
-    const sizes = [
-        {name: 'sm', title: 'SM', described: 'sm-description'},
-        {name: 'md', title: 'MD', described: 'md-description'},
-        {name: 'LG', title: 'lg', described: 'lg-description'},
-        {name: 'XL', title: 'xl', described: 'xl-description'},
-        {name: 'XXL', title: 'xxl', described: 'xxl-description'},
-    ]
-    const languages = [
-        {name: 'english', title: 'English', described: 'english-description'},
-        {name: 'french', title: 'French', described: 'french-description'},
-    ]
 
-    const coverStyle = [
-        {name: 'hardcover', title: 'Hardcover', described: 'hardcover-description'},
-        {name: 'softcover', title: 'Softcover', described: 'softcover-description'},
-    ]
-    const other = [
-        {name: 'four', title: '4+ stars', described: 'four-description'},
-    ]
-
-    const books = [
-        {image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
-        {image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
-        {image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
-        {image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},  {image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
-        {image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
-        {image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
-        {image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
-    ]
     return (
-        <div className={'pt-10 pb-10 px-10 gap-8 w-full flex '}>
+        <div className={' gap-8 w-full flex '}>
             <div className={'w-72 bg-white rounded-[20px] p-4 flex flex-col gap-y-6'}>
                 {/*<legend className="sr-only">Notifications</legend>*/}
                 <CheckboxesList listElements={categories} title={'Categories'}/>

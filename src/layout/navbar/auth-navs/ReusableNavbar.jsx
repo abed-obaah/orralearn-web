@@ -15,7 +15,7 @@ const ReusableNavbar = () => {
 
     const {logout} = useStateContext()
     return (
-        <div className="flex  justify-between  lg:gap-x-6 bg-white py-4 px-10">
+        <div className= "w-full flex  justify-between  lg:gap-x-6 bg-white py-4 px-10 fixed z-[999]">
             <Link to={'/'} >
                  <img src={logo} alt={'orralearn logo'}/>
             </Link>

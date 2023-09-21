@@ -257,3 +257,40 @@ export const courses = [
     }
     
   ];
+
+export const categories = [
+    {name: 'programming', title: 'Programming', described: 'programming-description'},
+    {name: 'design', title: 'Design', described: 'design-description'},
+    {name: 'educational', title: 'Educational', described: 'educational-description'},
+    {name: 'business', title: 'Business', described: 'business-description'},
+]
+export const sizes = [
+    {name: 'sm', title: 'SM', described: 'sm-description'},
+    {name: 'md', title: 'MD', described: 'md-description'},
+    {name: 'LG', title: 'lg', described: 'lg-description'},
+    {name: 'XL', title: 'xl', described: 'xl-description'},
+    {name: 'XXL', title: 'xxl', described: 'xxl-description'},
+]
+export const languages = [
+    {name: 'english', title: 'English', described: 'english-description'},
+    {name: 'french', title: 'French', described: 'french-description'},
+]
+
+export const coverStyle = [
+    {name: 'hardcover', title: 'Hardcover', described: 'hardcover-description'},
+    {name: 'softcover', title: 'Softcover', described: 'softcover-description'},
+]
+export const other = [
+    {name: 'four', title: '4+ stars', described: 'four-description'},
+]
+
+export const books = [
+    {id:1,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:2,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+    {id:3,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:4,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+    {id:8,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:5,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+    {id:6,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:7,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+]
