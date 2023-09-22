@@ -14,7 +14,7 @@ const Card = ({data}) => {
                     <span>{data.price}</span>
                 </div>
                 {/* eslint-disable-next-line react/prop-types */}
-                <p className={'text-[#555] min-h-[50px]'}>{data.description}</p>
+                <p className={'text-[#555] min-h-[50px] line-clamp-2'}>{data.description}</p>
                 <Link to={`${data.id}`} className={'w-full h-12 flex justify-center items-center border border-black rounded-lg'}>Buy now</Link>
             </div>
         </div>

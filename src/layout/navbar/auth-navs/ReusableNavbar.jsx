@@ -19,7 +19,7 @@ const ReusableNavbar = () => {
             <Link to={'/'} >
                  <img src={logo} alt={'orralearn logo'}/>
             </Link>
-            <form className="relative flex w-[400px]  " action="#" method="GET">
+            <form className="relative hidden sm:flex w-[400px]  " action="#" method="GET">
                 <label htmlFor="search-field" className="sr-only">
                     Search
                 </label>
