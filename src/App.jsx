@@ -20,12 +20,15 @@ import Challenges from "./pages/auth-section/challenges/Challenges.jsx";
 import Settings from "./pages/auth-section/Settings.jsx";
 import Community from "./pages/auth-section/Community.jsx";
 import Inbox from "./pages/auth-section/Inbox.jsx";
+import LearningPaths from "./pages/auth-section/learning/LeaningPaths";
+import LearningPathsDetails from "./pages/auth-section/learning/LearningPathsDetails";
 import ChallengesDetails from "./pages/auth-section/challenges/ChallengesDetails.jsx";
 import Projects from "./pages/auth-section/Projects.jsx";
 import FrontEndEditor from "./components/FrontEndEditor.jsx";
 import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
 import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
 import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
+
 
 function App() {
   const { isLoggedIn } = useStateContext();
@@ -63,6 +66,8 @@ function App() {
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
           <Route path={"community"} element={<Community />} />
           <Route path={"inbox"} element={<Inbox />} />
+          <Route path={"LearningPaths"} element={<LearningPaths/>} />
+          <Route path={"LearningPaths/:id"} element={<LearningPathsDetails/>} />
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
           <Route path={"projects"} element={<Projects />} />
           <Route path={"settings"} element={<Settings />} />
