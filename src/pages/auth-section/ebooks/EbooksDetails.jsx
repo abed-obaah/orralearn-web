@@ -6,7 +6,7 @@ import {books} from "../../../util/usefull-data.js";
 import tony from '../../../assets/ato.png'
 import NP from '../../../assets/imagePaul.jpg'
 
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {GoStar} from "react-icons/go";
 import {BsArrowDownRight} from "react-icons/bs";
 import ReviewForm from "../../../components/ebooks/ReviewForm.jsx";
@@ -104,7 +104,7 @@ const EbooksDetails = () => {
                                     <span>{detail.price}</span>
                                 </div>
                                 <div className={'flex gap-2 items-center'}>
-                                    <button className={'rounded-[20px] w-32 text-semibold text-sm bg-[#634AFE] p-2 text-black'}>BUY NOW</button>
+                                    <Link to={'/checkoutCart'} className={' flex justify-center items-center rounded-[20px] w-32 text-semibold text-sm bg-[#634AFE] p-2 text-black'}>BUY NOW</Link>
                                     <button className={'rounded-[20px] w-32 border-2 border-[#634AFE] text-semibold text-sm bg-white p-2 text-black'}>ADD TO CARD</button>
                                 </div>
                             </div>
@@ -126,9 +126,9 @@ const EbooksDetails = () => {
                 </div>
                 <div className={`${genContainerStyle} boxShadowOne`} >
                     <div className={`${reusableContainerHeading}`}>
-                        <h1 className={`${reusableHeadingStyles}`}>YOU MAY ALSO LIKE</h1>
+                        <h1 className={`${reusableHeadingStyles} pl-6 sm:pl-0`}>YOU MAY ALSO LIKE</h1>
                     </div>
-                    <div className={'w-full grid  sm:grid-cols-2 md:grid-cols-4 gap-4'}>
+                    <div className={'w-full grid  sm:grid-cols-2 md:grid-cols-4 gap-4 justify-items-center  '}>
                         {newBooks.map((data,i)=>(
                             <Card data={data} key={i}/>
                         ))}
@@ -136,10 +136,10 @@ const EbooksDetails = () => {
                 </div>
                 <div className={`${genContainerStyle} boxShadowOne`} >
                     <div className={`flex items-center justify-between`}>
-                        <h1 className={`text-xl sm:text-[24px] font-semibold `}>YOU MAY ALSO LIKE</h1>
+                        <h1 className={`text-xl sm:text-[24px] font-semibold pl-6 sm:pl-0`}>YOU MAY ALSO LIKE</h1>
                        <ReviewForm/>
                     </div>
-                    <div className={'w-full grid  sm:grid-cols-2 md:grid-cols-2 gap-4  '}>
+                    <div className={'w-full grid  sm:grid-cols-2 md:grid-cols-2 gap-4 justify-items-center  '}>
                         {readersReviews.map((data,i)=>(
                             <div key={i} className={'flex flex-col gap-y-2 rounded-[20px] bg-white p-4 max-w-sm sm:max-w-full'}>
                                 <div className={'flex items-center gap-4 '}>

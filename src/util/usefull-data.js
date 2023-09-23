@@ -294,3 +294,26 @@ export const books = [
     {id:6,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
     {id:7,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
 ]
+
+
+
+
+export const subtotal = '$210.00'
+export const discount = { code: 'CHEAPSKATE', amount: '$24.00' }
+export const taxes = '$23.68'
+export const shipping = '$22.00'
+export const total = '$341.68'
+export const products = [
+    {
+        id: 1,
+        name: 'Micro Backpack',
+        href: '#',
+        price: '$70.00',
+        color: 'Moss',
+        size: '5L',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/checkout-page-04-product-01.jpg',
+        imageAlt:
+            'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
+    },
+    // More products...
+]
