@@ -16,6 +16,7 @@ import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Dashboard from "./pages/auth-section/Dashboard.jsx";
 import Courses from "./pages/auth-section/Courses.jsx";
 import CodingPlayground from "./pages/auth-section/CodingPlayground.jsx";
+// import QA from "./pages/auth-section/learning/LeaningPaths";
 import Challenges from "./pages/auth-section/challenges/Challenges.jsx";
 import Settings from "./pages/auth-section/Settings.jsx";
 import Community from "./pages/auth-section/Community.jsx";
@@ -69,6 +70,8 @@ function App() {
           <Route path={"LearningPaths"} element={<LearningPaths/>} />
           <Route path={"LearningPaths/:id"} element={<LearningPathsDetails/>} />
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
+        
+          {/* <Route path={"QA"} element={<QA/>}/> */}
           <Route path={"projects"} element={<Projects />} />
           <Route path={"settings"} element={<Settings />} />
         </Route>

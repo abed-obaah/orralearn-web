@@ -1,6 +1,6 @@
 import { MdMaximize, MdArrowForward } from 'react-icons/md';
 import { FiUsers } from 'react-icons/fi';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import { Link } from 'react-router-dom';
 
 const Card = ({ course }) => {
   return (

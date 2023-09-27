@@ -3052,6 +3052,13 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+tailgrids@^2.0.1, tailgrids@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/tailgrids/-/tailgrids-2.0.3.tgz"
+  integrity sha512-GP4PZEc/E8Xk1Ss8+z813hD3yvbhYQJpyOjpnazpkohWDvn9wLZJZ8RC6yuVsL4XZyY4zbT9lqhGxRGFTq2uZA==
+  dependencies:
+    tailgrids "^2.0.1"
+
 tailwindcss@^3.3.3, "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1":
   version "3.3.3"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.3.3.tgz"

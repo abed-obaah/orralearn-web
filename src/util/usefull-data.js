@@ -506,3 +506,69 @@ export const storeImages = [
     imageUrl: [frames, frames],
   },
 ];
+
+
+export const roadmaps= [
+  {
+    id:1,
+    name: 'Front End Development',
+    title: 'Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects',
+    role: 'Admin',
+    email: 'janecooper@example.com',
+    telephone: '+1-202-555-0170',
+    btnName:'Get Started',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+  },
+  {
+    id:2,
+    name:'Back end development',
+    title:"You will become a great backend developer with true understanding of services. Launch your own websites on Orralearn with hands on practice and YouTube curated courses.",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:3,
+    name:'Full Stack Web development',
+    title:"You will become a full-stack web developer, deploy applications  end-to-end, use CI/CD, code backends, frontends and learn to write at scale.",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:4,
+    name:'Mobile App development',
+    title:"Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:5,
+    name:'Back end development',
+    title:"Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:6,
+    name:'Back end development',
+    title:"Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  
+]
