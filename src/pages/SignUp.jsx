@@ -5,10 +5,9 @@ import logo from "../assets/shortLogo.svg";
 import avatar from '../assets/avatar.jpg'
 
 import Notification from "../components/shared/Notification";
-import { auth,db} from "../middleware/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import {addDoc}from 'firebase/firestore'
-import {filesUpload} from "../middleware/firebase-functions.js";
+import { auth} from "../middleware/firebase";
+import { createUserWithEmailAndPassword ,deleteUser} from "firebase/auth";
+import {filesUpload,createUserInfo,deleteFile} from "../middleware/firebase-functions.js";
 
 import { FcGoogle } from "react-icons/fc";
 import { BiLogoFacebook } from "react-icons/bi";
@@ -81,10 +80,9 @@ const SignUp = () => {
     validate,
     enableReinitialize: true,
     onSubmit: (values) => {
-      //setLoading(true);
-
-      console.log(values.profileImage.name);
-      return
+      setLoading(true);
+      let imageUrl
+      let useruuid
       const httReqHandler = async () => {
         try {
 
@@ -94,15 +92,39 @@ const SignUp = () => {
             values.password
           );
 
-        // const imageUrl =  await filesUpload('userProfileImage',values.profileImage)
-          if (data) {
-            setLoading(false);
-            updateStateFunctions("Success", "success");
-            navigate("/signIn", { replace: true });
+          if(data){
+            useruuid = data.user.uid
+
+            imageUrl =  await filesUpload('userProfileImage',values.profileImage)
+
           }
+          let userDoc
+          if(imageUrl){
+            console.log(imageUrl)
+            userDoc =    await createUserInfo('userInfo',data.user.uid,{
+              profileImage:imageUrl,
+              username:values.username,
+              firstName:values.firstName,
+              lastName:values.lastName,
+              userBio:values.userBio,
+            })
+            setLoading(false);
+            console.log(userDoc)
+          }
+
+         if (!userDoc) {
+           setLoading(false);
+           updateStateFunctions("Success", "success");
+           navigate("/signIn", { replace: true });
+         }
+
         } catch (err) {
           console.log(err);
           updateStateFunctions("An error occured", "error");
+          if(useruuid){
+           await deleteUser(useruuid)
+             await deleteFile(imageUrl)
+          }
           setShow(true);
           setLoading(false);
         }

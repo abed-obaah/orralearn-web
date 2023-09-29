@@ -1,13 +1,15 @@
-import {storage} from "./firebase.js";
+import {storage,db} from "./firebase.js";
+import { collection, setDoc ,doc} from "firebase/firestore";
 import {ref,uploadBytes,getDownloadURL,deleteObject} from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
 export const filesUpload = async (firebaseFileLocation,file)=>{
 
     try {
-        const fileRef = ref(storage, `${firebaseFileLocation}/${file.name + uuidv4}`);
+        const fileRef = ref(storage, `${firebaseFileLocation}/${file.name + uuidv4()}`);
         // const metatype = { contentType: file.mimetype, name: file.originalname };
         const uplaodedFile = await uploadBytes(fileRef, file);
+        console.log(uplaodedFile)
         const uploadedfileRef = ref(
             storage,
             `${firebaseFileLocation}/${uplaodedFile.metadata.name}`
@@ -15,7 +17,6 @@ export const filesUpload = async (firebaseFileLocation,file)=>{
         const imageUrl = await getDownloadURL(uploadedfileRef);
 
         if (!imageUrl) {
-
             return "error";
         }
         return imageUrl;
@@ -56,5 +57,21 @@ export const deleteFile = async(imageUrl)=>{
         }
     } catch (err) {
         return 'error'
+    }
+}
+
+
+export const createUserInfo =async(collectionName,currentUserId,userInfo)=>{
+   // console.log(userInfo)
+    try {
+        const ref= doc(db,collectionName,currentUserId)
+        const docRef = await  setDoc(ref,userInfo)
+        console.log(docRef)
+        if(docRef){
+        return docRef
+        }
+    }catch (err){
+        console.log(err)
+        return err
     }
 }
