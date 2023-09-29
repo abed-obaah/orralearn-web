@@ -5,8 +5,10 @@ import logo from "../assets/shortLogo.svg";
 import avatar from '../assets/avatar.jpg'
 
 import Notification from "../components/shared/Notification";
-import { auth } from "../middleware/firebase";
+import { auth,db} from "../middleware/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import {addDoc}from 'firebase/firestore'
+import {filesUpload} from "../middleware/firebase-functions.js";
 
 import { FcGoogle } from "react-icons/fc";
 import { BiLogoFacebook } from "react-icons/bi";
@@ -61,7 +63,7 @@ const SignUp = () => {
     setTitle(title);
     setType(type);
   };
-
+// console.log(auth.currentUser.uid)
   const showPaswordHnadler=()=>{
     setShowPassword(!showPassword)
   }
@@ -79,15 +81,20 @@ const SignUp = () => {
     validate,
     enableReinitialize: true,
     onSubmit: (values) => {
-      setLoading(true);
+      //setLoading(true);
+
+      console.log(values.profileImage.name);
+      return
       const httReqHandler = async () => {
         try {
+
           const data = await createUserWithEmailAndPassword(
             auth,
             values.email,
             values.password
           );
-          console.log(data.user);
+
+        // const imageUrl =  await filesUpload('userProfileImage',values.profileImage)
           if (data) {
             setLoading(false);
             updateStateFunctions("Success", "success");
@@ -139,13 +146,11 @@ const SignUp = () => {
                     name="profileImage"
                     type="file"
                     autoComplete="profileImage"
-                    value={formik.values.profileImage}
                     onBlur={formik.handleBlur}
-                    required
                     className="hidden w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                     onChange={(event) => {
                       // console.log(event.currentTarget.files[0]);
-                      formik.setFieldValue("image", event.target.files[0]);
+                      formik.setFieldValue("profileImage", event.target.files[0]);
                       setImagePreview(URL.createObjectURL(event.target.files[0]));
                     }}
                  />
@@ -175,7 +180,6 @@ const SignUp = () => {
                     value={formik.values.username}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.username && formik.touched.username ? (
@@ -201,7 +205,6 @@ const SignUp = () => {
                     value={formik.values.firstName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.firstName && formik.touched.firstName ? (
@@ -227,7 +230,6 @@ const SignUp = () => {
                     value={formik.values.lastName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.lastName && formik.touched.lastName ? (
@@ -253,7 +255,6 @@ const SignUp = () => {
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.email && formik.touched.email ? (
@@ -279,7 +280,6 @@ const SignUp = () => {
                     value={formik.values.userBio}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.userBio && formik.touched.userBio ? (
@@ -307,7 +307,6 @@ const SignUp = () => {
                     value={formik.values.password}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   <div>
@@ -338,7 +337,6 @@ const SignUp = () => {
                     value={formik.values.confirmPassword}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   <div>
