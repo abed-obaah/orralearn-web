@@ -178,29 +178,35 @@ export const courses = [
         subTitle: 'Challenges for your project',
         items: [
             {
+              id:0,
               mainItem: 'User Interface Optimization Challenge',
               subItems: ['Improve UI for responsiveness and accessibility', 
               'Enhance usability for 1.2k participants', 
               ]
             },
-            {mainItem:'Handling Efficiency Challenge',
+            {
+              id:1,
+              mainItem:'Handling Efficiency Challenge',
                 subItems: ['Optimize data retrieval and rendering', 
                 'Implement data pagination and lazy loading', 
                 ]
             },
             {
+              id:2,
                 mainItem:'Security and User Privacy Challenge',
                 subItems: ['Ensure data security and privacy',
                  'Propose encryption and access control strategies',
                   ]
             },
             {
+              id:3,
                 mainItem:'Scalability Planning Challenge',
                 subItems: ['Plan for accommodating future user growth', 
                 'Consider load balancing and scalable architecture', 
                 ]
             },
             {
+              id:4,
                 mainItem:'Community Engagement Challenge',
                 subItems: ['Foster active participation and engagement', 
                 ' Design features for community interaction', 
@@ -220,29 +226,35 @@ export const courses = [
         subTitle:'Challenges for your project',
         items: [
             {
+              id:0,
               mainItem: 'User Interface Optimization Challenge',
               subItems: ['Improve UI for responsiveness and accessibility', 
               'Enhance usability for 1.2k participants', 
               ]
             },
-            {mainItem:'Handling Efficiency Challenge',
+            {
+              id:1,
+              mainItem:'Handling Efficiency Challenge',
                 subItems: ['Optimize data retrieval and rendering', 
                 'Implement data pagination and lazy loading', 
                 ]
             },
             {
+              id:2,
                 mainItem:'Security and User Privacy Challenge',
                 subItems: ['Ensure data security and privacy',
                  'Propose encryption and access control strategies',
                   ]
             },
             {
+              id:3,
                 mainItem:'Scalability Planning Challenge',
                 subItems: ['Plan for accommodating future user growth', 
                 'Consider load balancing and scalable architecture', 
                 ]
             },
             {
+              id:3,
                 mainItem:'Community Engagement Challenge',
                 subItems: ['Foster active participation and engagement', 
                 ' Design features for community interaction', 
@@ -300,29 +312,34 @@ export const courses = [
       subTitle:'Challenges for your project',
       items: [
         {
+          id:0,
           mainItem: 'User Interface Optimization Challenge',
           subItems: ['Improve UI for responsiveness and accessibility', 
           'Enhance usability for 1.2k participants', 
           ]
         },
-        {mainItem:'Handling Efficiency Challenge',
+        {id:1,
+          mainItem:'Handling Efficiency Challenge',
             subItems: ['Optimize data retrieval and rendering', 
             'Implement data pagination and lazy loading', 
             ]
         },
         {
+          id:2,
             mainItem:'Security and User Privacy Challenge',
             subItems: ['Ensure data security and privacy',
              'Propose encryption and access control strategies',
               ]
         },
         {
+          id:3,
             mainItem:'Scalability Planning Challenge',
             subItems: ['Plan for accommodating future user growth', 
             'Consider load balancing and scalable architecture', 
             ]
         },
         {
+          id:4,
             mainItem:'Community Engagement Challenge',
             subItems: ['Foster active participation and engagement', 
             ' Design features for community interaction', 

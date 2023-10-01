@@ -24,6 +24,7 @@ import Inbox from "./pages/auth-section/Inbox.jsx";
 import LearningPaths from "./pages/auth-section/learning/LeaningPaths";
 import LearningPathsDetails from "./pages/auth-section/learning/LearningPathsDetails";
 import ChallengesDetails from "./pages/auth-section/challenges/ChallengesDetails.jsx";
+import StartChallenge from "./pages/auth-section/challenges/StartChallenge";
 import Projects from "./pages/auth-section/Projects.jsx";
 import FrontEndEditor from "./components/FrontEndEditor.jsx";
 import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
@@ -65,6 +66,8 @@ function App() {
           <Route path={"courses"} element={<Courses />} />
           <Route path={"Challenges"} element={<Challenges />} />
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
+          <Route path="/Challenges/:courseId/:itemId" element={<StartChallenge/>} />
+         
           <Route path={"community"} element={<Community />} />
           <Route path={"inbox"} element={<Inbox />} />
           <Route path={"LearningPaths"} element={<LearningPaths/>} />
