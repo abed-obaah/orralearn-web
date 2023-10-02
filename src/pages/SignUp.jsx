@@ -109,7 +109,7 @@ const SignUp = () => {
       <Notification show={show} setShow={setShow} title={title} type={type} />
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 bgOne">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <Link to="/" className="cursor-pointer flex justify-center">
+          <Link to="/" className=" cursor-pointer flex justify-center">
             <img
               className="mx-auto h-10 w-auto"
               src={logo}
@@ -130,7 +130,7 @@ const SignUp = () => {
               <div>
                 <label
                   htmlFor="profileImage"
-                  className="relative block text-sm font-medium leading-6 text-gray-900"
+                  className="relative flex  text-sm font-medium leading-6 text-gray-900"
                   onClick={(event) => (event.target.value = null)}
                 > 
                 <div className="mt-2">

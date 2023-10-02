@@ -1,17 +1,25 @@
+import logo from '../../../assets/logo.svg'
+import {useStateContext} from "../../../context/contextProvider.jsx";
+
 import {ChevronDownIcon, MagnifyingGlassIcon} from "@heroicons/react/20/solid/index.js";
 import {BellIcon} from "@heroicons/react/24/outline/index.js";
 import {Menu, Transition} from "@headlessui/react";
 import {Fragment} from "react";
 import {Link} from "react-router-dom";
-import logo from '../../../assets/logo.svg'
 
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
 const ReusableNavbar = () => {
+
+    const {logout} = useStateContext()
     return (
-        <div className="flex  justify-between  lg:gap-x-6 bg-white py-4 px-10">
+        <div className= "w-full flex  justify-between  lg:gap-x-6 bg-white py-4 px-10 fixed z-[999]">
             <Link to={'/'} >
                  <img src={logo} alt={'orralearn logo'}/>
             </Link>
-            <form className="relative flex w-[400px]  " action="#" method="GET">
+            <form className="relative hidden sm:flex w-[400px]  " action="#" method="GET">
                 <label htmlFor="search-field" className="sr-only">
                     Search
                 </label>

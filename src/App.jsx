@@ -30,6 +30,8 @@ import FrontEndEditor from "./components/FrontEndEditor.jsx";
 import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
 import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
 import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
+import CheckoutCart from "./pages/auth-section/CheckoutCart.jsx";
+import EbookReader from "./pages/auth-section/ebooks/EbookReader.jsx";
 
 
 function App() {
@@ -82,6 +84,8 @@ function App() {
               <Route index element={<EbookDashboard/>}/>
               <Route path={':id'} element={<EbooksDetails/>}/>
           </Route>
+          <Route path={'pdfReader/:id'} element={<EbookReader/>}/>
+          <Route path={'checkoutCart'} element={<CheckoutCart/>}/>
         <Route path={"editor"} element={<FrontEndEditor />} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />

@@ -589,3 +589,62 @@ export const roadmaps= [
   },
   
 ]
+export const categories = [
+    {name: 'programming', title: 'Programming', described: 'programming-description'},
+    {name: 'design', title: 'Design', described: 'design-description'},
+    {name: 'educational', title: 'Educational', described: 'educational-description'},
+    {name: 'business', title: 'Business', described: 'business-description'},
+]
+export const sizes = [
+    {name: 'sm', title: 'SM', described: 'sm-description'},
+    {name: 'md', title: 'MD', described: 'md-description'},
+    {name: 'LG', title: 'lg', described: 'lg-description'},
+    {name: 'XL', title: 'xl', described: 'xl-description'},
+    {name: 'XXL', title: 'xxl', described: 'xxl-description'},
+]
+export const languages = [
+    {name: 'english', title: 'English', described: 'english-description'},
+    {name: 'french', title: 'French', described: 'french-description'},
+]
+
+export const coverStyle = [
+    {name: 'hardcover', title: 'Hardcover', described: 'hardcover-description'},
+    {name: 'softcover', title: 'Softcover', described: 'softcover-description'},
+]
+export const other = [
+    {name: 'four', title: '4+ stars', described: 'four-description'},
+]
+
+export const books = [
+    {id:1,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:2,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+    {id:3,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:4,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+    {id:8,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:5,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+    {id:6,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image1,title:"React & Node.js",price:"$5.00",description:"Understanding React and Node.js by ATO Bradley"},
+    {id:7,author:"ATO bradley",category:"programing",publishDate:"Aug 2023",reviews:10,languages:['english','french'], image:image2,title:"Full Stack Dev",price:"$5.00",description:"Learn Website Development with React with ATO Bradley"},
+]
+
+
+
+
+export const subtotal = '$210.00'
+export const discount = { code: 'CHEAPSKATE', amount: '$24.00' }
+export const taxes = '$23.68'
+export const shipping = '$22.00'
+export const total = '$341.68'
+export const products = [
+    {
+        id: 1,
+        name: 'Micro Backpack',
+        href: '#',
+        price: '$70.00',
+        color: 'Moss',
+        size: '5L',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/checkout-page-04-product-01.jpg',
+        imageAlt:
+            'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
+    },
+    // More products...
+]
