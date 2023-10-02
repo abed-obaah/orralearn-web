@@ -49,7 +49,7 @@ const FrontEndEditor = () => {
         <header className='w-full flex items-center justify-between px-12 py-4'>
           <div className='flex items-center justify-center gap-6'>
 
-          <NavLink to='/projects' className='flex items-center justify-center gap-6'>
+          <NavLink to='/codingPlayGround' className='flex items-center justify-center gap-6'>
             <img className='w-32 h-auto object-contain' src={logo} alt="orralearn logo" />
             </NavLink>
 
