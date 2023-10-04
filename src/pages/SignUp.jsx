@@ -17,9 +17,9 @@ import {FiEyeOff,FiEye} from 'react-icons/fi'
 
 const validate = (values) => {
   const errors = {};
-  // if (!values.profileImage) {
-  //   errors.profileImage = "Required";
-  // }
+  if (!values.profileImage) {
+    errors.profileImage = "Required";
+  }
   if (!values.username) {
     errors.username = "Required";
   }
@@ -99,20 +99,24 @@ const SignUp = () => {
           let userDoc;
           let imageUrl;
 
-          if (data && values.profileImage !== '') {
+          if (data) {
             useruuid = data.user.uid;
-            imageUrl = await filesUpload('userProfileImage', values.profileImage);
+            imageUrl = await filesUpload(useruuid, values.profileImage);
             const photoImage = await updateProfile(auth.currentUser, { photoURL: imageUrl });
             console.log(photoImage);
           }
 
           if (imageUrl) {
-            userDoc = await createUserInfo('userInfo', data.user.uid, {
-              profileImage: imageUrl,
+            userDoc = await createUserInfo('Users', data.user.uid, {
+              image: imageUrl,
               username: values.username,
               firstName: values.firstName,
               lastName: values.lastName,
-              userBio: values.userBio,
+              email:values.email,
+              bio: values.userBio,
+              verified:false,
+              subscribed:false,
+              followedSuggestions:true
             });
             setLoading(false);
             //console.log(userDoc)

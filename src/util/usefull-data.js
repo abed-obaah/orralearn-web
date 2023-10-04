@@ -51,6 +51,14 @@ export const navigation = [
     { name: 'Coding Playground', path:"codingPlayGround", icon: BiCodeAlt  },
     { name: 'Question & Answer', path:"question&Answer", icon: BiHelpCircle  },
   ]
+
+export const authLinks =[
+    {title:"About Us",path:"/about"},
+    {title:"Contact Us",path:"/contact"},
+    {title:"FAQs",path:"/faqs"},
+    {title:"Privacy Policy",path:"/privacyPolicy"},
+    {title:"Terms & Condition",path:"/termsAndConditions"},
+]
   export const teams = [
     { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
     { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },

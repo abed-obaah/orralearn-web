@@ -89,7 +89,7 @@ export const  getUserInfo = async (collectionName,currentUserId)=>{
 
 export const findUserName = async (username) => {
     try {
-        const q = query(collection(db, 'userInfo'), where('username', '==', username));
+        const q = query(collection(db, 'Users'), where('username', '==', username));
 
         const querySnapshot = await getDocs(q);
         return !querySnapshot.empty;

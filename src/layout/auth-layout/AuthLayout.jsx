@@ -13,6 +13,7 @@ import {
 
 import {Link, NavLink, Outlet} from 'react-router-dom';
 import AuthResNav from "../navbar/auth-navs/AuthResNav.jsx";
+import Authfooter from "../footer/Authfooter.jsx";
 
 
 const AuthLayout = () => {
@@ -182,6 +183,7 @@ const AuthLayout = () => {
               <Outlet/>
             </div>
           </main>
+          <Authfooter/>
         </div>
       </div>
     </>
