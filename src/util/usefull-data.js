@@ -2,7 +2,7 @@
 import {AiOutlineHome,AiOutlineInbox, AiOutlineProject} from 'react-icons/ai'
 import {CgFileDocument} from 'react-icons/cg'
 import {BsBook} from 'react-icons/bs'
-import {BiGroup,BiCodeAlt,BiAward,BiHelpCircle} from 'react-icons/bi'
+import {BiGroup, BiCodeAlt, BiAward, BiHelpCircle, BiBookAlt} from 'react-icons/bi'
 
 import image1 from '../assets/image.png'
 import image2 from '../assets/image2.png'
@@ -47,7 +47,7 @@ export const navigation = [
     { name: 'Community', path:"community", icon: BiGroup },
     { name: 'Inbox', path:"inbox", icon: AiOutlineInbox  },
     { name: 'Learning Paths', path:"/learningPaths", icon: BsBook, },
-    { name: 'Ebooks', path:"/ebooks", icon: BsBook, },
+    { name: 'Ebooks', path:"/ebooks", icon: BiBookAlt, },
     { name: 'Coding Playground', path:"codingPlayGround", icon: BiCodeAlt  },
     { name: 'Question & Answer', path:"question&Answer", icon: BiHelpCircle  },
   ]
