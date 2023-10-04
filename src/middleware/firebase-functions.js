@@ -66,7 +66,7 @@ export const createUserInfo =async(collectionName,currentUserId,userInfo)=>{
     try {
         const ref= doc(db,collectionName,currentUserId)
         const docRef = await  setDoc(ref,userInfo)
-        console.log(docRef)
+     
         if(docRef){
         return docRef
         }

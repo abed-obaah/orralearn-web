@@ -6,7 +6,7 @@ import avatar from '../assets/avatar.jpg'
 
 import Notification from "../components/shared/Notification";
 import { auth} from "../middleware/firebase";
-import { createUserWithEmailAndPassword ,deleteUser} from "firebase/auth";
+import { createUserWithEmailAndPassword ,deleteUser,updateProfile} from "firebase/auth";
 import {filesUpload,createUserInfo,deleteFile} from "../middleware/firebase-functions.js";
 
 import { FcGoogle } from "react-icons/fc";
@@ -62,7 +62,7 @@ const SignUp = () => {
     setTitle(title);
     setType(type);
   };
-// console.log(auth.currentUser.uid)
+
   const showPaswordHnadler=()=>{
     setShowPassword(!showPassword)
   }
@@ -96,7 +96,8 @@ const SignUp = () => {
             useruuid = data.user.uid
 
             imageUrl =  await filesUpload('userProfileImage',values.profileImage)
-
+          const photoImage =  await updateProfile(auth.currentUser, {photoURL:imageUrl})
+            console.log(photoImage)
           }
           let userDoc
           if(imageUrl){
@@ -109,7 +110,7 @@ const SignUp = () => {
               userBio:values.userBio,
             })
             setLoading(false);
-            console.log(userDoc)
+            //console.log(userDoc)
           }
 
          if (!userDoc) {
@@ -424,7 +425,7 @@ const SignUp = () => {
           </div>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{" "}
+            already a member ?{" "}
             <Link
               to={"/signIn"}
               className="font-semibold leading-6 text-[#5E00D0] hover:text-indigo-500"

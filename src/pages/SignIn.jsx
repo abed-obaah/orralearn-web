@@ -169,9 +169,9 @@ const SignIn = () => {
                 </div>
 
                 <div className="text-sm leading-6">
-                  <a href="#" className="font-semibold text-[#5E00D0] hover:text-indigo-500">
+                  <Link to="/resetPassword" className="font-semibold text-[#5E00D0] hover:text-indigo-500">
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
 
