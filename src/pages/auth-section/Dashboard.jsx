@@ -198,7 +198,6 @@ const Dashboard = () => {
                         {upcomming.map((item,i)=>(
 
                             <div className={`flex gap-2 rounded-[20px] font-openSans p-8 ${item.color}`} key={i}>
-                                {console.log(item)}
                                 <div className={'flex gap-2 items-center'}>
                                     <div className={'flex items-center gap-4'}>
                                         <div className={`w-16 h-16 rounded-full flex justify-center items-center  ${item.figurebg} font-bold  text-white text-lg`}>{item.number}</div>

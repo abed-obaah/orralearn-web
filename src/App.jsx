@@ -73,14 +73,13 @@ function App() {
           <Route path={"projects"} element={<Projects />} />
           <Route path={"settings"} element={<Settings />} />
         </Route>
-          <Route path={'/ebooks'} element={<Ebooks/>}>
+        <Route path={'ebooks'} element={<Ebooks/>}>
               <Route index element={<EbookDashboard/>}/>
               <Route path={':id'} element={<EbooksDetails/>}/>
-          </Route>
-          <Route path={'pdfReader/:id'} element={<EbookReader/>}/>
-          <Route path={'checkoutCart'} element={<CheckoutCart/>}/>
+        </Route>
+        <Route path={'pdfReader/:id'} element={<EbookReader/>}/>
+        <Route path={'checkoutCart'} element={<CheckoutCart/>}/>
         <Route path={"editor"} element={<FrontEndEditor />} />
-
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>

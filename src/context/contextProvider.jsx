@@ -26,6 +26,8 @@ const retrieveStoredToken = () => {
 
   const remainingTime = calculateRemainingTime(storedExpirationDate);
 
+  const storedUserInfo = JSON.parse(localStorage.getItem('userInfo'))
+
   if (remainingTime <= 3600) {
     localStorage.removeItem("token");
     localStorage.removeItem("expirationTime");
@@ -36,6 +38,7 @@ const retrieveStoredToken = () => {
   return {
     token: storedToken,
     duration: remainingTime,
+    userInfo:storedUserInfo
   };
 };
 
@@ -44,24 +47,31 @@ export const ContextProvider = ({ children }) => {
   const tokenData = retrieveStoredToken();
 
   let initialToken;
+  let initialUserInfo;
   if (tokenData) {
     initialToken = tokenData.token;
+    initialUserInfo = tokenData.userInfo
   }
   const [token, setToken] = useState(initialToken);
+  const [ uInfo,setUinfo] = useState(initialUserInfo)
  // const userLoggedIn = true;
    const userLoggedIn = !!token;
 
   const logoutHandler = useCallback(() => {
     localStorage.removeItem("token");
     localStorage.removeItem("expirationTime");
+    localStorage.removeItem("userInfo")
     window.location.replace("/");
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
   }, []);
 
-  const logInHandler = (token, expirationTime) => {
+  const logInHandler = (token, expirationTime,retrievedUserInfo) => {
+    const userInfo = JSON.stringify(retrievedUserInfo)
     setToken(token);
+    setUinfo(retrievedUserInfo)
+    localStorage.setItem('userInfo',userInfo)
     localStorage.setItem("token", token);
     localStorage.setItem("expirationTime", expirationTime);
     const remainingTime = calculateRemainingTime(expirationTime);
@@ -81,6 +91,7 @@ export const ContextProvider = ({ children }) => {
     <StateContext.Provider
       value={{
         token: token,
+        userInfo:uInfo,
         isLoggedIn: userLoggedIn,
         login: logInHandler,
         logout: logoutHandler,

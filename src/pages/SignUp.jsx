@@ -7,7 +7,7 @@ import avatar from '../assets/avatar.jpg'
 import Notification from "../components/shared/Notification";
 import { auth} from "../middleware/firebase";
 import { createUserWithEmailAndPassword ,deleteUser,updateProfile} from "firebase/auth";
-import {filesUpload,createUserInfo,deleteFile} from "../middleware/firebase-functions.js";
+import {filesUpload,createUserInfo,deleteFile,findUserName} from "../middleware/firebase-functions.js";
 
 import { FcGoogle } from "react-icons/fc";
 import { BiLogoFacebook } from "react-icons/bi";
@@ -17,9 +17,9 @@ import {FiEyeOff,FiEye} from 'react-icons/fi'
 
 const validate = (values) => {
   const errors = {};
-  if (!values.profileImage) {
-    errors.profileImage = "Required";
-  }
+  // if (!values.profileImage) {
+  //   errors.profileImage = "Required";
+  // }
   if (!values.username) {
     errors.username = "Required";
   }
@@ -85,50 +85,55 @@ const SignUp = () => {
       let useruuid
       const httReqHandler = async () => {
         try {
-
-          const data = await createUserWithEmailAndPassword(
-            auth,
-            values.email,
-            values.password
-          );
-
-          if(data){
-            useruuid = data.user.uid
-
-            imageUrl =  await filesUpload('userProfileImage',values.profileImage)
-          const photoImage =  await updateProfile(auth.currentUser, {photoURL:imageUrl})
-            console.log(photoImage)
+          const foundUser = await findUserName(values.username)
+          if(foundUser){
+            setShow(true)
+            updateStateFunctions('Username already exist', 'error');
+          setLoading(false)
+            return
           }
-          let userDoc
-          if(imageUrl){
-            console.log(imageUrl)
-            userDoc =    await createUserInfo('userInfo',data.user.uid,{
-              profileImage:imageUrl,
-              username:values.username,
-              firstName:values.firstName,
-              lastName:values.lastName,
-              userBio:values.userBio,
-            })
+
+          // eslint-disable-next-line no-unreachable
+          const data = await createUserWithEmailAndPassword(auth, values.email, values.password);
+
+          let userDoc;
+          let imageUrl;
+
+          if (data && values.profileImage !== '') {
+            useruuid = data.user.uid;
+            imageUrl = await filesUpload('userProfileImage', values.profileImage);
+            const photoImage = await updateProfile(auth.currentUser, { photoURL: imageUrl });
+            console.log(photoImage);
+          }
+
+          if (imageUrl) {
+            userDoc = await createUserInfo('userInfo', data.user.uid, {
+              profileImage: imageUrl,
+              username: values.username,
+              firstName: values.firstName,
+              lastName: values.lastName,
+              userBio: values.userBio,
+            });
             setLoading(false);
             //console.log(userDoc)
           }
 
-         if (!userDoc) {
-           setLoading(false);
-           updateStateFunctions("Success", "success");
-           navigate("/signIn", { replace: true });
-         }
-
+          if (!userDoc) {
+            setLoading(false);
+            updateStateFunctions('Success', 'success');
+            navigate('/signIn', { replace: true });
+          }
         } catch (err) {
           console.log(err);
-          updateStateFunctions("An error occured", "error");
-          if(useruuid){
-           await deleteUser(useruuid)
-             await deleteFile(imageUrl)
+          updateStateFunctions('An error occurred', 'error');
+          if (useruuid) {
+            await deleteUser(useruuid);
+            await deleteFile(imageUrl);
           }
           setShow(true);
           setLoading(false);
         }
+
       };
       httReqHandler();
     },
@@ -169,7 +174,7 @@ const SignUp = () => {
                     name="profileImage"
                     type="file"
                     autoComplete="profileImage"
-                    onBlur={formik.handleBlur}
+                    // onBlur={formik.handleBlur}
                     className="hidden w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                     onChange={(event) => {
                       // console.log(event.currentTarget.files[0]);
@@ -385,43 +390,43 @@ const SignUp = () => {
               </div>
             </form>
 
-            <div>
-              <div className="relative mt-10">
-                <div
-                  className="absolute inset-0 flex items-center"
-                  aria-hidden="true"
-                >
-                  <div className="w-full border-t border-gray-200" />
-                </div>
-                <div className="relative flex justify-center text-sm font-medium leading-6">
-                  <span className="bg-white px-6 text-gray-900">
-                    Or continue with
-                  </span>
-                </div>
-              </div>
+            {/*<div>*/}
+            {/*  <div className="relative mt-10">*/}
+            {/*    <div*/}
+            {/*      className="absolute inset-0 flex items-center"*/}
+            {/*      aria-hidden="true"*/}
+            {/*    >*/}
+            {/*      <div className="w-full border-t border-gray-200" />*/}
+            {/*    </div>*/}
+            {/*    <div className="relative flex justify-center text-sm font-medium leading-6">*/}
+            {/*      <span className="bg-white px-6 text-gray-900">*/}
+            {/*        Or continue with*/}
+            {/*      </span>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
 
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-white border px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "
-                >
-                  <FcGoogle className="text-xl" />
-                  <span className="text-sm font-semibold leading-6 text-black">
-                    Google
-                  </span>
-                </a>
+            {/*  <div className="mt-6 grid grid-cols-2 gap-4">*/}
+            {/*    <a*/}
+            {/*      href="#"*/}
+            {/*      className="flex w-full items-center justify-center gap-3 rounded-md bg-white border px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "*/}
+            {/*    >*/}
+            {/*      <FcGoogle className="text-xl" />*/}
+            {/*      <span className="text-sm font-semibold leading-6 text-black">*/}
+            {/*        Google*/}
+            {/*      </span>*/}
+            {/*    </a>*/}
 
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#3b5998] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"
-                >
-                  <BiLogoFacebook className="text-xl" />
-                  <span className="text-sm font-semibold leading-6">
-                    Facebook
-                  </span>
-                </a>
-              </div>
-            </div>
+            {/*    <a*/}
+            {/*      href="#"*/}
+            {/*      className="flex w-full items-center justify-center gap-3 rounded-md bg-[#3b5998] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"*/}
+            {/*    >*/}
+            {/*      <BiLogoFacebook className="text-xl" />*/}
+            {/*      <span className="text-sm font-semibold leading-6">*/}
+            {/*        Facebook*/}
+            {/*      </span>*/}
+            {/*    </a>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
 
           <p className="mt-10 text-center text-sm text-gray-500">

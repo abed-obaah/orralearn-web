@@ -1,5 +1,5 @@
 import {storage,db} from "./firebase.js";
-import { collection, setDoc ,doc} from "firebase/firestore";
+import {collection, setDoc, doc, getDoc, query, where,getDocs,} from "firebase/firestore";
 import {ref,uploadBytes,getDownloadURL,deleteObject} from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -25,6 +25,7 @@ export const filesUpload = async (firebaseFileLocation,file)=>{
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 export const fileUpdate =  async (firebaseFileLocation,file,imageUrl)=>{
     try {
         const imageRef = ref(storage, `${firebaseFileLocation}/${file.originalname + uuidv4()}`);
@@ -75,3 +76,25 @@ export const createUserInfo =async(collectionName,currentUserId,userInfo)=>{
         return err
     }
 }
+
+export const  getUserInfo = async (collectionName,currentUserId)=>{
+    try{
+        const ref= doc(db,collectionName,currentUserId)
+        return await  getDoc(ref)
+    }catch (err){
+        console.log(err)
+        return err
+    }
+}
+
+export const findUserName = async (username) => {
+    try {
+        const q = query(collection(db, 'userInfo'), where('username', '==', username));
+
+        const querySnapshot = await getDocs(q);
+        return !querySnapshot.empty;
+    } catch (error) {
+        console.error('Error checking username:', error);
+        return false;
+    }
+};
