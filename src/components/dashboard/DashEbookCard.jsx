@@ -5,11 +5,8 @@ import {styles} from "../../util/genral-style.js";
 const DashEbookCard= ({item}) => {
     return (
         <div className={`w-full rounded-3xl bg-white  p-6 font-openSans flex  gap-4 `}>
-            <div className={`rounded-3xl w-full  max-w-[200px] h-72 flex flex-col gap-y-4 px-4  ${item.bgColr} pt-5`}>
-
-                <h6 className={`${item.textColor}`}>{item.ctnH}</h6>
-                <p className={'font-bold text-base text-white'}>{item.ctnText}</p>
-
+            <div className={`rounded-3xl w-full max-w-[200px] h-72     `}>
+                <img src={item.image} alt={item.title} className={'h-72 w-full object-fill'}/>
             </div>
             <div className={' flex flex-col justify-between'}>
                 <div className={'flex flex-col gap-y-2'}>

@@ -19,7 +19,7 @@ function classNames(...classes) {
 const AuthResNav = ({setSidebarOpen}) => {
     const {logout,userInfo} = useStateContext()
     const {pathname} = useLocation();
-    const allowedPaths = ['/ebooks','/ebooks/*', '/path2', '/path3'];
+    const allowedPaths = ['/ebooks','/ebooks/*', '/checkoutCart', '/path3'];
     let shouldShowComponent = false;
 
     for (const allowedPath of allowedPaths) {
@@ -32,7 +32,7 @@ const AuthResNav = ({setSidebarOpen}) => {
         <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             {!shouldShowComponent && <button
                 type="button"
-                className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+                className="-m-2.5 p-2.5 text-gray-700 md:hidden"
                 onClick={() => setSidebarOpen(true)}
             >
                 <span className="sr-only">Open sidebar</span>
@@ -41,7 +41,7 @@ const AuthResNav = ({setSidebarOpen}) => {
 
 
             {!shouldShowComponent && <div
-                className="h-6 w-px bg-gray-900/10 lg:hidden"
+                className="h-6 w-px bg-gray-900/10 md:hidden"
                 aria-hidden="true"
             />}
             {shouldShowComponent && <Link to={'/'}>

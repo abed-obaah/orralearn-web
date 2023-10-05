@@ -22,7 +22,8 @@ import python2 from '../assets/python3.jpg'
 import reactjs from '../assets/Best-Practices (2).png'
 import java from '../assets/Java-Logo-PNGs.png'
 
-
+import dash1 from '../assets/dash1.png'
+import dash2 from '../assets/dash2.png'
 
 export const mentors =[
     {image:ato,name:"ATO Bradley",title:"Creator of Orralearn",subTitle:"Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",tweeter:"",linkedIn:""},
@@ -155,8 +156,8 @@ export const testimonials = [
 
 
 export  const recommendedEbooks =[
-    {title:"Learn Web Development with React",oldPrice:"$8.50" ,newPrice:"$5.50",bgColr:"bg-[#333738]",ctnH:"Learning Path",ctnText:"Learn Web Development with React",textColor:"text-[#E47131]"},
-    {title:"Understanding React and Node.Js",oldPrice:"$3.50" ,newPrice:"$4.50",bgColr:"bg-[#462D7E]",ctnH:"Learning Path",ctnText:"Understanding React and Node.js",textColor:"text-[#D4C8C1] "},
+    {title:"Understanding React and Node.Js",oldPrice:"$3.50" ,newPrice:"$4.50",bgColr:"bg-[#462D7E]",ctnH:"Learning Path",ctnText:"Understanding React and Node.js",textColor:"text-[#D4C8C1] " ,image: dash2},
+    {title:"Learn Web Development with React",oldPrice:"$8.50" ,newPrice:"$5.50",bgColr:"bg-[#333738]",ctnH:"Learning Path",ctnText:"Learn Web Development with React",textColor:"text-[#E47131]",image: dash1},
 ]
 
 
