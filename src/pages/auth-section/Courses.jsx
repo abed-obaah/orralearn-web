@@ -7,6 +7,7 @@ import image3 from '../../assets/Course3.png'
 
 import {AiFillStar} from  'react-icons/ai'
 import {BsPerson} from "react-icons/bs";
+import { NavLink } from "react-router-dom";
 
 
 const Courses = () => {
@@ -84,7 +85,7 @@ const Courses = () => {
 
                         </div>
                         <div className="px-6 flex flex-col sm:flex-row gap-4 pb-4 ">
-                            <div className={`cursor-pointer text-center w-full bg-[#5E00D0] rounded-[42px] py-2 px-5 text-white justify-center items-center  text-base`}>Start Learning</div>
+                            <NavLink to="/courseDetail" className={`cursor-pointer text-center w-full bg-[#5E00D0] rounded-[42px] py-2 px-5 text-white justify-center items-center  text-base`}>Start Learning</NavLink>
                             <div className={`cursor-pointer text-center w-full bg-white rounded-[42px] border-[1px]  border-[#5E00D0]  py-2 px-5 text-black  justify-center  `}>Start Learning</div>
                         </div>
                     </div>
