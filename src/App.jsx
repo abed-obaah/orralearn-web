@@ -27,6 +27,7 @@ import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
 import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
 import CheckoutCart from "./pages/auth-section/CheckoutCart.jsx";
 import EbookReader from "./pages/auth-section/ebooks/EbookReader.jsx";
+import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
 
 function App() {
   const { isLoggedIn } = useStateContext();
@@ -36,7 +37,9 @@ function App() {
     <>
       {location.pathname !== "/notfound" &&
         location.pathname !== "/signUp" &&
-        location.pathname !== "/signIn" && <Navbar />}
+        location.pathname !== "/signIn" &&
+        location.pathname !== "/resetPassword" &&
+          <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
@@ -45,12 +48,15 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
+          <Route path="resetPassword" element={<ResetPasswordUsingEmail/>} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>
       {location.pathname !== "/notfound" &&
         location.pathname !== "/signUp" &&
-        location.pathname !== "/signIn" && <Footer />}
+        location.pathname !== "/signIn" &&
+          location.pathname !== "/resetPassword" &&
+          <Footer />}
     </>
   );
 
@@ -67,12 +73,12 @@ function App() {
           <Route path={"projects"} element={<Projects />} />
           <Route path={"settings"} element={<Settings />} />
         </Route>
-          <Route path={'/ebooks'} element={<Ebooks/>}>
+        <Route path={'ebooks'} element={<Ebooks/>}>
               <Route index element={<EbookDashboard/>}/>
               <Route path={':id'} element={<EbooksDetails/>}/>
-          </Route>
-          <Route path={'pdfReader/:id'} element={<EbookReader/>}/>
-          <Route path={'checkoutCart'} element={<CheckoutCart/>}/>
+        </Route>
+        <Route path={'pdfReader/:id'} element={<EbookReader/>}/>
+        <Route path={'checkoutCart'} element={<CheckoutCart/>}/>
         <Route path={"editor"} element={<FrontEndEditor />} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />

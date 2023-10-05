@@ -5,8 +5,9 @@ import logo from "../assets/shortLogo.svg";
 import avatar from '../assets/avatar.jpg'
 
 import Notification from "../components/shared/Notification";
-import { auth } from "../middleware/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth} from "../middleware/firebase";
+import { createUserWithEmailAndPassword ,deleteUser,updateProfile} from "firebase/auth";
+import {filesUpload,createUserInfo,deleteFile,findUserName} from "../middleware/firebase-functions.js";
 
 import { FcGoogle } from "react-icons/fc";
 import { BiLogoFacebook } from "react-icons/bi";
@@ -80,25 +81,63 @@ const SignUp = () => {
     enableReinitialize: true,
     onSubmit: (values) => {
       setLoading(true);
+      let imageUrl
+      let useruuid
       const httReqHandler = async () => {
         try {
-          const data = await createUserWithEmailAndPassword(
-            auth,
-            values.email,
-            values.password
-          );
-          console.log(data.user);
+          const foundUser = await findUserName(values.username)
+          if(foundUser){
+            setShow(true)
+            updateStateFunctions('Username already exist', 'error');
+          setLoading(false)
+            return
+          }
+
+          // eslint-disable-next-line no-unreachable
+          const data = await createUserWithEmailAndPassword(auth, values.email, values.password);
+
+          let userDoc;
+          let imageUrl;
+
           if (data) {
+            useruuid = data.user.uid;
+            imageUrl = await filesUpload(useruuid, values.profileImage);
+            const photoImage = await updateProfile(auth.currentUser, { photoURL: imageUrl });
+            console.log(photoImage);
+          }
+
+          if (imageUrl) {
+            userDoc = await createUserInfo('Users', data.user.uid, {
+              image: imageUrl,
+              username: values.username,
+              firstName: values.firstName,
+              lastName: values.lastName,
+              email:values.email,
+              bio: values.userBio,
+              verified:false,
+              subscribed:false,
+              followedSuggestions:true
+            });
             setLoading(false);
-            updateStateFunctions("Success", "success");
-            navigate("/signIn", { replace: true });
+            //console.log(userDoc)
+          }
+
+          if (!userDoc) {
+            setLoading(false);
+            updateStateFunctions('Success', 'success');
+            navigate('/signIn', { replace: true });
           }
         } catch (err) {
           console.log(err);
-          updateStateFunctions("An error occured", "error");
+          updateStateFunctions('An error occurred', 'error');
+          if (useruuid) {
+            await deleteUser(useruuid);
+            await deleteFile(imageUrl);
+          }
           setShow(true);
           setLoading(false);
         }
+
       };
       httReqHandler();
     },
@@ -139,13 +178,11 @@ const SignUp = () => {
                     name="profileImage"
                     type="file"
                     autoComplete="profileImage"
-                    value={formik.values.profileImage}
-                    onBlur={formik.handleBlur}
-                    required
+                    // onBlur={formik.handleBlur}
                     className="hidden w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                     onChange={(event) => {
                       // console.log(event.currentTarget.files[0]);
-                      formik.setFieldValue("image", event.target.files[0]);
+                      formik.setFieldValue("profileImage", event.target.files[0]);
                       setImagePreview(URL.createObjectURL(event.target.files[0]));
                     }}
                  />
@@ -175,7 +212,6 @@ const SignUp = () => {
                     value={formik.values.username}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.username && formik.touched.username ? (
@@ -201,7 +237,6 @@ const SignUp = () => {
                     value={formik.values.firstName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.firstName && formik.touched.firstName ? (
@@ -227,7 +262,6 @@ const SignUp = () => {
                     value={formik.values.lastName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.lastName && formik.touched.lastName ? (
@@ -253,7 +287,6 @@ const SignUp = () => {
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.email && formik.touched.email ? (
@@ -279,7 +312,6 @@ const SignUp = () => {
                     value={formik.values.userBio}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   {formik.errors.userBio && formik.touched.userBio ? (
@@ -307,7 +339,6 @@ const SignUp = () => {
                     value={formik.values.password}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   <div>
@@ -338,7 +369,6 @@ const SignUp = () => {
                     value={formik.values.confirmPassword}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#5E00D0] sm:text-sm sm:leading-6"
                   />
                   <div>
@@ -364,47 +394,47 @@ const SignUp = () => {
               </div>
             </form>
 
-            <div>
-              <div className="relative mt-10">
-                <div
-                  className="absolute inset-0 flex items-center"
-                  aria-hidden="true"
-                >
-                  <div className="w-full border-t border-gray-200" />
-                </div>
-                <div className="relative flex justify-center text-sm font-medium leading-6">
-                  <span className="bg-white px-6 text-gray-900">
-                    Or continue with
-                  </span>
-                </div>
-              </div>
+            {/*<div>*/}
+            {/*  <div className="relative mt-10">*/}
+            {/*    <div*/}
+            {/*      className="absolute inset-0 flex items-center"*/}
+            {/*      aria-hidden="true"*/}
+            {/*    >*/}
+            {/*      <div className="w-full border-t border-gray-200" />*/}
+            {/*    </div>*/}
+            {/*    <div className="relative flex justify-center text-sm font-medium leading-6">*/}
+            {/*      <span className="bg-white px-6 text-gray-900">*/}
+            {/*        Or continue with*/}
+            {/*      </span>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
 
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-white border px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "
-                >
-                  <FcGoogle className="text-xl" />
-                  <span className="text-sm font-semibold leading-6 text-black">
-                    Google
-                  </span>
-                </a>
+            {/*  <div className="mt-6 grid grid-cols-2 gap-4">*/}
+            {/*    <a*/}
+            {/*      href="#"*/}
+            {/*      className="flex w-full items-center justify-center gap-3 rounded-md bg-white border px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "*/}
+            {/*    >*/}
+            {/*      <FcGoogle className="text-xl" />*/}
+            {/*      <span className="text-sm font-semibold leading-6 text-black">*/}
+            {/*        Google*/}
+            {/*      </span>*/}
+            {/*    </a>*/}
 
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center gap-3 rounded-md bg-[#3b5998] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"
-                >
-                  <BiLogoFacebook className="text-xl" />
-                  <span className="text-sm font-semibold leading-6">
-                    Facebook
-                  </span>
-                </a>
-              </div>
-            </div>
+            {/*    <a*/}
+            {/*      href="#"*/}
+            {/*      className="flex w-full items-center justify-center gap-3 rounded-md bg-[#3b5998] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"*/}
+            {/*    >*/}
+            {/*      <BiLogoFacebook className="text-xl" />*/}
+            {/*      <span className="text-sm font-semibold leading-6">*/}
+            {/*        Facebook*/}
+            {/*      </span>*/}
+            {/*    </a>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{" "}
+            already a member ?{" "}
             <Link
               to={"/signIn"}
               className="font-semibold leading-6 text-[#5E00D0] hover:text-indigo-500"
