@@ -57,7 +57,6 @@ const SignIn = () => {
         try {
           await setPersistence(auth, browserSessionPersistence);
           const data = await signInWithEmailAndPassword(auth,values.email,values.password);
-          console.log(data.user.accessToken)
           if (data) {
             setLoading(false)
             updateStateFunctions('Success','success')
@@ -66,7 +65,7 @@ const SignIn = () => {
               new Date().getTime() + +remainingMilliseconds
             );
           
-            login(data.user.accessToken, expirationTime.toISOString());
+            login(data.user.accessToken, expirationTime.toISOString(),data.user.uid);
             navigate("/", { replace: true });
           }
           

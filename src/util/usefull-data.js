@@ -69,13 +69,13 @@ export const tiers = [
         name: 'Basic Tier ',
         id: 'basic-tier',
         href: '#',
-        price: { monthly: '$3.99', annually: '$144' },
+        price: { monthly: 'FREE', annually: '$144' },
         description: 'The essentials to provide your best work for clients.',
         features: ['Everything in the Free Tier.', 'Access to structured Learning Paths for guided learning.', 'Full access to the Coding Playground with all languages.', 'Access to coding challenges to test your skills.'],
         mostPopular: false,
     },
     {
-        name: 'Premium Tier ',
+        name: 'Pro',
         id: 'tier-premium',
         href: '#',
         price: { monthly: '$7.99', annually: '$288' },
@@ -87,20 +87,7 @@ export const tiers = [
         ],
         mostPopular: true,
     },
-    {
-        name: 'Pro Tier ',
-        id: 'tier-pro',
-        href: '#',
-        price: { monthly: '$12.99', annually: '$576' },
-        description: 'Dedicated support and infrastructure for your company.',
-        features: [
-            'Everything in the Premium Tier.',
-            'Access to premium paid courses covering advanced topics.',
-            'Live webinars and workshops with industry experts.',
-            '1-on-1 mentorship with experienced mentors for personalized guidance and support.',
-        ],
-        mostPopular: false,
-    },
+   
 ]
 export  const faqs = [
     {
