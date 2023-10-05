@@ -31,6 +31,7 @@ import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
 import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
 import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
 import CheckoutCart from "./pages/auth-section/CheckoutCart.jsx";
+import CheckoutPriceCart from "./pages/CheckoutPriceCart";
 import EbookReader from "./pages/auth-section/ebooks/EbookReader.jsx";
 
 
@@ -46,6 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path={'CheckoutPriceCart'} element={<CheckoutPriceCart/>}/>
         <Route path="faqs" element={<FAQs />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

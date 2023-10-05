@@ -95,7 +95,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link to={''}
+              <Link to={'/CheckoutPriceCart'}
                 href={tier.href}
                 aria-describedby={tier.id}
                 className={classNames(
