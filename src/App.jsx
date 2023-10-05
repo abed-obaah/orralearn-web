@@ -20,7 +20,6 @@ import Challenges from "./pages/auth-section/challenges/Challenges.jsx";
 import Settings from "./pages/auth-section/Settings.jsx";
 import Inbox from "./pages/auth-section/Inbox.jsx";
 import ChallengesDetails from "./pages/auth-section/challenges/ChallengesDetails.jsx";
-import Projects from "./pages/auth-section/Projects.jsx";
 import FrontEndEditor from "./components/FrontEndEditor.jsx";
 import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
 import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
@@ -70,7 +69,6 @@ function App() {
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
           <Route path={"inbox"} element={<Inbox />} />
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
-          <Route path={"projects"} element={<Projects />} />
           <Route path={"settings"} element={<Settings />} />
         </Route>
         <Route path={'ebooks'} element={<Ebooks/>}>

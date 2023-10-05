@@ -42,7 +42,6 @@ export  const navLinks =[
 
 export const navigation = [
     { name: 'Dashboard', path:"/", icon: AiOutlineHome },
-    { name: 'Projects', path:"/projects", icon: AiOutlineProject },
     { name: 'Courses', path:"courses", icon: CgFileDocument  },
     { name: 'Challenges', path:"challenges", icon: BiAward  },
     { name: 'Community', path:"community", icon: BiGroup },
