@@ -104,8 +104,7 @@ const EbooksDetails = () => {
                                     <span>{detail.price}</span>
                                 </div>
                                 <div className={'flex gap-2 items-center'}>
-                                    <Link to={'/checkoutCart'} className={' flex justify-center items-center rounded-[20px] w-32 text-semibold text-sm bg-[#634AFE] p-2 text-black'}>BUY NOW</Link>
-                                    <button className={'rounded-[20px] w-32 border-2 border-[#634AFE] text-semibold text-sm bg-white p-2 text-black'}>ADD TO CARD</button>
+                                    <Link to={`/pdfReader/${detail.id}`} className={' flex justify-center items-center rounded-[20px] w-32 text-semibold text-sm bg-[#634AFE] p-2 text-white'}>Read Now</Link>
                                 </div>
                             </div>
                         </div>

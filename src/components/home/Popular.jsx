@@ -39,6 +39,7 @@ const Popular = () => {
                     </div>
                 ))}
 
+
             </div>
             <div className={'flex justify-center'}>
                 <div className={' py-[10px] px-[16px] w-[220px] checkOutBorder flex justify-center items-center font-semibold text-[18px] rounded-[8px] '}>Explore All Programs</div>

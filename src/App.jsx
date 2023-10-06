@@ -31,6 +31,7 @@ import CoursePlayer from "./pages/auth-section/courses/CoursePlayer";
 import FlutterwavePay from "./components/FlutterwavePay";
 import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
 import CoursesLandingPage from "./pages/auth-section/courses/CoursesLandingPage.jsx";
+import AuthPricing from "./pages/AuthPricing.jsx";
 
 function App() {
   const { isLoggedIn } = useStateContext();
@@ -79,6 +80,7 @@ function App() {
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
           <Route path={"payment"} element={<FlutterwavePay />} />
           <Route path={"settings"} element={<Settings />} />
+          <Route path={'authPricing'} element={<AuthPricing/>}/>
         </Route>
         <Route path={"/ebooks"} element={<Ebooks />}>
           <Route index element={<EbookDashboard />} />

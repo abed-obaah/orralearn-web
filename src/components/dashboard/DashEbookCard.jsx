@@ -5,12 +5,12 @@ import {recommendedEbooks} from "../../util/usefull-data.js";
 
 const DashEbookCard= ({item}) => {
     return (
-        <div className={` w-full rounded-3xl bg-white   md:p-6 font-openSans flex flex-col md:flex-row  gap-4 `}>
-            <div className={`md:rounded-3xl w-full md:max-w-[200px] h-72 `}>
-                <img src={item.image} alt={item.title} className={'h-72 w-full object-fill'}/>
+        <div className={` w-full rounded-3xl bg-white   p-6 font-openSans flex flex-col   gap-4 `}>
+            <div className={`md:rounded-3xl w-full  h-72 `}>
+                <img src={item.image} alt={item.title} className={'h-64 w-full object-fill'}/>
             </div>
-            <div className={' flex flex-col justify-between p-6 md:px-0'}>
-                <div className={'flex flex-col gap-y-2'}>
+            <div className={' flex flex-col gap-y-4 justify-between '}>
+                <div className={'flex flex-col '}>
                     <h1 className={'text-[#5E00D0] text-[14px]'}>Programming</h1>
                     <p className={'font-semibold text-black text-opacity-80'}>{item.title}</p>
                 </div>
@@ -18,7 +18,7 @@ const DashEbookCard= ({item}) => {
                     <span className={'text-[#555555] text-opacity-40'}>{item.oldPrice}</span>
                     <span className={'text-black'}>{item.newPrice}</span>
                 </div>
-                <Link to={''} className={`${styles.buttonStyleTwo} w-32`}>Buy Now</Link>
+                <Link to={''} className={`${styles.buttonStyleTwo} w-full md:w-32`}>Start learning</Link>
             </div>
         </div>
     );

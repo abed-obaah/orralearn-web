@@ -36,7 +36,9 @@ const About = () => {
             >
                 {mentors.map((person) => (
                     <li key={person.name} className="rounded-2xl bg-white px-8 py-10 borderTwo">
-                        <img className="mx-auto h-16 w-16 rounded-full md:h-16 md:w-16" src={person.image} alt="" />
+                        <div className={'flex justify-center items-center'}>
+                          <img className="mx-auto h-16 w-16 rounded-full md:h-16 md:w-16" src={person.image} alt="" />
+                        </div>
                         <h3 className="mt-6 text-base leading-7 tracking-tight text-center font-[400]">{person.name}</h3>
                         <p className="text-sm leading-6 text-center text-[#5E00D0]">{person.title}</p>
                         <p className="text-sm leading-6 text-center text-[#555]">{person.subTitle}</p>

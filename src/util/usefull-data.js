@@ -27,8 +27,8 @@ import dash2 from '../assets/dash2.png'
 
 export const mentors =[
     {image:ato,name:"ATO Bradley",title:"Creator of Orralearn",subTitle:"Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",tweeter:"",linkedIn:""},
+    {image:imagePaul,name:" Nji Paul Kamdoum ",title:"Azathot111",subTitle:" Orralearn Tech lead, Full Stack Developer",skype:"",linkedIn:""},
     {image:lowe,name:"Florian Lowe",title:"GeekSaitama",subTitle:"Lead engineering teams at Figma, Pitch, and Protocol Labs.",tweeter:"",linkedIn:""},
-    {image:imagePaul,name:" Nji Paul Kamdoum ",title:"Azathot111",subTitle:"Full Stack Developer, Full stack developer at Orralearn Academy",skype:"",linkedIn:""},
     {image:avatar,name:"Marvin McKinney",title:"SteveStrange",subTitle:"Former frontend dev for Linear, Coinbase, and Postscript.",tweeter:"",linkedIn:""},
 ]
 export  const navLinks =[
@@ -156,9 +156,9 @@ export const upcomming=[
 ]
 
 export const otherSections = [
-    {img:image1,title:"Continue Learning",subTitle:"You haven’t enrolled in a course yet",text:"Accelerate your learning by starting a curated learning path that fits your interests.",button:"Explore learning paths"},
-    {img:image2,title:"Playgrounds",subTitle:"Boot a playground IDE",text:"Pick a playground to build a project or code collaboratively with your friends",button:"Explore Playgrounds"},
-    {img:image3,title:"Challenges",subTitle:"",text:"Our challenges section is your gateway to a world of hands-on experience.",button:"Explore Challenges"}
+    {img:image1,title:"Continue Learning",subTitle:"You haven’t enrolled in a course yet",text:"Accelerate your learning by starting a curated learning path that fits your interests.",button:"Explore learning paths",path:"learningPath"},
+    {img:image2,title:"Playgrounds",subTitle:"Boot a playground IDE",text:"Pick a playground to build a project or code collaboratively with your friends",button:"Explore Playgrounds",path:"codingPlayGround"},
+    {img:image3,title:"Challenges",subTitle:"",text:"Our challenges section is your gateway to a world of hands-on experience.",button:"Explore Challenges",path:"challenges"},
 ]
 
 export const courses = [
@@ -312,3 +312,67 @@ export const products = [
     },
     // More products...
 ]
+
+export const currencies = [
+    {
+        country: "United States",
+        currency: "USD",
+        symbol: "$",
+        flag: "https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png",
+        price: 9.99,
+        price2: 54.99,
+        price3: 99.99,
+    },
+    {
+        country: "Nigeria",
+        currency: "NGN",
+        symbol: "₦",
+        flag: "https://www.countryflags.io/NG/flat/64.png",
+        price: 10000,
+        price2: 55000,
+        price3: 100000,
+    },
+    {
+        country: "Ghana",
+        currency: "GHS",
+        symbol: "GH₵",
+        flag: "https://www.countryflags.io/GH/flat/64.png",
+        price: 117.99,
+        price2: 647.99,
+        price3: 1179.99,
+    },
+    {
+        country: "Kenya",
+        currency: "KES",
+        symbol: "KSh",
+        flag: "https://www.countryflags.io/KE/flat/64.png",
+        price: 1480,
+        price2: 8140,
+        price3: 14800,
+    },
+    {
+        country: "South Africa",
+        currency: "ZAR",
+        symbol: "R",
+        flag: "https://www.countryflags.io/ZA/flat/64.png",
+        price: 196,
+        price2: 1078,
+        price3: 1960,
+    },
+    {
+        country: "Cameroon",
+        currency: "XAF",
+        symbol: "FCFA",
+        flag: "https://www.countryflags.io/CM/flat/64.png",
+        price: 6500,
+        price2: 35750,
+        price3: 65000,
+    },
+];
+
+export const includedFeatures = [
+    "12+ coding courses",
+    "100+ coding challenges and projects",
+    "Access to GPT-4 AI powered mentor",
+    "Access to online IDEs",
+];
