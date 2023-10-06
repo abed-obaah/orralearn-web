@@ -5,7 +5,7 @@ import {MdArrowForwardIos} from "react-icons/md";
 
 const RecommendedChallenges = () => {
     return (
-        <div className={'flex flex-col gap-y-4 p-4 bg-white borderThree'}>
+        <div className={'flex flex-col  gap-y-4 p-4 bg-white borderThree'}>
             <div className={'flex items-center justify-between font-openSans'}>
                 <h1 className={`${styles.dashboardHeadingOne}`}>Recommended Challenges</h1>
                 <Link to={'/'} className={'text-[#07F] text-[13px] font-bold'}>See all</Link>
