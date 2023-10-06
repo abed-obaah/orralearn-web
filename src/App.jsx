@@ -24,8 +24,11 @@ import Inbox from "./pages/auth-section/Inbox.jsx";
 import LearningPaths from "./pages/auth-section/learning/LeaningPaths";
 import LearningPathsDetails from "./pages/auth-section/learning/LearningPathsDetails";
 import ChallengesDetails from "./pages/auth-section/challenges/ChallengesDetails.jsx";
+<<<<<<< HEAD
 import StartChallenge from "./pages/auth-section/challenges/StartChallenge";
 import Projects from "./pages/auth-section/Projects.jsx";
+=======
+>>>>>>> origin/test
 import FrontEndEditor from "./components/FrontEndEditor.jsx";
 import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
 import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";
@@ -33,6 +36,10 @@ import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
 import CheckoutCart from "./pages/auth-section/CheckoutCart.jsx";
 import CheckoutPriceCart from "./pages/CheckoutPriceCart";
 import EbookReader from "./pages/auth-section/ebooks/EbookReader.jsx";
+import CourseDetail from "./pages/auth-section/courses/courseDetail";
+import CoursePlayer from "./pages/auth-section/courses/CoursePlayer";
+import FlutterwavePay from "./components/FlutterwavePay";
+import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
 
 
 function App() {
@@ -43,7 +50,9 @@ function App() {
     <>
       {location.pathname !== "/notfound" &&
         location.pathname !== "/signUp" &&
-        location.pathname !== "/signIn" && <Navbar />}
+        location.pathname !== "/signIn" &&
+        location.pathname !== "/resetPassword" &&
+          <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
@@ -53,12 +62,16 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/payment" element={<FlutterwavePay />} />
+          <Route path="resetPassword" element={<ResetPasswordUsingEmail/>} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>
       {location.pathname !== "/notfound" &&
         location.pathname !== "/signUp" &&
-        location.pathname !== "/signIn" && <Footer />}
+        location.pathname !== "/signIn" &&
+          location.pathname !== "/resetPassword" &&
+          <Footer />}
     </>
   );
 
@@ -68,6 +81,7 @@ function App() {
         <Route to={"/"} element={<AuthLayout />}>
           <Route index element={<Dashboard />} />
           <Route path={"courses"} element={<Courses />} />
+          <Route path={"courseDetail"} element={<CourseDetail />} />
           <Route path={"Challenges"} element={<Challenges />} />
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
           <Route path="/Challenges/:courseId/:itemId" element={<StartChallenge/>} />
@@ -80,15 +94,19 @@ function App() {
         
           {/* <Route path={"QA"} element={<QA/>}/> */}
           <Route path={"projects"} element={<Projects />} />
+          <Route path={"payment"} element={<FlutterwavePay />} />
           <Route path={"settings"} element={<Settings />} />
         </Route>
-          <Route path={'/ebooks'} element={<Ebooks/>}>
-              <Route index element={<EbookDashboard/>}/>
-              <Route path={':id'} element={<EbooksDetails/>}/>
-          </Route>
-          <Route path={'pdfReader/:id'} element={<EbookReader/>}/>
-          <Route path={'checkoutCart'} element={<CheckoutCart/>}/>
+        <Route path={"/ebooks"} element={<Ebooks />}>
+          <Route index element={<EbookDashboard />} />
+          <Route path={":id"} element={<EbooksDetails />} />
+        </Route>
+        <Route path={"pdfReader/:id"} element={<EbookReader />} />
+        <Route path={"checkoutCart"} element={<CheckoutCart />} />
         <Route path={"editor"} element={<FrontEndEditor />} />
+        <Route path={"coursePlayer"} element={<CoursePlayer />} />
+        <Route path={"payment"} element={<FlutterwavePay />} />
+        <Route path={"pricing"} element={<Pricing />} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>

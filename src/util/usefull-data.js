@@ -2,7 +2,7 @@
 import {AiOutlineHome,AiOutlineInbox, AiOutlineProject} from 'react-icons/ai'
 import {CgFileDocument} from 'react-icons/cg'
 import {BsBook} from 'react-icons/bs'
-import {BiGroup,BiCodeAlt,BiAward,BiHelpCircle} from 'react-icons/bi'
+import {BiGroup, BiCodeAlt, BiAward, BiHelpCircle, BiBookAlt} from 'react-icons/bi'
 
 import image1 from '../assets/image.png'
 import image2 from '../assets/image2.png'
@@ -28,6 +28,8 @@ import frames from '../assets/frames-iphone-removebg-preview.png';
 import anotherFrames from '../assets/appstoreFrame-removebg-preview.png';
 
 
+import dash1 from '../assets/dash1.png'
+import dash2 from '../assets/dash2.png'
 
 export const mentors =[
     {image:ato,name:"ATO Bradley",title:"Creator of Orralearn",subTitle:"Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",tweeter:"",linkedIn:""},
@@ -46,16 +48,23 @@ export  const navLinks =[
 
 export const navigation = [
     { name: 'Dashboard', path:"/", icon: AiOutlineHome },
-    { name: 'Projects', path:"/projects", icon: AiOutlineProject },
     { name: 'Courses', path:"courses", icon: CgFileDocument  },
     { name: 'Challenges', path:"challenges", icon: BiAward  },
     { name: 'Community', path:"community", icon: BiGroup },
     { name: 'Inbox', path:"inbox", icon: AiOutlineInbox  },
     { name: 'Learning Paths', path:"/learningPaths", icon: BsBook, },
-    { name: 'Ebooks', path:"/ebooks", icon: BsBook, },
+    { name: 'Ebooks', path:"/ebooks", icon: BiBookAlt, },
     { name: 'Coding Playground', path:"codingPlayGround", icon: BiCodeAlt  },
     { name: 'Question & Answer', path:"question&Answer", icon: BiHelpCircle  },
   ]
+
+export const authLinks =[
+    {title:"About Us",path:"/about"},
+    {title:"Contact Us",path:"/contact"},
+    {title:"FAQs",path:"/faqs"},
+    {title:"Privacy Policy",path:"/privacyPolicy"},
+    {title:"Terms & Condition",path:"/termsAndConditions"},
+]
   export const teams = [
     { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
     { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
@@ -75,13 +84,13 @@ export const tiers = [
         name: 'Basic Tier ',
         id: 'basic-tier',
         href: '#',
-        price: { monthly: '$3.99', annually: '$144' },
+        price: { monthly: 'FREE', annually: '$144' },
         description: 'The essentials to provide your best work for clients.',
         features: ['Everything in the Free Tier.', 'Access to structured Learning Paths for guided learning.', 'Full access to the Coding Playground with all languages.', 'Access to coding challenges to test your skills.'],
         mostPopular: false,
     },
     {
-        name: 'Premium Tier ',
+        name: 'Pro',
         id: 'tier-premium',
         href: '#',
         price: { monthly: '$7.99', annually: '$288' },
@@ -93,20 +102,7 @@ export const tiers = [
         ],
         mostPopular: true,
     },
-    {
-        name: 'Pro Tier ',
-        id: 'tier-pro',
-        href: '#',
-        price: { monthly: '$12.99', annually: '$576' },
-        description: 'Dedicated support and infrastructure for your company.',
-        features: [
-            'Everything in the Premium Tier.',
-            'Access to premium paid courses covering advanced topics.',
-            'Live webinars and workshops with industry experts.',
-            '1-on-1 mentorship with experienced mentors for personalized guidance and support.',
-        ],
-        mostPopular: false,
-    },
+   
 ]
 export  const faqs = [
     {
@@ -152,8 +148,8 @@ export const testimonials = [
 
 
 export  const recommendedEbooks =[
-    {title:"Learn Web Development with React",oldPrice:"$8.50" ,newPrice:"$5.50",bgColr:"bg-[#333738]",ctnH:"Learning Path",ctnText:"Learn Web Development with React",textColor:"text-[#E47131]"},
-    {title:"Understanding React and Node.Js",oldPrice:"$3.50" ,newPrice:"$4.50",bgColr:"bg-[#462D7E]",ctnH:"Learning Path",ctnText:"Understanding React and Node.js",textColor:"text-[#D4C8C1] "},
+    {title:"Understanding React and Node.Js",oldPrice:"$3.50" ,newPrice:"$4.50",bgColr:"bg-[#462D7E]",ctnH:"Learning Path",ctnText:"Understanding React and Node.js",textColor:"text-[#D4C8C1] " ,image: dash2},
+    {title:"Learn Web Development with React",oldPrice:"$8.50" ,newPrice:"$5.50",bgColr:"bg-[#333738]",ctnH:"Learning Path",ctnText:"Learn Web Development with React",textColor:"text-[#E47131]",image: dash1},
 ]
 
 

@@ -12,8 +12,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-
-
 const Settings = () => {
   const [activeTab, setActiveTab] = useState('Account');
   const [enabled, setEnabled] = useState(false)

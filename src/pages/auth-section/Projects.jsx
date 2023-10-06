@@ -2,7 +2,10 @@ import React from 'react'
 import {AiOutlinePlus, AiOutlineSave} from 'react-icons/ai'
 import {CiBookmark} from 'react-icons/ci'
 import image from '../../assets/learnImg.png'
-import profile from '../../assets/Avatar.png'
+import image2 from '../../assets/js2.png'
+
+import profile from '../../assets/ato.png'
+import profile2 from '../../assets/Avatar.png'
 import { NavLink } from 'react-router-dom';
 
 
@@ -15,44 +18,19 @@ const Projects = () => {
           userProfilePic: profile,
           userName: "Tony-Bradley",
         },
-        {
-            thumbnail: image,
-            name: "Navbar in HTML",
-            userProfilePic: profile,
-            userName: "Tony-Bradley",
-          }, {
-            thumbnail: image,
-            name: "Navbar in HTML",
-            userProfilePic: profile,
-            userName: "Tony-Bradley",
-          }, {
-            thumbnail: image,
-            name: "Navbar in HTML",
-            userProfilePic: profile,
-            userName: "Tony-Bradley",
-          }, {
-            thumbnail: image,
-            name: "Navbar in HTML",
-            userProfilePic: profile,
-            userName: "Tony-Bradley",
-          }, {
-            thumbnail: image,
-            name: "Navbar in HTML",
-            userProfilePic: profile,
-            userName: "Tony-Bradley",
-          },
+       
       ];
       
       const communityProjects = [
         {
             thumbnail: image,
-            name: "Navbar in HTML",
-            userProfilePic: profile,
+            name: "Random Quote Generator",
+            userProfilePic: profile2,
             userName: "Tony-Bradley",
           },
           {
-            thumbnail: image,
-            name: "Navbar in HTML",
+            thumbnail: image2,
+            name: "JavaScript Project",
             userProfilePic: profile,
             userName: "Tony-Bradley",
           },
