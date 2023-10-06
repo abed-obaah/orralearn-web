@@ -19,7 +19,7 @@ function classNames(...classes) {
 const AuthResNav = ({setSidebarOpen}) => {
     const {logout,userInfo} = useStateContext()
     const {pathname} = useLocation();
-    const allowedPaths = ['/ebooks','/ebooks/*', '/checkoutCart', '/path3'];
+    const allowedPaths = ['/ebooks','/ebooks/*', '/checkoutCart', '/pdfReader/*','/coursePlayer'];
     let shouldShowComponent = false;
 
     for (const allowedPath of allowedPaths) {

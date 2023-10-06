@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
 import ebook from '../../../assets/html ebook.pdf'
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import ReusableNavbar from "../../../layout/navbar/auth-navs/ReusableNavbar.jsx";
+import AuthResNav from "../../../layout/navbar/auth-navs/AuthResNav.jsx";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const EbookReader = () => {
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
+    // const [numPages, setNumPages] = useState(null);
+    // const [pageNumber, setPageNumber] = useState(1);
+    //
+    // const onDocumentLoadSuccess = ({ numPages }) => {
+    //     setNumPages(numPages);
+    // };
+    //
+    // const changePage = (offset) => {
+    //     setPageNumber((prevPageNumber) => prevPageNumber + offset);
+    // };
 
-    const onDocumentLoadSuccess = ({ numPages }) => {
-        setNumPages(numPages);
-    };
-
-    const changePage = (offset) => {
-        setPageNumber((prevPageNumber) => prevPageNumber + offset);
-    };
-
-    const previousPage = () => {
-        changePage(-1);
-    };
-
-    const nextPage = () => {
-        changePage(1);
-    };
+    // const previousPage = () => {
+    //     changePage(-1);
+    // };
+    //
+    // const nextPage = () => {
+    //     changePage(1);
+    // };
     return (
 
         <div>
-            <ReusableNavbar/>
+            <AuthResNav/>
             <iframe src={ebook} width="100%" height="1000px" />
         </div>
         // <div>

@@ -8,6 +8,7 @@ import { MdCheckCircle } from "react-icons/md";
 import { LuCircle } from "react-icons/lu";
 import { AiOutlineVideoCamera, AiOutlineFileText } from "react-icons/ai";
 import "./CoursePlayer.css";
+import AuthResNav from "../../../layout/navbar/auth-navs/AuthResNav.jsx";
 
 
   const course = {
@@ -133,6 +134,8 @@ const CoursePlayer = () => {
   };
 
   return (
+      <>
+        <AuthResNav/>
     <div className="flex bg-white">
       {/* Sidebar with Logo */}
       <div
@@ -140,13 +143,13 @@ const CoursePlayer = () => {
           sidebarOpen ? "block" : "hidden"
         } bg-white h-screen overflow-y-auto`}
       >
-        <div className="p-4 border-b flex items-center justify-between">
-          <NavLink
-            to="/codingPlayGround"
-            className="flex items-center justify-center gap-6"
-          >
-            <img src={logo} alt="Orralearn Logo" className="h-8 w-auto" />
-          </NavLink>
+        <div className="p-4 border-b flex items-center justify-end">
+          {/*<NavLink*/}
+          {/*  to="/codingPlayGround"*/}
+          {/*  className="flex items-center justify-center gap-6"*/}
+          {/*>*/}
+          {/*  <img src={logo} alt="Orralearn Logo" className="h-8 w-auto" />*/}
+          {/*</NavLink>*/}
           <button onClick={() => setSidebarOpen(!sidebarOpen)}>
             <MdCloseFullscreen className="h-8 w-auto text-gray-500 hover:text-gray-700" />
           </button>
@@ -337,6 +340,7 @@ const CoursePlayer = () => {
         </div>
       </div>
     </div>
+      </>
   );
 };
 

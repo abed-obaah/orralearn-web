@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
-import { Switch } from '@headlessui/react'
+
+
+import {Outlet} from "react-router-dom";
 
 const tabs = [
   { name: 'Account', href: '#', current: true },
@@ -13,17 +13,11 @@ function classNames(...classes) {
 }
 
 const Settings = () => {
-  const [activeTab, setActiveTab] = useState('Account');
-  const [enabled, setEnabled] = useState(false)
-  const [update, setUpdate] = useState(false)
 
-  const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
-  };
 
   return (
     <div>
-      <div className="border-b border-gray-200 max-w-screen-2xl">
+      <div className="border-b border-gray-200 ">
         <h3 className="text-base font-semibold leading-6 text-gray-900 text-xl mb-2">
           Settings
         </h3>
@@ -50,6 +44,7 @@ const Settings = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <ul
         role="list"
@@ -243,6 +238,11 @@ const Settings = () => {
          
         )}
       </ul>
+=======
+      <div className={'mt-10'}>
+        <Outlet/>
+      </div>
+>>>>>>> origin/orralearn-paul-version
     </div>
   );
 };

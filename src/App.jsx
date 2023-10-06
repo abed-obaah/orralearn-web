@@ -37,6 +37,9 @@ import CourseDetail from "./pages/auth-section/courses/courseDetail";
 import CoursePlayer from "./pages/auth-section/courses/CoursePlayer";
 import FlutterwavePay from "./components/FlutterwavePay";
 import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
+import CoursesLandingPage from "./pages/auth-section/courses/CoursesLandingPage.jsx";
+import AuthPricing from "./pages/AuthPricing.jsx";
+import Account from "./components/pricing/Account.jsx";
 
 
 function App() {
@@ -75,10 +78,12 @@ function App() {
   if (isLoggedIn) {
     content = (
       <Routes>
-        <Route to={"/"} element={<AuthLayout />}>
+        <Route path={"/"} element={<AuthLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path={"courses"} element={<Courses />} />
-          <Route path={"courseDetail"} element={<CourseDetail />} />
+            <Route path={"courses/*"} element={<Courses/>} >
+                <Route index element={<CoursesLandingPage />}/>
+                <Route path={"courseDetail"} element={<CourseDetail/>} />
+            </Route>
           <Route path={"Challenges"} element={<Challenges />} />
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
           <Route path="/Challenges/:courseId/:itemId" element={<StartChallenge/>} />
@@ -92,7 +97,10 @@ function App() {
           {/* <Route path={"QA"} element={<QA/>}/> */}
           <Route path={"projects"} element={<Projects />} />
           <Route path={"payment"} element={<FlutterwavePay />} />
-          <Route path={"settings"} element={<Settings />} />
+          <Route path={'authPricing'} element={<AuthPricing/>}/>
+            <Route path={"settings"} element={<Settings />} >
+                <Route index element={<Account/>}/>
+            </Route>
         </Route>
         <Route path={"/ebooks"} element={<Ebooks />}>
           <Route index element={<EbookDashboard />} />
