@@ -8,6 +8,8 @@ import Contact from "./pages/Contact";
 import Navbar from "./layout/navbar/Navbar";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import Footer from "./layout/footer/Footer";
 import Notfound from "./pages/Notfound";
 import AuthLayout from "./layout/auth-layout/AuthLayout";
@@ -62,6 +64,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/privacy" element={<Privacy/>} />
+        <Route path="/terms" element={<Terms/>} />
         <Route path="/payment" element={<FlutterwavePay />} />
           <Route path="resetPassword" element={<ResetPasswordUsingEmail/>} />
         <Route path="notfound" element={<Notfound />} />

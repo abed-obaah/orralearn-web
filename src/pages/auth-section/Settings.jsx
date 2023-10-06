@@ -44,7 +44,6 @@ const Settings = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
 
       <ul
         role="list"
@@ -238,11 +237,9 @@ const Settings = () => {
          
         )}
       </ul>
-=======
       <div className={'mt-10'}>
         <Outlet/>
       </div>
->>>>>>> origin/orralearn-paul-version
     </div>
   );
 };
