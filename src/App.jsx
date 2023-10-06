@@ -24,11 +24,8 @@ import Inbox from "./pages/auth-section/Inbox.jsx";
 import LearningPaths from "./pages/auth-section/learning/LeaningPaths";
 import LearningPathsDetails from "./pages/auth-section/learning/LearningPathsDetails";
 import ChallengesDetails from "./pages/auth-section/challenges/ChallengesDetails.jsx";
-<<<<<<< HEAD
 import StartChallenge from "./pages/auth-section/challenges/StartChallenge";
 import Projects from "./pages/auth-section/Projects.jsx";
-=======
->>>>>>> origin/test
 import FrontEndEditor from "./components/FrontEndEditor.jsx";
 import Ebooks from "./pages/auth-section/ebooks/Ebooks.jsx";
 import EbookDashboard from "./pages/auth-section/ebooks/EbookDashboard.jsx";

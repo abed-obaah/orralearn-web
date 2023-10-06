@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.1",
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@emailjs/browser": "^3.11.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@mui/material": "^5.14.12",
@@ -44,8 +44,8 @@
     "react-rating-stars-component": "^2.2.0",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^6.15.0",
-    "tailgrids": "^2.0.3"
     "react-split-pane": "^0.1.92",
+    "tailgrids": "^2.0.3",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

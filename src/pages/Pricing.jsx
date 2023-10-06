@@ -321,7 +321,7 @@ export default function Pricing() {
                     <div className="text-sm  leading-6 tracking-wide text-gray-600">
                       {plans.map((plan) =>
                         plan.id === selectedPlan.id ? (
-                          <div className="flex items-center justify-center gap-x-2">
+                          <div key="" className="flex items-center justify-center gap-x-2">
                             <span className="text-smleading-6 tracking-wide text-gray-600">
                               {plan.name}
                             </span>
@@ -374,24 +374,24 @@ export default function Pricing() {
               </div>
               {/*<p className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600", "mt-4 text-sm leading-6 ")}>{tier.description}</p>*/}
               <p className="mt-12 flex items-baseline gap-x-1">
-                <span className={classNames(tier.mostPopular? "text-white" : "text-gray-900","text-5xl font-bold tracking-tight")}>{tier.price[frequency.value]}</span>
-                <span className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600","text-sm font-semibold leading-6")}>{frequency.priceSuffix}</span>
+                <span className={classNames(tiers.mostPopular? "text-white" : "text-gray-900","text-5xl font-bold tracking-tight")}>{tiers.price[frequency.value]}</span>
+                <span className={classNames(tiers.mostPopular ? "text-gray-300" : "text-gray-600","text-sm font-semibold leading-6")}>{frequency.priceSuffix}</span>
               </p>
               {/* eslint-disable-next-line react/no-unescaped-entities */}
-              <p className={classNames(tier.mostPopular? "text-white" : "text-black", 'mt-6 font-bold')}>What's included</p>
-              <ul role="list" className={classNames(tier.mostPopular? "text-gray-300" : "text-gray-600", "mt-4 space-y-3 text-sm leading-6  min-h-[240px] xl:mt-10")}>
-                {tier.features.map((feature) => (
+              <p className={classNames(tiers.mostPopular? "text-white" : "text-black", 'mt-6 font-bold')}>What's included</p>
+              <ul role="list" className={classNames(tiers.mostPopular? "text-gray-300" : "text-gray-600", "mt-4 space-y-3 text-sm leading-6  min-h-[240px] xl:mt-10")}>
+                {tiers.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
-                    <CheckIcon className={classNames(tier.mostPopular ? "text-[#5300CA] bg-white rounded-full": "text-white bg-[#5300CA] rounded-full" ,"h-6 flex-none justify-center font-sans")}aria-hidden="true" />
+                    <CheckIcon className={classNames(tiers.mostPopular ? "text-[#5300CA] bg-white rounded-full": "text-white bg-[#5300CA] rounded-full" ,"h-6 flex-none justify-center font-sans")}aria-hidden="true" />
                     {feature}
                   </li>
                 ))}
               </ul>
               <Link to={'/CheckoutPriceCart'}
-                href={tier.href}
-                aria-describedby={tier.id}
+                href={tiers.href}
+                aria-describedby={tiers.id}
                 className={classNames(
-                  tier.mostPopular
+                  tiers.mostPopular
                     ? 'bg-white text-[#5300CA] shadow-sm hover:bg-[#5300CA] hover:text-white hover:border-white border '
                     : 'text-white bg-[#5300CA] ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 border-[#5300CA] hover:text-[#5300CA] hover:bg-white ',
                   'mt-6 block rounded-[30px] py-4 px-3 text-center text-sm font-semibold leading-6  transition ease-out  duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
