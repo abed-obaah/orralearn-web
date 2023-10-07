@@ -70,7 +70,7 @@ const AuthResNav = ({setSidebarOpen}) => {
                             <span className="sr-only">Open user menu</span>
                             <img
                                 className="h-8 w-8 rounded-full bg-gray-50"
-                                src={userInfo.profileImage|| avatar}
+                                src={userInfo.image|| avatar}
                                 alt=""
                             />
                             <span className="hidden lg:flex lg:items-center">
@@ -78,7 +78,7 @@ const AuthResNav = ({setSidebarOpen}) => {
                           className="ml-4 text-sm font-semibold leading-6 text-gray-900"
                           aria-hidden="true"
                       >
-                        {userInfo.userName}
+                        {userInfo.username}
                       </span>
                       <ChevronDownIcon
                           className="ml-2 h-5 w-5 text-gray-400"

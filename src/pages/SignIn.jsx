@@ -46,56 +46,56 @@ const SignIn = () => {
     setShowPassword(!showPassword)
   }
 
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validate,
-    enableReinitialize: true,
-    onSubmit: (values) => {
-        setLoading(true)
-      const httReqHandler = async () => {
-        try {
-          await setPersistence(auth, browserSessionPersistence);
-          const data = await signInWithEmailAndPassword(auth,values.email,values.password);
-console.log(data)
-          if (data) {
-            setLoading(false)
-            const remainingMilliseconds = 60 * 60 * 1000;
-            const expirationTime = new Date(
-              new Date().getTime() + +remainingMilliseconds
-            );
+ const formik = useFormik({
+   initialValues: {
+     email: "",
+     password: "",
+   },
+   validate,
+   enableReinitialize: true,
+   onSubmit: (values) => {
+     setLoading(true);
+     const httReqHandler = async () => {
+       try {
+         await setPersistence(auth, browserSessionPersistence);
+         const data = await signInWithEmailAndPassword(
+           auth,
+           values.email,
+           values.password
+         );
 
-            const userFireStoreData = await  getUserInfo('Users',data.user.uid)
-            console.log(data)
-         const  retrievedUserInfo ={
-              email:userFireStoreData._document.data.value.mapValue.fields.email.stringValue,
-             userName:userFireStoreData._document.data.value.mapValue.fields.username.stringValue,
-           firstName:userFireStoreData._document.data.value.mapValue.fields.firstName.stringValue,
-           lastName:userFireStoreData._document.data.value.mapValue.fields.lastName.stringValue,
-           profileImage:userFireStoreData._document.data.value.mapValue.fields.image.stringValue,
-           bio:userFireStoreData._document.data.value.mapValue.fields.bio.stringValue,
-           subscribed:userFireStoreData._document.data.value.mapValue.fields.subscribed.stringValue,
-           followedSuggestions:userFireStoreData._document.data.value.mapValue.fields.followedSuggestions.stringValue,
-           verified:userFireStoreData._document.data.value.mapValue.fields.verified.stringValue,
+         if (data) {
+           setLoading(false);
+           const remainingMilliseconds = 60 * 60 * 1000;
+           const expirationTime = new Date(
+             new Date().getTime() + +remainingMilliseconds
+           );
+
+           // Retrieve user info from Firestore
+           const userFireStoreData = await getUserInfo("Users", data.user.uid);
+           console.log(userFireStoreData.data());
+
+           if (userFireStoreData) {
+             // Use the fetched information from Firestore in the login function instead of data.user
+             login(
+               data.user.accessToken,
+               expirationTime.toISOString(),
+               userFireStoreData.data()
+             );
+             navigate("/", { replace: true });
+           }
          }
+       } catch (err) {
+         console.log(err);
+         updateStateFunctions("An error occured", "error");
+         setShow(true);
+         setLoading(false);
+       }
+     };
+     httReqHandler();
+   },
+ });
 
-            login(data.user.accessToken, expirationTime.toISOString(),retrievedUserInfo);
-            navigate("/", { replace: true });
-          }
-          
-        } catch (err) {
-          console.log(err)
-          updateStateFunctions('An error occured','error')
-          setShow(true)
-          setLoading(false)
-        }
-      };
-      httReqHandler()
-
-    },
-  });
   return (
     <>
     <Notification show={show} setShow={setShow} title={title} type={type}/>

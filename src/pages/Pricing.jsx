@@ -13,6 +13,9 @@ import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3";
 import axios from "axios";
 import { useStateContext } from "../context/contextProvider.jsx";
 
+import { getCheckoutUrl } from "../components/StripePayments.jsx";
+import app from "../middleware/firebase.js";
+
 const includedFeatures = [
   "12+ coding courses",
   "100+ coding challenges and projects",
@@ -25,6 +28,9 @@ function classNames(...classes) {
 }
 
 export default function Pricing() {
+ const [loading, setLoading] = useState(false);
+  const {subscription} = useStateContext();
+  
   const [currency, setCurrency] = useState({
     country: "United States",
     currency: "USD",
@@ -34,9 +40,9 @@ export default function Pricing() {
     price2: 54.99,
     price3: 99.99,
   });
-    const [price, setPrice] = useState(currency.price);
+  const [price, setPrice] = useState(currency.price);
 
-    const { user } = useStateContext();
+  const { userInfo } = useStateContext();
 
   const handleCurrencyChange = (e) => {
     const selectedCountry = e.target.value;
@@ -61,8 +67,6 @@ export default function Pricing() {
       }
     }
   };
-
-
 
   const currencies = [
     {
@@ -141,15 +145,15 @@ export default function Pricing() {
   const [selectedPlan, setSelectedPlan] = useState(plans[0]);
 
   const config = {
-    public_key: "FLWPUBK-9bc844e59de11de0d76a9da6ea191410-X",
+    public_key: import.meta.env.VITE_FLUTTERWAVE_PUBLIC_KEY,
     tx_ref: Date.now(),
     amount: price,
     currency: currency.currency,
     payment_options: "card,mobilemoney,ussd",
     customer: {
-      email: "tonybradpit@gmail.com",
-      phone_number: "+237654012553",
-      name: "Tony Bradley",
+      email: userInfo.email,
+      phone_number: userInfo.phone,
+      name: userInfo.username,
     },
     customizations: {
       title: "Orralearn",
@@ -168,27 +172,36 @@ export default function Pricing() {
     onClose: () => {},
   };
 
-   useEffect(() => {
-     // Fetch user's country based on their IP address
-     const fetchCountry = async () => {
-       try {
-         const response = await axios.get("https://ipapi.co/json/");
-         const country = response.data.country_name;
-         const selectedCurrency = currencies.find(
-           (currencyOption) => currencyOption.country === country
-         );
+  useEffect(() => {
+    // Fetch user's country based on their IP address
+    const fetchCountry = async () => {
+      try {
+        const response = await axios.get("https://ipapi.co/json/");
+        const country = response.data.country_name;
+        const selectedCurrency = currencies.find(
+          (currencyOption) => currencyOption.country === country
+        );
 
-         if (selectedCurrency) {
-           setCurrency(selectedCurrency);
-           // Your code to set the price based on the selectedCurrency
-         }
-       } catch (error) {
-         console.error("An error occurred while fetching the country:", error);
-       }
-     };
+        if (selectedCurrency) {
+          setCurrency(selectedCurrency);
+          // Your code to set the price based on the selectedCurrency
+        }
+      } catch (error) {
+        console.error("An error occurred while fetching the country:", error);
+      }
+    };
 
-     fetchCountry();
-   }, []);
+    fetchCountry();
+  }, []);
+
+   const priceId1 = "price_1NxzutENS5E2eJhNiuJL9Vq5";
+   const priceId2 = "price_1Nxzu1ENS5E2eJhN7AIHWLXm";
+   const priceId3 = "price_1Nxzs5ENS5E2eJhN7HazRKuR";
+
+   const priceIdTest1 = "price_1NxqajENS5E2eJhN7UCG4RRu";
+   const priceIdTest2 = "price_1NxqJ8ENS5E2eJhN9058SZzo";
+   const priceIdTest3 = "price_1NxqHUENS5E2eJhNdJHJiwuc";
+
 
   useEffect(() => {
     const updatedPlan = plans.find((p) => p.id === activeTab);
@@ -205,7 +218,35 @@ export default function Pricing() {
       setSelectedPlan({ ...updatedPlan, price: newPrice });
     }
   }, [activeTab, currency]);
+  const [checkoutUrl, setCheckoutUrl] = useState("");
+  useEffect(() => {
+    console.log(userInfo);
+    const PurchaseSubsription = async () => {
+      setLoading(true);
+      let selectedPriceId;
+      if (activeTab === "annual") {
+        selectedPriceId = priceIdTest1;
+      } else if (activeTab === "semiAnnual") {
+        selectedPriceId = priceIdTest2;
+      } else {
+        // default to monthly
+        selectedPriceId = priceIdTest3;
+      }
 
+      console.log(selectedPriceId);
+
+      const checkoutUrl = await getCheckoutUrl(
+        app,
+        selectedPriceId,
+        userInfo.id
+      );
+      setCheckoutUrl(checkoutUrl);
+      console.log(checkoutUrl);
+
+      setLoading(false);
+    };
+    PurchaseSubsription();
+  }, [activeTab]);
 
   return (
     <>
@@ -330,40 +371,39 @@ export default function Pricing() {
                       )}
                     </div>
 
-
-                    {
-                      user === null ? ( 
-                         currency.currency === "USD" ? (
-                      <a
-                        href={
-                          activeTab === "annual"
-                            ? "https://buy.stripe.com/test_14kaF81hA36G8Yo4gh"
-                            : activeTab === "semiAnnual"
-                            ? "https://buy.stripe.com/test_dR6aF89O66iS5Mc28a"
-                            : "https://buy.stripe.com/test_cN23cGbWefTseiIcMM"
-                        }
-                        className="mt-4 block w-full rounded-md bg-[#550CC8] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        aria-label={`Subscribe for ${activeTab} plan`}
-                      >
-                        Subscribe
-                      </a>
+                    {userInfo ? (
+                      currency.currency === "USD" ? (
+                        loading ? (
+                          <span className="mt-4 block w-full rounded-md bg-[#540cc878] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            Loading...
+                          </span>
+                        ) : (
+                          <a
+                            href={checkoutUrl}
+                            className="mt-4 block w-full rounded-md bg-[#550CC8] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            aria-label={`Subscribe for ${activeTab} plan`}
+                          >
+                            Subscribe
+                          </a>
+                        )
+                      ) : (
+                        <div>
+                          <FlutterWaveButton
+                            className="mt-4 block w-full rounded-md bg-[#550CC8] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            {...fwConfig}
+                          />
+                        </div>
+                      )
                     ) : (
-                      <div>
-                        <FlutterWaveButton
-                          className="mt-4 block w-full rounded-md bg-[#550CC8] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                          {...fwConfig}
-                        />
-                      </div>
-                    )) :
-                    (
                       <>
-                      <NavLink to="/signUp" className="mt-4 block w-full rounded-md bg-[#550CC8] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Subscribe
-                      </NavLink>
+                        <NavLink
+                          to="/signUp"
+                          className="mt-4 block w-full rounded-md bg-[#550CC8] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                          Subscribe
+                        </NavLink>
                       </>
-                    )
-                    }
-                   
+                    )}
 
                     <p className="mt-6 text-xs leading-5 text-gray-600">
                       Invoices and receipts available for easy company
