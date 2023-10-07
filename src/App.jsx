@@ -32,7 +32,7 @@ import FlutterwavePay from "./components/FlutterwavePay";
 import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
 import CoursesLandingPage from "./pages/auth-section/courses/CoursesLandingPage.jsx";
 import AuthPricing from "./pages/AuthPricing.jsx";
-import Account from "./components/pricing/Account.jsx";
+import Account from "./components/settings/Account.jsx";
 
 function App() {
   const { isLoggedIn } = useStateContext();

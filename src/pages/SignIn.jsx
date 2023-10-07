@@ -69,19 +69,8 @@ console.log(data)
 
             const userFireStoreData = await  getUserInfo('Users',data.user.uid)
             console.log(data)
-         const  retrievedUserInfo ={
-              email:userFireStoreData._document.data.value.mapValue.fields.email.stringValue,
-             userName:userFireStoreData._document.data.value.mapValue.fields.username.stringValue,
-           firstName:userFireStoreData._document.data.value.mapValue.fields.firstName.stringValue,
-           lastName:userFireStoreData._document.data.value.mapValue.fields.lastName.stringValue,
-           profileImage:userFireStoreData._document.data.value.mapValue.fields.image.stringValue,
-           bio:userFireStoreData._document.data.value.mapValue.fields.bio.stringValue,
-           subscribed:userFireStoreData._document.data.value.mapValue.fields.subscribed.stringValue,
-           followedSuggestions:userFireStoreData._document.data.value.mapValue.fields.followedSuggestions.stringValue,
-           verified:userFireStoreData._document.data.value.mapValue.fields.verified.stringValue,
-         }
 
-            login(data.user.accessToken, expirationTime.toISOString(),retrievedUserInfo);
+            login(data.user.accessToken, expirationTime.toISOString(),userFireStoreData.data());
             navigate("/", { replace: true });
           }
           
@@ -93,7 +82,6 @@ console.log(data)
         }
       };
       httReqHandler()
-
     },
   });
   return (

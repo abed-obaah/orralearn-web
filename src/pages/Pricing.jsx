@@ -1,6 +1,6 @@
-import PricingSection from "../components/PricingSection.jsx";
+import PricingSection from "../components/pricing/PricingSection.jsx";
 import CallToAction from "../components/shared/CallToAction.jsx";
-import FaqComponent from "../components/FaqComponent.jsx";
+import FaqComponent from "../components/pricing/FaqComponent.jsx";
 
 import { styles } from "../util/genral-style.js";
 

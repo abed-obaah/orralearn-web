@@ -1,5 +1,5 @@
-import {faqs} from "../util/usefull-data.js";
-import { styles } from "../util/genral-style.js";
+import {faqs} from "../../util/usefull-data.js";
+import { styles } from "../../util/genral-style.js";
 
 import {Disclosure} from "@headlessui/react";
 import {MinusSmallIcon, PlusSmallIcon} from "@heroicons/react/24/outline";

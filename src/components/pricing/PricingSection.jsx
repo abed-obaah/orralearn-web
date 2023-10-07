@@ -1,9 +1,9 @@
-import {currencies, includedFeatures} from "../util/usefull-data.js";
+import {currencies, includedFeatures} from "../../util/usefull-data.js";
 import {CheckIcon} from "@heroicons/react/20/solid/index.js";
 import {closePaymentModal, FlutterWaveButton} from "flutterwave-react-v3";
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {useStateContext} from "../context/contextProvider.jsx";
+import {useStateContext} from "../../context/contextProvider.jsx";
 import axios from "axios";
 
 

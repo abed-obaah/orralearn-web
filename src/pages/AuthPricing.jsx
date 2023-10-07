@@ -1,5 +1,5 @@
-import PricingSection from "../components/PricingSection.jsx";
-import FaqComponent from "../components/FaqComponent.jsx";
+import PricingSection from "../components/pricing/PricingSection.jsx";
+import FaqComponent from "../components/pricing/FaqComponent.jsx";
 
 
 const AuthPricing = () => {

@@ -8,6 +8,7 @@ import {useFormik} from 'formik'
 
 import {styles} from "../../util/genral-style.js";
 import avatar from "../../assets/avatar.jpg";
+import {fileUpdate} from "../../middleware/firebase-functions.js";
 
 
 
@@ -32,7 +33,18 @@ console.log(userInfo)
         validate,
         enableReinitialize: true,
         onSubmit:(values)=>{
-            console.log(values)
+         const httReq =async()=>{
+             try{
+                 let imageurl
+                 const profileImageType = typeof values.profileImage
+                 if(profileImageType === 'file'){
+                     imageurl = await fileUpdate(imageurl)
+                 }
+             }catch (err){
+                 console.log(err)
+             }
+         }
+            httReq()
         }
     })
     return (
