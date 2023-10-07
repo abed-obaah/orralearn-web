@@ -93,7 +93,7 @@ export const findUserName = async (username) => {
         const querySnapshot = await getDocs(q);
         return !querySnapshot.empty;
     } catch (error) {
-        console.error('Error checking username:', error);
+        throw new Error(error);
         return false;
     }
 };
@@ -112,23 +112,25 @@ export const findDocumentAndUpdate = async (docId, collectionName, updateData)=>
         return updatedDocSnap.data();
     }catch (err){
         console.log(err)
-        return err
+        throw new Error(err);
     }
 }
 
 export const changePassword =async(email,currentPassword,newPassword)=>{
+    console.log(email,currentPassword,newPassword)
     try{
         const user = auth.currentUser
         const data = await signInWithEmailAndPassword(auth,email,currentPassword);
-        console.log(data)
         if(data){
             const updatedPassResult =  await updatePassword(user, newPassword);
             console.log(updatedPassResult)
             return true
         }
+        console.log()
         // Update the user's password
 
     }catch (err){
-        console.log(err)
+        throw new Error(err);
+        // console.log(err)
     }
 }

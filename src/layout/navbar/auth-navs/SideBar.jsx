@@ -49,7 +49,8 @@ const SideBar = () => {
 
                             <NavLink
                                 to="authPricing"
-                                className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
+                                className={({isActive}) => (`group flex lg:gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${isActive ? 'bg-white text-black' : 'text-white hover:text-black hover:bg-white'}`)}
+                            >
 
                                 <BsCash
                                     className="h-6 w-6 shrink-0 text-white group-hover:text-white"
@@ -59,8 +60,9 @@ const SideBar = () => {
 
                             </NavLink>
                             <NavLink
-                                to="/settings"
-                                className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
+                                to="settings"
+                                className={({isActive}) => (`group flex lg:gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${isActive ? 'bg-white text-black' : 'text-white hover:text-black hover:bg-white'}`)}
+                            >
 
                                 <Cog6ToothIcon
                                     className="h-6 w-6 shrink-0 text-white group-hover:text-white"

@@ -59,7 +59,6 @@ const SignIn = () => {
         try {
           await setPersistence(auth, browserSessionPersistence);
           const data = await signInWithEmailAndPassword(auth,values.email,values.password);
-console.log(data)
           if (data) {
             setLoading(false)
             const remainingMilliseconds = 60 * 60 * 1000;

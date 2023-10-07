@@ -6,7 +6,6 @@ import {changePasswordValidation, validate} from '../../util/usefullFunctions.js
 
 import {useFormik} from 'formik'
 
-import {auth} from '../../middleware/firebase.js'
 import avatar from "../../assets/avatar.jpg";
 import {changePassword, fileUpdate, findDocumentAndUpdate, findUserName} from "../../middleware/firebase-functions.js";
 import Notification from "../shared/Notification.jsx";
@@ -17,11 +16,12 @@ import {FiEye, FiEyeOff} from "react-icons/fi";
 const Account = () => {
     const [imagePreview,setImagePreview] = useState(null)
     const [loading,setLoading] = useState(false)
+    const [passLoading,setPassLoading] = useState(false)
     const [type, setType] = useState("success");
     const [title, setTitle] = useState("Success");
     const [show, setShow] = useState(false);
     const [showPassword,setShowPassword] = useState(false)
-    const {userInfo,updateUserInfo}  = useStateContext();
+    const {userInfo,updateUserInfo,logout}  = useStateContext();
 
 
     useEffect(()=>{
@@ -105,19 +105,23 @@ const Account = () => {
         },
         validate:changePasswordValidation,
         enableReinitialize:true,
-        onSubmit:(values, {resetForm})=>{
-            console.log(values)
+        onSubmit:(values)=>{
             const httReq = async()=>{
+                setPassLoading(true)
                 try{
                     const result = await changePassword(userInfo.email,values.currentPassword,values.newPassword)
-
-                    console.log(result)
+                    if(result){
+                        setShow(true)
+                        updateStateFunctions('Success', 'success');
+                        logout()
+                    }
                 }catch(err){
-                    console.log(err)
+                    setShow(true)
+                    updateStateFunctions('An error occurred check your password ', 'error');
+                    setPassLoading(false)
                 }
-
             }
-
+            httReq()
         }
     })
     return (

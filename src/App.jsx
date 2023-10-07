@@ -33,6 +33,7 @@ import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
 import CoursesLandingPage from "./pages/auth-section/courses/CoursesLandingPage.jsx";
 import AuthPricing from "./pages/AuthPricing.jsx";
 import Account from "./components/settings/Account.jsx";
+import Payments from "./components/settings/Payments.jsx";
 
 function App() {
   const { isLoggedIn } = useStateContext();
@@ -83,6 +84,7 @@ function App() {
           <Route path={'authPricing'} element={<AuthPricing/>}/>
             <Route path={"settings"} element={<Settings />} >
                 <Route index element={<Account/>}/>
+                <Route  path={'payments'} element={<Payments/>}/>
             </Route>
         </Route>
         <Route path={"/ebooks"} element={<Ebooks />}>
