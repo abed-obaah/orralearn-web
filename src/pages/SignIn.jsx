@@ -68,7 +68,6 @@ console.log(data)
             );
 
             const userFireStoreData = await  getUserInfo('Users',data.user.uid)
-            console.log(data)
 
             login(data.user.accessToken, expirationTime.toISOString(),userFireStoreData.data());
             navigate("/", { replace: true });

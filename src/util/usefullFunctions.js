@@ -1,7 +1,7 @@
 export const validate = (values) => {
     const errors = {};
-    if (!values.profileImage) {
-        errors.profileImage = "Required";
+    if (!values.image) {
+        errors.image = "Required";
     }
     if (!values.username) {
         errors.username = "Required";
@@ -18,13 +18,23 @@ export const validate = (values) => {
     if (!values.email) {
         errors.email = "Required";
     }
-    if (!values.password) {
-        errors.password = "Required";
+
+    return errors;
+};
+
+export const changePasswordValidation =(values)=>{
+    const errors = {};
+
+    if (!values.currentPassword) {
+        errors.currentPassword = "Required";
+    }
+    if (!values.newPassword) {
+        errors.newPassword = "Required";
     }
     if (!values.confirmPassword) {
         errors.confirmPassword = " required";
-    } else if (values.password !== values.confirmPassword) {
+    } else if (values.newPassword !== values.confirmPassword) {
         errors.confirmPassword = "Password are not identical";
     }
     return errors;
-};
+}

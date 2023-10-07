@@ -145,9 +145,9 @@ const PricingSection = () => {
                         onChange={handleCurrencyChange}
                         className="block appearance-none  bg-white border border-gray-100 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                     >
-                        {currencies.map((currencyOption) => (
+                        {currencies.map((currencyOption,i) => (
                             <option
-                                key={currencyOption.country}
+                                key={i}
                                 value={currencyOption.country}
                             >
                                 {currencyOption.country}
@@ -162,9 +162,9 @@ const PricingSection = () => {
                 </div>
 
                 <div className="flex justify-center space-x-4 md:space-x-2 lg:space-x-8">
-                    {plans.map((plan) => (
+                    {plans.map((plan,i) => (
                         <button
-                            key={plan.id}
+                            key={i}
                             className={`tab ${
                                 activeTab === plan.id ? "tab-active" : ""
                             } text-xs sm:text-sm md:text-base lg:text-lg`}
@@ -207,8 +207,8 @@ const PricingSection = () => {
                             role="list"
                             className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
                         >
-                            {includedFeatures.map((feature) => (
-                                <li key={feature} className="flex gap-x-3">
+                            {includedFeatures.map((feature,i) => (
+                                <li key={i} className="flex gap-x-3">
                                     <CheckIcon
                                         className="h-6 w-5 flex-none text-indigo-600"
                                         aria-hidden="true"
@@ -234,10 +234,10 @@ const PricingSection = () => {
                       </span>
                                 </p>
                                 <div className="text-sm  leading-6 tracking-wide text-gray-600">
-                                    {plans.map((plan) =>
+                                    {plans.map((plan,i) =>
                                             plan.id === selectedPlan.id ? (
                                                 // eslint-disable-next-line react/jsx-key
-                                                <div className="flex items-center justify-center gap-x-2">
+                                                <div className="flex items-center justify-center gap-x-2" key={i}>
                             <span className="text-smleading-6 tracking-wide text-gray-600">
                               {plan.name}
                             </span>

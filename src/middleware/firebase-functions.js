@@ -1,7 +1,10 @@
+import {auth} from './firebase.js'
+import { updatePassword } from 'firebase/auth';
 import {storage,db} from "./firebase.js";
 import {collection, setDoc, doc, getDoc, query, where,getDocs,updateDoc} from "firebase/firestore";
 import {ref,uploadBytes,getDownloadURL,deleteObject} from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
+import {signInWithEmailAndPassword} from "firebase/auth";
 
 
 
@@ -15,14 +18,12 @@ const uploadFile =async(firebaseFileLocation,file)=>{
             `${firebaseFileLocation}/${uplaodedFile.metadata.name}`
         );
         const imageUrl = await getDownloadURL(uploadedfileRef);
-
         if (!imageUrl) {
             return "error";
         }
         return imageUrl;
     }catch (err){
         console.log(err);
-        return err
     }
 }
 export const filesUpload = async (firebaseFileLocation,file)=>{
@@ -35,14 +36,16 @@ export const filesUpload = async (firebaseFileLocation,file)=>{
 }
 
 // eslint-disable-next-line no-unused-vars
-export const fileUpdate =  async (firebaseFileLocation,file,imageUrl)=>{
+export const fileUpdate =  async (firebaseFileLocation,file,oldFileUrl)=>{
     try {
         const upLoadedImage = await  uploadFile(firebaseFileLocation,file)
-        if(upLoadedImage){
-           await deleteObject(ref(storage, imageUrl));
+        if(upLoadedImage && oldFileUrl !=='' ){
+           await deleteObject(ref(storage,oldFileUrl));
         }
+
+        return upLoadedImage
     } catch (err) {
-        return 'error'
+        console.log(err)
     }
 }
 
@@ -51,9 +54,7 @@ export const deleteFile = async(imageUrl)=>{
     try {
         const imageRef = ref(storage, imageUrl);
         const res =  await deleteObject(imageRef,imageUrl);
-        if(res){
-            return 'error';
-        }
+       console.log(res)
     } catch (err) {
         return 'error'
     }
@@ -97,7 +98,7 @@ export const findUserName = async (username) => {
     }
 };
 
-export const findDocument = async (docId,collectionName, updateData)=>{
+export const findDocumentAndUpdate = async (docId, collectionName, updateData)=>{
     try{
         const docRef = doc(db, collectionName, docId);
         const docSnap = await getDoc(docRef);
@@ -107,10 +108,27 @@ export const findDocument = async (docId,collectionName, updateData)=>{
         } else {
             console.log("Document not found");
         }
-        console.log(docSnap.data())
-        return docSnap.data();
+        const updatedDocSnap = await getDoc(docRef);
+        return updatedDocSnap.data();
     }catch (err){
         console.log(err)
         return err
+    }
+}
+
+export const changePassword =async(email,currentPassword,newPassword)=>{
+    try{
+        const user = auth.currentUser
+        const data = await signInWithEmailAndPassword(auth,email,currentPassword);
+        console.log(data)
+        if(data){
+            const updatedPassResult =  await updatePassword(user, newPassword);
+            console.log(updatedPassResult)
+            return true
+        }
+        // Update the user's password
+
+    }catch (err){
+        console.log(err)
     }
 }
