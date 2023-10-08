@@ -44,6 +44,7 @@ import CoursesLandingPage from "./pages/auth-section/courses/CoursesLandingPage.
 import AuthPricing from "./pages/auth-section/AuthPricing.jsx";
 import Account from "./components/settings/Account.jsx";
 import Payments from "./components/settings/Payments.jsx";
+import PrelaunchPage from "./pages/PreLaunchPage";
 
 function App() {
   const { isLoggedIn } = useStateContext();
@@ -126,6 +127,7 @@ function App() {
         <Route path={"coursePlayer"} element={<CoursePlayer />} />
         <Route path={"test"} element={<Test />} />
         <Route path={"payment"} element={<FlutterwavePay />} />
+        <Route path={"thankyou"} element={<PrelaunchPage />} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>

@@ -50,7 +50,7 @@ export const navigation = [
     { name: 'Dashboard', path:"/", icon: AiOutlineHome },
     { name: 'Courses', path:"courses", icon: CgFileDocument  },
     { name: 'Challenges', path:"challenges", icon: BiAward  },
-    { name: 'Community', path:"community", icon: BiGroup },
+   // { name: 'Community', path:"community", icon: BiGroup },
     { name: 'Inbox', path:"inbox", icon: AiOutlineInbox  },
     { name: 'Learning Paths', path:"/learningPaths", icon: BsBook, },
     { name: 'Ebooks', path:"/ebooks", icon: BiBookAlt, },

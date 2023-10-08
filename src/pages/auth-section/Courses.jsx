@@ -11,8 +11,10 @@ import { CourseCard } from "./courses/Test/CourseCard";
 import uc from "../../assets/uc.png";
 import { Link } from "react-router-dom";
 import { styles } from "../../util/genral-style.js";
+import { useStateContext } from "../../context/contextProvider";
 
 const Courses = () => {
+  const {subscription} = useStateContext()
   const reusabletextStyle =
     "text-[16px] text-black  text-opacity-70 font-openSans";
 
@@ -100,12 +102,19 @@ const Courses = () => {
             Become a Full Stack Mobile App developer with just ONE course. HTML,
             CSS, Javascript, React, Node and Web3
           </p>
-          <Link
+          {
+            !subscription.subscribed ?(
+                 <Link to={'/pricing'} className={`${styles.buttonStyleTwo} w-full md:w-40`}>Pre-Enroll</Link>
+             ):(
+        <Link to="/thankyou" className={`${styles.buttonStyleTwo} w-full md:w-40`}>Pre-Enroll</Link>
+             )
+          }
+          {/*<Link
             to="/courseDetail"
             className={`${styles.buttonStyleTwo} w-100 sm:w-40`}
           >
             Start Learning
-          </Link>
+        </Link>*/}
         </div>
       </div>
       <h2 className="text-2xl font-bold text-main-purple ">All Courses </h2>

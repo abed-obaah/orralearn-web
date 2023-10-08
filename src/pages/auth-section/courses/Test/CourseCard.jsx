@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { styles } from "../../../../util/genral-style";
+import { useStateContext } from "../../../../context/contextProvider";
 
 export const CourseCard = ({ course }) => {
+
+  const {subscription} = useStateContext()
+
   return (
     <div className="w-full sm:w-[400px] mx-auto bg-white rounded overflow-hidden shadow-lg">
       <img className="w-full" src={course.image} alt={course.title} />
@@ -15,9 +19,23 @@ export const CourseCard = ({ course }) => {
         </div>
       </div>
       <div className="px-6 flex flex-col sm:flex-row gap-4 pb-4 ">
-        <Link to={"/test"} className={`${styles.buttonStyleTwo} w-100 sm:w-[350px]`}>
+
+        {
+          !subscription.subscribed ?(
+                                         <Link to={'/pricing'} className={`${styles.buttonStyleTwo} w-100 sm:w-[350px]`}>
           Start Learning
         </Link>
+          ):(
+            <Link to={"/thankyou"} className={`${styles.buttonStyleTwo} w-100 sm:w-[350px]`}>
+          Start Learning
+        </Link>
+          )
+        }
+
+
+        {/*<Link to={"/test"} className={`${styles.buttonStyleTwo} w-100 sm:w-[350px]`}>
+          Start Learning
+      </Link>*/}
       </div>
     </div>
   );

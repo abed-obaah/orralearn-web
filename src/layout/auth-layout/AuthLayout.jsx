@@ -15,10 +15,21 @@ import {Link, NavLink, Outlet} from 'react-router-dom';
 import AuthResNav from "../navbar/auth-navs/AuthResNav.jsx";
 import Authfooter from "../footer/Authfooter.jsx";
 import SideBar from "../navbar/auth-navs/SideBar.jsx";
+import { useStateContext } from '../../context/contextProvider.jsx'
+import { AiFillThunderbolt } from 'react-icons/ai'
+import { FaCog } from 'react-icons/fa'
 
 
 const AuthLayout = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
+        const { subscription } = useStateContext();
+const getNavLinkClasses = (isActive) => {
+  return `group flex lg:gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${
+    isActive
+      ? "bg-white text-black"
+      : "text-white hover:text-black hover:bg-white"
+  }`;
+};
   return (
     <>
       {/*
@@ -29,7 +40,7 @@ const AuthLayout = () => {
       <body class="h-full">
       ```
     */}
-      <div >
+      <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as="div"
@@ -83,7 +94,7 @@ const AuthLayout = () => {
                     </div>
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
-                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
+                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#560CC8] px-6 pb-4">
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-8 w-auto"
@@ -97,28 +108,52 @@ const AuthLayout = () => {
                           <ul role="list" className="-mx-2 space-y-1">
                             {navigation.map((item) => (
                               <li key={item.name}>
-                                <NavLink to={item.path}
-
-                                         className={({ isActive })=>(`group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${isActive ? 'bg-white text-black':'text-white hover:text-black hover:bg-white'}`)}
+                                <NavLink
+                                  to={item.path}
+                                  className={({ isActive }) =>
+                                    `group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${
+                                      isActive
+                                        ? "bg-white text-black"
+                                        : "text-white hover:text-black hover:bg-white"
+                                    }`
+                                  }
                                 >
-                                  <item.icon className={'text-2xl'}/>
+                                  <item.icon className={"text-2xl"} />
                                   <span>{item.name}</span>
                                 </NavLink>
                               </li>
                             ))}
                           </ul>
                         </li>
-
-                        <li className="mt-auto">
-                          <Link to={'settings'}
-                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                        <li className="mt-auto bg-white rounded hover:text-black">
+                          {!subscription.subscribed ? (
+                            <NavLink
+                              to="/pricing"
+                              className={({ isActive }) =>
+                                getNavLinkClasses(isActive)
+                              }
+                            >
+                              <AiFillThunderbolt
+                                className="text-xl text-black"
+                                aria-hidden="true"
+                              />
+                              <span className="hidden text-black  lg:block">
+                                Upgrade To Pro
+                              </span>
+                            </NavLink>
+                          ) : null}
+                        </li>
+                        <li className="hover:text-black">
+                          <NavLink
+                            to="/settings"
+                            className={({ isActive }) =>
+                              getNavLinkClasses(isActive)
+                            }
                           >
-                            <Cog6ToothIcon
-                              className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
-                              aria-hidden="true"
-                            />
-                            Settings
-                          </Link>
+                            <FaCog className="text-xl" aria-hidden="true" />
+
+                            <span className="hidden lg:block text-white">Settings</span>
+                          </NavLink>
                         </li>
                       </ul>
                     </nav>
@@ -130,15 +165,15 @@ const AuthLayout = () => {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <SideBar/>
+        <SideBar />
         <div className="md:pl-20 lg:pl-60">
-          <AuthResNav setSidebarOpen={setSidebarOpen}/>
+          <AuthResNav setSidebarOpen={setSidebarOpen} />
           <main className="py-10 bgFive min-h-screen">
             <div className="px-4 sm:px-6 lg:px-8 ">
-              <Outlet/>
+              <Outlet />
             </div>
           </main>
-          <Authfooter/>
+          <Authfooter />
         </div>
       </div>
     </>

@@ -98,14 +98,14 @@ export const ContextProvider = ({ children }) => {
     setUInfo(values)
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (tokenData) {
       logoutTimer = setTimeout(logoutHandler, tokenData.duration);
     }
           console.log("Subscription State: ", subscription);
 
   }, [tokenData, logoutHandler]);
-
+*/
   const [subscription, setSubscription] = useState({
     subscribed: false,
     subscription_type: null,
@@ -184,7 +184,7 @@ export const ContextProvider = ({ children }) => {
           console.log("No Stripe subscriptions found for this user.");
         }
       }
-                  setSubscription({ subscribed, subscription_type });
+        setSubscription({ subscribed, subscription_type });
 
     }
 
