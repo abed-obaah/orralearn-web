@@ -55,7 +55,7 @@ const Dashboard = () => {
                         <div className={'flex flex-col gap-y-4 px-6 pb-3 lg:px-0 lg:pb-0'}>
                             <h6 className={'font-semibold text-[16px]'}>Full-Stack Mobile Application Development</h6>
                             <p className={`${reusabletextStyle}`}>Become a Full Stack Mobile App developer with just ONE course. HTML, CSS, Javascript, React, Node  and Web3</p>
-                            <Link to={'courses/courseDetail'} className={`${styles.buttonStyleTwo} w-full md:w-40`}>Enroll</Link>
+                            <Link to={'/pricing'} className={`${styles.buttonStyleTwo} w-full md:w-40`}>Enroll</Link>
                         </div>
                     </div>
                 </div>

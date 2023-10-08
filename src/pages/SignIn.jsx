@@ -77,6 +77,7 @@ const SignIn = () => {
                expirationTime.toISOString(),
                userFireStoreData.data()
              );
+             
              navigate("/", { replace: true });
            }
          }
