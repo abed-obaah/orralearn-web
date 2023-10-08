@@ -30,6 +30,7 @@ import CourseDetail from "./pages/auth-section/courses/courseDetail";
 import CoursePlayer from "./pages/auth-section/courses/CoursePlayer";
 import FlutterwavePay from "./components/FlutterwavePay";
 import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
+import Test from "./pages/auth-section/courses/Test/Test";
 
 function App() {
   const { isLoggedIn } = useStateContext();
@@ -87,6 +88,7 @@ function App() {
         <Route path={"coursePlayer"} element={<CoursePlayer />} />
         <Route path={"payment"} element={<FlutterwavePay />} />
         <Route path={"pricing"} element={<Pricing />} />
+        <Route path={"test"} element={<Test />} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>
