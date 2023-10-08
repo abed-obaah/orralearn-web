@@ -1,50 +1,51 @@
+import {auth} from './firebase.js'
+import { updatePassword } from 'firebase/auth';
 import {storage,db} from "./firebase.js";
-import {collection, setDoc, doc, getDoc, query, where,getDocs,} from "firebase/firestore";
+import {collection, setDoc, doc, getDoc, query, where,getDocs,updateDoc} from "firebase/firestore";
 import {ref,uploadBytes,getDownloadURL,deleteObject} from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
+import {signInWithEmailAndPassword} from "firebase/auth";
 
-export const filesUpload = async (firebaseFileLocation,file)=>{
 
+
+const uploadFile =async(firebaseFileLocation,file)=>{
     try {
         const fileRef = ref(storage, `${firebaseFileLocation}/${file.name + uuidv4()}`);
         // const metatype = { contentType: file.mimetype, name: file.originalname };
         const uplaodedFile = await uploadBytes(fileRef, file);
-        console.log(uplaodedFile)
         const uploadedfileRef = ref(
             storage,
             `${firebaseFileLocation}/${uplaodedFile.metadata.name}`
         );
         const imageUrl = await getDownloadURL(uploadedfileRef);
-
         if (!imageUrl) {
             return "error";
         }
         return imageUrl;
+    }catch (err){
+        console.log(err);
+    }
+}
+export const filesUpload = async (firebaseFileLocation,file)=>{
+    try {
+        return  await uploadFile(firebaseFileLocation,file);
     } catch (err) {
         console.log(err);
+        return  err
     }
 }
 
 // eslint-disable-next-line no-unused-vars
-export const fileUpdate =  async (firebaseFileLocation,file,imageUrl)=>{
+export const fileUpdate =  async (firebaseFileLocation,file,oldFileUrl)=>{
     try {
-        const imageRef = ref(storage, `${firebaseFileLocation}/${file.originalname + uuidv4()}`);
-        const metatype = { contentType: file.mimetype, name: file.originalname };
-
-        await deleteObject(ref(storage, imageUrl));
-        const uplaodedImage = await uploadBytes(imageRef, file.buffer,metatype);
-        const uploadedImageRef = ref(
-            storage,
-            `${firebaseFileLocation}/${uplaodedImage.metadata.name}`
-        );
-        const imageUrl = await getDownloadURL(uploadedImageRef);
-        console.log(imageUrl)
-        if (!imageUrl) {
-            return "eror";
+        const upLoadedImage = await  uploadFile(firebaseFileLocation,file)
+        if(upLoadedImage && oldFileUrl !=='' ){
+           await deleteObject(ref(storage,oldFileUrl));
         }
-        return imageUrl;
+
+        return upLoadedImage
     } catch (err) {
-        return 'error'
+        console.log(err)
     }
 }
 
@@ -53,9 +54,7 @@ export const deleteFile = async(imageUrl)=>{
     try {
         const imageRef = ref(storage, imageUrl);
         const res =  await deleteObject(imageRef,imageUrl);
-        if(res){
-            return 'error';
-        }
+       console.log(res)
     } catch (err) {
         return 'error'
     }
@@ -94,7 +93,44 @@ export const findUserName = async (username) => {
         const querySnapshot = await getDocs(q);
         return !querySnapshot.empty;
     } catch (error) {
-        console.error('Error checking username:', error);
+        throw new Error(error);
         return false;
     }
 };
+
+export const findDocumentAndUpdate = async (docId, collectionName, updateData)=>{
+    try{
+        const docRef = doc(db, collectionName, docId);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            await updateDoc(docRef, updateData);
+            console.log("Document updated successfully");
+        } else {
+            console.log("Document not found");
+        }
+        const updatedDocSnap = await getDoc(docRef);
+        return updatedDocSnap.data();
+    }catch (err){
+        console.log(err)
+        throw new Error(err);
+    }
+}
+
+export const changePassword =async(email,currentPassword,newPassword)=>{
+    console.log(email,currentPassword,newPassword)
+    try{
+        const user = auth.currentUser
+        const data = await signInWithEmailAndPassword(auth,email,currentPassword);
+        if(data){
+            const updatedPassResult =  await updatePassword(user, newPassword);
+            console.log(updatedPassResult)
+            return true
+        }
+        console.log()
+        // Update the user's password
+
+    }catch (err){
+        throw new Error(err);
+        // console.log(err)
+    }
+}

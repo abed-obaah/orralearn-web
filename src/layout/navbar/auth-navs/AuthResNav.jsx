@@ -19,7 +19,7 @@ function classNames(...classes) {
 const AuthResNav = ({setSidebarOpen}) => {
     const {logout,userInfo} = useStateContext()
     const {pathname} = useLocation();
-    const allowedPaths = ['/ebooks','/ebooks/*', '/checkoutCart', '/path3'];
+    const allowedPaths = ['/ebooks','/ebooks/*', '/checkoutCart', '/pdfReader/*','/coursePlayer'];
     let shouldShowComponent = false;
 
     for (const allowedPath of allowedPaths) {
@@ -28,6 +28,7 @@ const AuthResNav = ({setSidebarOpen}) => {
             break;
         }
     }
+
     return (
         <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             {!shouldShowComponent && <button
@@ -70,7 +71,7 @@ const AuthResNav = ({setSidebarOpen}) => {
                             <span className="sr-only">Open user menu</span>
                             <img
                                 className="h-8 w-8 rounded-full bg-gray-50"
-                                src={userInfo.profileImage|| avatar}
+                                src={userInfo.image|| avatar}
                                 alt=""
                             />
                             <span className="hidden lg:flex lg:items-center">
@@ -78,7 +79,7 @@ const AuthResNav = ({setSidebarOpen}) => {
                           className="ml-4 text-sm font-semibold leading-6 text-gray-900"
                           aria-hidden="true"
                       >
-                        {userInfo.userName}
+                        {userInfo.username}
                       </span>
                       <ChevronDownIcon
                           className="ml-2 h-5 w-5 text-gray-400"
@@ -100,7 +101,7 @@ const AuthResNav = ({setSidebarOpen}) => {
 
                                 <Menu.Item >
                                     {({ active }) => (
-                                        <Link to='/profile'
+                                        <Link to='/settings'
 
                                               className={classNames(
                                                   active ? "bg-gray-50" : "",

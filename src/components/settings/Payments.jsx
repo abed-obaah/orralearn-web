@@ -1,6 +1,5 @@
 
-
-const LeaningPaths = () => {
+const Payments = () => {
     return (
         <div>
             
@@ -8,4 +7,4 @@ const LeaningPaths = () => {
     );
 };
 
-export default LeaningPaths;
+export default Payments;

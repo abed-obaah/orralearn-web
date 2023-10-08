@@ -53,9 +53,10 @@ export const ContextProvider = ({ children }) => {
     initialUserInfo = tokenData.userInfo
   }
   const [token, setToken] = useState(initialToken);
-  const [ uInfo,setUinfo] = useState(initialUserInfo)
+  const [ uInfo,setUInfo] = useState(initialUserInfo)
  // const userLoggedIn = true;
    const userLoggedIn = !!token;
+
 
   const logoutHandler = useCallback(() => {
     localStorage.removeItem("token");
@@ -70,7 +71,7 @@ export const ContextProvider = ({ children }) => {
   const logInHandler = (token, expirationTime,retrievedUserInfo) => {
     const userInfo = JSON.stringify(retrievedUserInfo)
     setToken(token);
-    setUinfo(retrievedUserInfo)
+    setUInfo(retrievedUserInfo)
     localStorage.setItem('userInfo',userInfo)
     localStorage.setItem("token", token);
     localStorage.setItem("expirationTime", expirationTime);
@@ -78,6 +79,10 @@ export const ContextProvider = ({ children }) => {
 
     logoutTimer = setTimeout(logoutHandler, remainingTime);
   };
+
+  const updateUserInfo =(values)=>{
+    setUInfo(values)
+  }
 
   useEffect(() => {
     if (tokenData) {
@@ -95,6 +100,7 @@ export const ContextProvider = ({ children }) => {
         isLoggedIn: userLoggedIn,
         login: logInHandler,
         logout: logoutHandler,
+        updateUserInfo
       }}
     >
       {children}

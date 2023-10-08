@@ -1,211 +1,10 @@
-import { useEffect, useState } from "react";
-import { Disclosure, RadioGroup } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/20/solid";
+import PricingSection from "../components/pricing/PricingSection.jsx";
 import CallToAction from "../components/shared/CallToAction.jsx";
-import { faqs, frequencies, tiers } from "../util/usefull-data.js";
+import FaqComponent from "../components/pricing/FaqComponent.jsx";
+
 import { styles } from "../util/genral-style.js";
-import {
-  MinusSmallIcon,
-  PlusSmallIcon,
-} from "@heroicons/react/24/outline/index.js";
-import { NavLink } from "react-router-dom";
-import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3";
-import axios from "axios";
-import { useStateContext } from "../context/contextProvider.jsx";
-
-const includedFeatures = [
-  "12+ coding courses",
-  "100+ coding challenges and projects",
-  "Access to GPT-4 AI powered mentor",
-  "Access to online IDEs",
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Pricing() {
-  const [currency, setCurrency] = useState({
-    country: "United States",
-    currency: "USD",
-    symbol: "$",
-    flag: "https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png",
-    price: 9.99,
-    price2: 54.99,
-    price3: 99.99,
-  });
-    const [price, setPrice] = useState(currency.price);
-
-    const { user } = useStateContext();
-
-  const handleCurrencyChange = (e) => {
-    const selectedCountry = e.target.value;
-    const selectedCurrency = currencies.find(
-      (currencyOption) => currencyOption.country === selectedCountry
-    );
-
-    if (selectedCurrency) {
-      setCurrency(selectedCurrency);
-      const updatedPlan = plans.find((p) => p.id === activeTab);
-      if (updatedPlan) {
-        const newPrice =
-          selectedCurrency[
-            updatedPlan.id === "monthly"
-              ? "price"
-              : updatedPlan.id === "semiAnnual"
-              ? "price2"
-              : "price3"
-          ];
-        setPrice(newPrice);
-        setSelectedPlan({ ...updatedPlan, price: newPrice });
-      }
-    }
-  };
-
-
-
-  const currencies = [
-    {
-      country: "United States",
-      currency: "USD",
-      symbol: "$",
-      flag: "https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png",
-      price: 9.99,
-      price2: 54.99,
-      price3: 99.99,
-    },
-    {
-      country: "Nigeria",
-      currency: "NGN",
-      symbol: "₦",
-      flag: "https://www.countryflags.io/NG/flat/64.png",
-      price: 10000,
-      price2: 55000,
-      price3: 100000,
-    },
-    {
-      country: "Ghana",
-      currency: "GHS",
-      symbol: "GH₵",
-      flag: "https://www.countryflags.io/GH/flat/64.png",
-      price: 117.99,
-      price2: 647.99,
-      price3: 1179.99,
-    },
-    {
-      country: "Kenya",
-      currency: "KES",
-      symbol: "KSh",
-      flag: "https://www.countryflags.io/KE/flat/64.png",
-      price: 1480,
-      price2: 8140,
-      price3: 14800,
-    },
-    {
-      country: "South Africa",
-      currency: "ZAR",
-      symbol: "R",
-      flag: "https://www.countryflags.io/ZA/flat/64.png",
-      price: 196,
-      price2: 1078,
-      price3: 1960,
-    },
-    {
-      country: "Cameroon",
-      currency: "XAF",
-      symbol: "FCFA",
-      flag: "https://www.countryflags.io/CM/flat/64.png",
-      price: 6500,
-      price2: 35750,
-      price3: 65000,
-    },
-  ];
-
-  const plans = [
-    { name: "Monthly", price: currency.price, id: "monthly" },
-    { name: "Every 6 months", price: currency.price2, id: "semiAnnual" },
-    { name: "Annually", price: currency.price3, id: "annual" },
-  ];
-
-  const handleTabClick = (planId) => {
-    setActiveTab(planId);
-    const plan = plans.find((p) => p.id === planId);
-    if (plan) {
-      setSelectedPlan(plan);
-      setPrice(plan.price); // Update the price
-    }
-  };
-
-  const [activeTab, setActiveTab] = useState("monthly"); // For tab control
-
-  const [selectedPlan, setSelectedPlan] = useState(plans[0]);
-
-  const config = {
-    public_key: "FLWPUBK-9bc844e59de11de0d76a9da6ea191410-X",
-    tx_ref: Date.now(),
-    amount: price,
-    currency: currency.currency,
-    payment_options: "card,mobilemoney,ussd",
-    customer: {
-      email: "tonybradpit@gmail.com",
-      phone_number: "+237654012553",
-      name: "Tony Bradley",
-    },
-    customizations: {
-      title: "Orralearn",
-      description: "Payment for Orralearn subscription",
-      logo: "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/369062406_285837120861814_5938473324719847084_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=oWFzmYiQNcsAX86DGxJ&_nc_ht=scontent-atl3-2.xx&oh=00_AfATuzr8xej3AkwWueWNuk2zxFa2dZRTir3Iq79i43TOTw&oe=6523619B",
-    },
-  };
-
-  const fwConfig = {
-    ...config,
-    text: "Subscribe",
-    callback: (response) => {
-      console.log(response);
-      closePaymentModal(); // this will close the modal programmatically
-    },
-    onClose: () => {},
-  };
-
-   useEffect(() => {
-     // Fetch user's country based on their IP address
-     const fetchCountry = async () => {
-       try {
-         const response = await axios.get("https://ipapi.co/json/");
-         const country = response.data.country_name;
-         const selectedCurrency = currencies.find(
-           (currencyOption) => currencyOption.country === country
-         );
-
-         if (selectedCurrency) {
-           setCurrency(selectedCurrency);
-           // Your code to set the price based on the selectedCurrency
-         }
-       } catch (error) {
-         console.error("An error occurred while fetching the country:", error);
-       }
-     };
-
-     fetchCountry();
-   }, []);
-
-  useEffect(() => {
-    const updatedPlan = plans.find((p) => p.id === activeTab);
-    if (updatedPlan) {
-      const newPrice =
-        currency[
-          updatedPlan.id === "monthly"
-            ? "price"
-            : updatedPlan.id === "semiAnnual"
-            ? "price2"
-            : "price3"
-        ];
-      setPrice(newPrice);
-      setSelectedPlan({ ...updatedPlan, price: newPrice });
-    }
-  }, [activeTab, currency]);
-
 
   return (
     <>
@@ -321,7 +120,7 @@ export default function Pricing() {
                     <div className="text-sm  leading-6 tracking-wide text-gray-600">
                       {plans.map((plan) =>
                         plan.id === selectedPlan.id ? (
-                          <div className="flex items-center justify-center gap-x-2">
+                          <div key="" className="flex items-center justify-center gap-x-2">
                             <span className="text-smleading-6 tracking-wide text-gray-600">
                               {plan.name}
                             </span>
@@ -372,6 +171,33 @@ export default function Pricing() {
                   </div>
                 </div>
               </div>
+              {/*<p className={classNames(tier.mostPopular ? "text-gray-300" : "text-gray-600", "mt-4 text-sm leading-6 ")}>{tier.description}</p>*/}
+              <p className="mt-12 flex items-baseline gap-x-1">
+                <span className={classNames(tiers.mostPopular? "text-white" : "text-gray-900","text-5xl font-bold tracking-tight")}>{tiers.price[frequency.value]}</span>
+                <span className={classNames(tiers.mostPopular ? "text-gray-300" : "text-gray-600","text-sm font-semibold leading-6")}>{frequency.priceSuffix}</span>
+              </p>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              <p className={classNames(tiers.mostPopular? "text-white" : "text-black", 'mt-6 font-bold')}>What's included</p>
+              <ul role="list" className={classNames(tiers.mostPopular? "text-gray-300" : "text-gray-600", "mt-4 space-y-3 text-sm leading-6  min-h-[240px] xl:mt-10")}>
+                {tiers.features.map((feature) => (
+                  <li key={feature} className="flex gap-x-3">
+                    <CheckIcon className={classNames(tiers.mostPopular ? "text-[#5300CA] bg-white rounded-full": "text-white bg-[#5300CA] rounded-full" ,"h-6 flex-none justify-center font-sans")}aria-hidden="true" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link to={'/CheckoutPriceCart'}
+                href={tiers.href}
+                aria-describedby={tiers.id}
+                className={classNames(
+                  tiers.mostPopular
+                    ? 'bg-white text-[#5300CA] shadow-sm hover:bg-[#5300CA] hover:text-white hover:border-white border '
+                    : 'text-white bg-[#5300CA] ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 border-[#5300CA] hover:text-[#5300CA] hover:bg-white ',
+                  'mt-6 block rounded-[30px] py-4 px-3 text-center text-sm font-semibold leading-6  transition ease-out  duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                )}
+              >
+                Get Started
+              </Link>
             </div>
           </div>
         </div>
@@ -422,6 +248,8 @@ export default function Pricing() {
           </dl>
         </div>
 
+        <PricingSection/>
+        <FaqComponent/>
         <CallToAction />
       </div>
     </>

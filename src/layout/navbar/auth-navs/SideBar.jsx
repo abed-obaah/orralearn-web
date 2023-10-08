@@ -3,6 +3,9 @@ import logoWhite from "../../../assets/shortlogowhite.svg";
 import {navigation} from "../../../util/usefull-data.js";
 import {NavLink} from "react-router-dom";
 import {Cog6ToothIcon} from "@heroicons/react/24/outline/index.js";
+import {BsCash} from "react-icons/bs";
+
+
 
 
 const SideBar = () => {
@@ -42,20 +45,33 @@ const SideBar = () => {
                             </ul>
                         </li>
 
-                        <li className="mt-auto">
+                        <div className="mt-auto flex flex-col gap-y-4 ">
                             <NavLink
-                                to="/settings"
-                                className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
+                                to="authPricing"
+                                className={({isActive}) => (`group flex lg:gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${isActive ? 'bg-white text-black' : 'text-white hover:text-black hover:bg-white'}`)}
+                            >
 
-                                <Cog6ToothIcon
-                                    className="h-6 w-6 shrink-0 text-white group-hover:text-white"
+                                <BsCash
+                                    className={'text-2xl'}
                                     aria-hidden="true"
                                 />
-                                <span className={'hidden lg:block text-white'}> Settings</span>
+                                <span className={'hidden lg:block '}> Pricing</span>
+
+                            </NavLink>
+                            <NavLink
+                                to="settings"
+                                className={({isActive}) => (`group flex lg:gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${isActive ? 'bg-white text-black' : 'text-white hover:text-black hover:bg-white'}`)}
+                            >
+
+                                <Cog6ToothIcon
+                                    className="h-6 w-6 shrink-0 "
+                                    aria-hidden="true"
+                                />
+                                <span className={'hidden lg:block '}> Settings</span>
 
                             </NavLink>
 
-                        </li>
+                        </div>
                     </ul>
                 </nav>
             </div>

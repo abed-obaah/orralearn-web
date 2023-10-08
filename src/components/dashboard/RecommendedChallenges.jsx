@@ -5,16 +5,16 @@ import {MdArrowForwardIos} from "react-icons/md";
 
 const RecommendedChallenges = () => {
     return (
-        <div className={'flex flex-col gap-y-4 p-4 bg-white borderThree'}>
+        <div className={'flex flex-col  gap-y-4 p-4 bg-white borderThree'}>
             <div className={'flex items-center justify-between font-openSans'}>
-                <h1 className={`${styles.dashboardHeadingOne}`}>Recommended Challenges</h1>
-                <Link to={'/'} className={'text-[#07F] text-[13px] font-bold'}>See all</Link>
+                <h1 className={`font-bold text-base`}>Recommended Challenges</h1>
+                <Link to={'/challenges'} className={'text-[#07F] text-sm font-bold'}>See all</Link>
             </div>
             <div className={'flex flex-col gap-y-10'}>
 
                 {upcomming.map((item,i)=>(
 
-                    <div className={`flex gap-2 rounded-[20px] font-openSans p-8 ${item.color}`} key={i}>
+                    <Link to={'challenges'} className={`flex gap-2 rounded-[20px] font-openSans p-8 ${item.color}`} key={i}>
                         <div className={'flex gap-2 items-center'}>
                             <div className={'flex items-center gap-4'}>
                                 <div className={'flex flex-col gap-y-2'}>
@@ -29,7 +29,7 @@ const RecommendedChallenges = () => {
                             </div>
                             <MdArrowForwardIos/>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
