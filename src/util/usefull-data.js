@@ -55,7 +55,6 @@ export const navigation = [
     { name: 'Learning Paths', path:"/learningPaths", icon: BsBook, },
     { name: 'Ebooks', path:"/ebooks", icon: BiBookAlt, },
     { name: 'Coding Playground', path:"codingPlayGround", icon: BiCodeAlt  },
-    { name: 'Question & Answer', path:"question&Answer", icon: BiHelpCircle  },
   ]
 
 export const authLinks =[

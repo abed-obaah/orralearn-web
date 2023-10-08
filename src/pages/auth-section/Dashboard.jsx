@@ -30,7 +30,7 @@ const Dashboard = () => {
                     <div className={'sm:w-3/5 '}>
                         <div className={''}>
                             <div className={'flex items-center gap-2 mb-3'}>
-                                <h1 className={'text-white font-bold text-2xl sm:text-xl  xl:text-2xl'}>Welcome, {userInfo.userName}</h1>
+                                <h1 className={'text-white font-bold text-2xl sm:text-xl  xl:text-2xl'}>Welcome, {userInfo.username}</h1>
                                 <img src={handWave} alt={'hand'}/>
                             </div>
                             <p className={'text-white text-base sm:text-sm xl:text-sm tracking-[0.3]'}>You've just started your journey with us,

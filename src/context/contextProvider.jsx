@@ -1,5 +1,14 @@
 /* eslint-disable no-unused-vars */
-import  { createContext, useContext, useState ,useEffect,useCallback} from 'react';
+import { use } from "i18next";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+import { doc, collection, getDocs } from "firebase/firestore"; // Firebase Firestore imports
+import { db } from "../middleware/firebase"; // Firebase db import from firebase.js
 
 let logoutTimer;
 const StateContext = createContext({
@@ -8,6 +17,11 @@ const StateContext = createContext({
   login: (token) => {},
   logout: (items) => {},
   language: (language) => {},
+  subscription: {
+    subscribed: false,
+    subscription_type: null,
+  },
+  setSubscription: (subscription) => {},
 });
 
 const calculateRemainingTime = (expirationTime) => {
@@ -26,7 +40,7 @@ const retrieveStoredToken = () => {
 
   const remainingTime = calculateRemainingTime(storedExpirationDate);
 
-  const storedUserInfo = JSON.parse(localStorage.getItem('userInfo'))
+  const storedUserInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   if (remainingTime <= 3600) {
     localStorage.removeItem("token");
@@ -38,7 +52,7 @@ const retrieveStoredToken = () => {
   return {
     token: storedToken,
     duration: remainingTime,
-    userInfo:storedUserInfo
+    userInfo: storedUserInfo,
   };
 };
 
@@ -50,29 +64,29 @@ export const ContextProvider = ({ children }) => {
   let initialUserInfo;
   if (tokenData) {
     initialToken = tokenData.token;
-    initialUserInfo = tokenData.userInfo
+    initialUserInfo = tokenData.userInfo;
   }
   const [token, setToken] = useState(initialToken);
-  const [ uInfo,setUInfo] = useState(initialUserInfo)
- // const userLoggedIn = true;
-   const userLoggedIn = !!token;
+  const [uInfo, setUInfo] = useState(initialUserInfo);
+  // const userLoggedIn = true;
+  const userLoggedIn = !!token;
 
 
   const logoutHandler = useCallback(() => {
     localStorage.removeItem("token");
     localStorage.removeItem("expirationTime");
-    localStorage.removeItem("userInfo")
+    localStorage.removeItem("userInfo");
     window.location.replace("/");
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
   }, []);
 
-  const logInHandler = (token, expirationTime,retrievedUserInfo) => {
-    const userInfo = JSON.stringify(retrievedUserInfo)
+  const logInHandler = (token, expirationTime, retrievedUserInfo) => {
+    const userInfo = JSON.stringify(retrievedUserInfo);
     setToken(token);
-    setUInfo(retrievedUserInfo)
-    localStorage.setItem('userInfo',userInfo)
+    setUInfo(retrievedUserInfo);
+    localStorage.setItem("userInfo", userInfo);
     localStorage.setItem("token", token);
     localStorage.setItem("expirationTime", expirationTime);
     const remainingTime = calculateRemainingTime(expirationTime);
@@ -86,20 +100,107 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (tokenData) {
-      
       logoutTimer = setTimeout(logoutHandler, tokenData.duration);
     }
+          console.log("Subscription State: ", subscription);
+
   }, [tokenData, logoutHandler]);
 
-  return (
+  const [subscription, setSubscription] = useState({
+    subscribed: false,
+    subscription_type: null,
+    
+  });
 
+  useEffect(() => {
+    console.log(uInfo);
+
+    async function checkUserSubscription() {
+      let subscribed = false;
+      let subscription_type = null;
+
+      if (!uInfo || !uInfo.id) {
+        console.log("uInfo or uInfo.id is missing!");
+        return;
+      }
+
+      const userDocRef = doc(db, "Users", uInfo.id);
+      console.log("Document Reference: ", userDocRef);
+
+      const flutterwaveSubscriptions = await getDocs(
+        collection(userDocRef, "flutterwave_subscription")
+      );
+
+      if (!flutterwaveSubscriptions.empty) {
+        for (let doc of flutterwaveSubscriptions.docs) {
+          const data = doc.data();
+          console.log("Flutterwave Data: ", data);
+
+          if (data.end_date.seconds * 1000 > Date.now()) {
+            subscribed = true;
+            subscription_type = data.plan;
+            console.log(
+              "User is subscribed with Flutterwave plan:"+ subscribed,
+              subscription_type
+            );
+            break;
+          }
+        }
+      } else {
+        console.log("No Flutterwave subscriptions found for this user.");
+      }
+
+      // Check stripe subscriptions if not subscribed via Flutterwave
+      if (!subscribed) {
+        const stripeSubscriptions = await getDocs(
+          collection(userDocRef, "subscriptions")
+        );
+
+        if (!stripeSubscriptions.empty) {
+          for (let doc of stripeSubscriptions.docs) {
+            const data = doc.data();
+
+            if (
+              data.current_period_end.seconds * 1000 > Date.now() &&
+              data.items[0].plan.active
+            ) {
+              subscribed = true;
+              const interval = data.items[0].plan.interval;
+              if (interval === "month") {
+                subscription_type = "monthly";
+              } else if (interval === "6 months") {
+                subscription_type = "semiAnnual";
+              } else if (interval === "year") {
+                subscription_type = "annually";
+              }
+              console.log(
+                "User is subscribed with Stripe plan:",
+                subscription_type
+              );
+              break;
+            }
+          }
+        } else {
+          console.log("No Stripe subscriptions found for this user.");
+        }
+      }
+                  setSubscription({ subscribed, subscription_type });
+
+    }
+
+    checkUserSubscription();
+  }, [uInfo]);
+
+  return (
     <StateContext.Provider
       value={{
         token: token,
-        userInfo:uInfo,
+        userInfo: uInfo,
         isLoggedIn: userLoggedIn,
         login: logInHandler,
         logout: logoutHandler,
+        subscription,
+        setSubscription,
         updateUserInfo
       }}
     >

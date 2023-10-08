@@ -39,6 +39,7 @@ import CourseDetail from "./pages/auth-section/courses/courseDetail";
 import CoursePlayer from "./pages/auth-section/courses/CoursePlayer";
 import FlutterwavePay from "./components/FlutterwavePay";
 import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
+import Test from "./pages/auth-section/courses/Test/Test";
 import CoursesLandingPage from "./pages/auth-section/courses/CoursesLandingPage.jsx";
 import AuthPricing from "./pages/auth-section/AuthPricing.jsx";
 import Account from "./components/settings/Account.jsx";
@@ -85,28 +86,36 @@ function App() {
       <Routes>
         <Route path={"/"} element={<AuthLayout />}>
           <Route index element={<Dashboard />} />
-            <Route path={"courses/*"} element={<Courses/>} >
-                <Route index element={<CoursesLandingPage />}/>
-                <Route path={"courseDetail"} element={<CourseDetail/>} />
-            </Route>
+          <Route path={"courses/*"} element={<Courses />}>
+            <Route index element={<CoursesLandingPage />} />
+            <Route path={"courseDetail"} element={<CourseDetail />} />
+          </Route>
           <Route path={"Challenges"} element={<Challenges />} />
           <Route path={"Challenges/:id"} element={<ChallengesDetails />} />
-          <Route path="/Challenges/:courseId/:itemId" element={<StartChallenge/>} />
-         
+          <Route
+            path="/Challenges/:courseId/:itemId"
+            element={<StartChallenge />}
+          />
+          <Route path={"pricing"} element={<Pricing />} />
+
           <Route path={"community"} element={<Community />} />
           <Route path={"inbox"} element={<Inbox />} />
-          <Route path={"LearningPaths"} element={<LearningPaths/>} />
-          <Route path={"LearningPaths/:id"} element={<LearningPathsDetails/>} />
+          <Route path={"LearningPaths"} element={<LearningPaths />} />
+          <Route
+            path={"LearningPaths/:id"}
+            element={<LearningPathsDetails />}
+          />
           <Route path={"codingPlayGround"} element={<CodingPlayground />} />
-        
+          <Route path={"courseDetail"} element={<CourseDetail />} />
+
           {/* <Route path={"QA"} element={<QA/>}/> */}
           <Route path={"projects"} element={<Projects />} />
           <Route path={"payment"} element={<FlutterwavePay />} />
-          <Route path={'authPricing'} element={<AuthPricing/>}/>
-            <Route path={"settings"} element={<Settings />} >
-                <Route index element={<Account/>}/>
-                <Route  path={'payments'} element={<Payments/>}/>
-            </Route>
+          <Route path={"authPricing"} element={<AuthPricing />} />
+          <Route path={"settings"} element={<Settings />}>
+            <Route index element={<Account />} />
+            <Route path={"payments"} element={<Payments />} />
+          </Route>
         </Route>
         <Route path={"/ebooks"} element={<Ebooks />}>
           <Route index element={<EbookDashboard />} />
@@ -116,8 +125,8 @@ function App() {
         <Route path={"checkoutCart"} element={<CheckoutCart />} />
         <Route path={"editor"} element={<FrontEndEditor />} />
         <Route path={"coursePlayer"} element={<CoursePlayer />} />
+        <Route path={"test"} element={<Test />} />
         <Route path={"payment"} element={<FlutterwavePay />} />
-        <Route path={"pricing"} element={<Pricing />} />
         <Route path="notfound" element={<Notfound />} />
         <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>

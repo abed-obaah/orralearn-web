@@ -66,22 +66,31 @@ const SignIn = () => {
               new Date().getTime() + +remainingMilliseconds
             );
 
-            const userFireStoreData = await  getUserInfo('Users',data.user.uid)
+           // Retrieve user info from Firestore
+           const userFireStoreData = await getUserInfo("Users", data.user.uid);
+           console.log(userFireStoreData.data());
 
-            login(data.user.accessToken, expirationTime.toISOString(),userFireStoreData.data());
-            navigate("/", { replace: true });
-          }
-          
-        } catch (err) {
-          console.log(err)
-          updateStateFunctions('An error occured','error')
-          setShow(true)
-          setLoading(false)
-        }
-      };
-      httReqHandler()
-    },
-  });
+           if (userFireStoreData) {
+             // Use the fetched information from Firestore in the login function instead of data.user
+             login(
+               data.user.accessToken,
+               expirationTime.toISOString(),
+               userFireStoreData.data()
+             );
+             navigate("/", { replace: true });
+           }
+         }
+       } catch (err) {
+         console.log(err);
+         updateStateFunctions("An error occured", "error");
+         setShow(true);
+         setLoading(false);
+       }
+     };
+     httReqHandler();
+   },
+ });
+
   return (
     <>
     <Notification show={show} setShow={setShow} title={title} type={type}/>
