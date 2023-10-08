@@ -13,7 +13,7 @@ import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3";
 import axios from "axios";
 import { useStateContext } from "../context/contextProvider.jsx";
 
-import { getCheckoutUrl } from "../components/StripePayments.jsx"
+import { getCheckoutUrl } from "../components/stripePayments.jsx"
 import app from "../middleware/firebase.js";
 
 const includedFeatures = [
@@ -151,9 +151,9 @@ export default function Pricing() {
     currency: currency.currency,
     payment_options: "card,mobilemoney,ussd",
     customer: {
-      email: userInfo.email,
-      phone_number: userInfo.phone,
-      name: userInfo.username,
+      email: userInfo?.email,
+      phone_number: userInfo?.phone,
+      name: userInfo?.username,
     },
     customizations: {
       title: "Orralearn",
