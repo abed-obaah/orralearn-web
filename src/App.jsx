@@ -35,7 +35,7 @@ import EbooksDetails from "./pages/auth-section/ebooks/EbooksDetails.jsx";
 import CheckoutCart from "./pages/auth-section/CheckoutCart.jsx";
 import CheckoutPriceCart from "./pages/CheckoutPriceCart";
 import EbookReader from "./pages/auth-section/ebooks/EbookReader.jsx";
-import CourseDetail from "./pages/auth-section/courses/courseDetail";
+import CourseDetail from "./pages/auth-section/courses/CourseDetail";
 import CoursePlayer from "./pages/auth-section/courses/CoursePlayer";
 import FlutterwavePay from "./components/FlutterwavePay";
 import ResetPasswordUsingEmail from "./pages/ResetPasswordUsingEmail.jsx";
