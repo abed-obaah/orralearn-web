@@ -45,18 +45,17 @@ const SideBar = () => {
                             </ul>
                         </li>
 
-                        <div className="mt-auto">
-
+                        <div className="mt-auto flex flex-col gap-y-4 ">
                             <NavLink
                                 to="authPricing"
                                 className={({isActive}) => (`group flex lg:gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer ${isActive ? 'bg-white text-black' : 'text-white hover:text-black hover:bg-white'}`)}
                             >
 
                                 <BsCash
-                                    className="h-6 w-6 shrink-0 text-white group-hover:text-white"
+                                    className={'text-2xl'}
                                     aria-hidden="true"
                                 />
-                                <span className={'hidden lg:block text-white'}> Pricing</span>
+                                <span className={'hidden lg:block '}> Pricing</span>
 
                             </NavLink>
                             <NavLink
@@ -65,10 +64,10 @@ const SideBar = () => {
                             >
 
                                 <Cog6ToothIcon
-                                    className="h-6 w-6 shrink-0 text-white group-hover:text-white"
+                                    className="h-6 w-6 shrink-0 "
                                     aria-hidden="true"
                                 />
-                                <span className={'hidden lg:block text-white'}> Settings</span>
+                                <span className={'hidden lg:block '}> Settings</span>
 
                             </NavLink>
 
