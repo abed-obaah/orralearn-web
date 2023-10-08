@@ -45,7 +45,7 @@ const Test = () => {
       setLoading(true);
       try {
         const { data } = await axios.post(
-          "http://localhost:8085/flutterwave/api/v1/compile",
+          "https://orralearn-e1703a8e9d7d.herokuapp.com/flutterwave/api/v1/compile",
           {
             code: js,
           }

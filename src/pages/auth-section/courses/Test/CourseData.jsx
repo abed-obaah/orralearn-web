@@ -1,4 +1,5 @@
 export const courseData = [
+  
   {
     section: "HTML",
     title: "Lesson 1: Introduction to HTML",

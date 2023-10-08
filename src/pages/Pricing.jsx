@@ -224,12 +224,12 @@ export default function Pricing() {
       setLoading(true);
       let selectedPriceId;
       if (activeTab === "annual") {
-        selectedPriceId = priceIdTest1;
+        selectedPriceId = priceId1;
       } else if (activeTab === "semiAnnual") {
-        selectedPriceId = priceIdTest2;
+        selectedPriceId = priceId2;
       } else {
         // default to monthly
-        selectedPriceId = priceIdTest3;
+        selectedPriceId = priceId3;
       }
 
       console.log(selectedPriceId);
