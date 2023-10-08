@@ -8,6 +8,8 @@ import image1 from '../assets/image.png'
 import image2 from '../assets/image2.png'
 import image3 from '../assets/image3.png'
 
+
+
 import imagePaul from '../assets/imagePaul.jpg'
 import ato from '../assets/ato.png'
 import lowe from '../assets/lowe.png'
@@ -21,6 +23,10 @@ import vuejs from '../assets/uigradients-vuejs (1).png'
 import python2 from '../assets/python3.jpg'
 import reactjs from '../assets/Best-Practices (2).png'
 import java from '../assets/Java-Logo-PNGs.png'
+
+import frames from '../assets/frames-iphone-removebg-preview.png';
+import anotherFrames from '../assets/appstoreFrame-removebg-preview.png';
+
 
 import dash1 from '../assets/dash1.png'
 import dash2 from '../assets/dash2.png'
@@ -163,96 +169,422 @@ export const otherSections = [
 
 export const courses = [
     {
-      title: 'HTML Challenge',
-      image: HTMLBlogCover, // Replace with the actual image path
-      description: 'Learn the basics of web development from scratch.',
-      instructor: 'John Doe',
-      duration: '8 weeks',
-      startDate: 'October 15, 2023',
-      location: 'Online',
-      btnName:"Opened",
-      participantCount:"1.23k"
-    },
+        id: 0,
+        title: 'HTML Challenge',
+        subTitle: 'Challenges for your project',
+        items: [
+            {
+              id:0,
+              mainItem: 'User Interface Optimization Challenge',
+              subItems: ['Improve UI for responsiveness and accessibility', 
+              'Enhance usability for 1.2k participants', 
+              ]
+            },
+            {
+              id:1,
+              mainItem:'Handling Efficiency Challenge',
+                subItems: ['Optimize data retrieval and rendering', 
+                'Implement data pagination and lazy loading', 
+                ]
+            },
+            {
+              id:2,
+                mainItem:'Security and User Privacy Challenge',
+                subItems: ['Ensure data security and privacy',
+                 'Propose encryption and access control strategies',
+                  ]
+            },
+            {
+              id:3,
+                mainItem:'Scalability Planning Challenge',
+                subItems: ['Plan for accommodating future user growth', 
+                'Consider load balancing and scalable architecture', 
+                ]
+            },
+            {
+              id:4,
+                mainItem:'Community Engagement Challenge',
+                subItems: ['Foster active participation and engagement', 
+                ' Design features for community interaction', 
+                ]
+            },
+          ],
+        image: HTMLBlogCover,
+        description: 'Learn the basics of web development from scratch.',
+        btnName: 'Opened',
+        
+        participantCount: '1.23k'
+      }
+      ,
     {
+        id:1,
         title: 'CSS Challenge',
-        image: CSS, // Replace with the actual image path
+        subTitle:'Challenges for your project',
+        items: [
+            {
+              id:0,
+              mainItem: 'User Interface Optimization Challenge',
+              subItems: ['Improve UI for responsiveness and accessibility', 
+              'Enhance usability for 1.2k participants', 
+              ]
+            },
+            {
+              id:1,
+              mainItem:'Handling Efficiency Challenge',
+                subItems: ['Optimize data retrieval and rendering', 
+                'Implement data pagination and lazy loading', 
+                ]
+            },
+            {
+              id:2,
+                mainItem:'Security and User Privacy Challenge',
+                subItems: ['Ensure data security and privacy',
+                 'Propose encryption and access control strategies',
+                  ]
+            },
+            {
+              id:3,
+                mainItem:'Scalability Planning Challenge',
+                subItems: ['Plan for accommodating future user growth', 
+                'Consider load balancing and scalable architecture', 
+                ]
+            },
+            {
+              id:3,
+                mainItem:'Community Engagement Challenge',
+                subItems: ['Foster active participation and engagement', 
+                ' Design features for community interaction', 
+                ]
+            },
+          ],
+        image: CSS, 
         description: 'Master JavaScript programming with hands-on projects.',
-        instructor: 'Jane Smith',
-        duration: '10 weeks',
-        startDate: 'November 5, 2023',
-        location: 'Online',
         btnName:"Finished",
         participantCount:"800"
       },
     {
+        id:2,
       title: 'JavaScript Challenge',
-      image: javascript, // Replace with the actual image path
+      subTitle:'Challenges for your project',
+      items: [
+        {
+          mainItem: 'User Interface Optimization Challenge',
+          subItems: ['Improve UI for responsiveness and accessibility', 
+          'Enhance usability for 1.2k participants', 
+          ]
+        },
+        {mainItem:'Handling Efficiency Challenge',
+            subItems: ['Optimize data retrieval and rendering', 
+            'Implement data pagination and lazy loading', 
+            ]
+        },
+        {
+            mainItem:'Security and User Privacy Challenge',
+            subItems: ['Ensure data security and privacy',
+             'Propose encryption and access control strategies',
+              ]
+        },
+        {
+            mainItem:'Scalability Planning Challenge',
+            subItems: ['Plan for accommodating future user growth', 
+            'Consider load balancing and scalable architecture', 
+            ]
+        },
+        {
+            mainItem:'Community Engagement Challenge',
+            subItems: ['Foster active participation and engagement', 
+            ' Design features for community interaction', 
+            ]
+        },
+      ],
+      image: javascript, 
       description: 'Master JavaScript programming with hands-on projects.',
-      instructor: 'Jane Smith',
-      duration: '10 weeks',
-      startDate: 'November 5, 2023',
-      location: 'Online',
       btnName:"Finished",
       participantCount:"800"
     },
     {
+        id:3,
       title: 'PYTHON Challenge',
-      image: python, // Replace with the actual image path
+      subTitle:'Challenges for your project',
+      items: [
+        {
+          id:0,
+          mainItem: 'User Interface Optimization Challenge',
+          subItems: ['Improve UI for responsiveness and accessibility', 
+          'Enhance usability for 1.2k participants', 
+          ]
+        },
+        {id:1,
+          mainItem:'Handling Efficiency Challenge',
+            subItems: ['Optimize data retrieval and rendering', 
+            'Implement data pagination and lazy loading', 
+            ]
+        },
+        {
+          id:2,
+            mainItem:'Security and User Privacy Challenge',
+            subItems: ['Ensure data security and privacy',
+             'Propose encryption and access control strategies',
+              ]
+        },
+        {
+          id:3,
+            mainItem:'Scalability Planning Challenge',
+            subItems: ['Plan for accommodating future user growth', 
+            'Consider load balancing and scalable architecture', 
+            ]
+        },
+        {
+          id:4,
+            mainItem:'Community Engagement Challenge',
+            subItems: ['Foster active participation and engagement', 
+            ' Design features for community interaction', 
+            ]
+        },
+      ],
+      image: python, 
       description: 'Master JavaScript programming with hands-on projects.',
-      instructor: 'Jane Smith',
-      duration: '10 weeks',
-      startDate: 'November 5, 2023',
-      location: 'Online',
       btnName:"Opened",
       participantCount:"800"
     },
     {
+        id:4,
       title: 'vuejs Challenge',
-      image: vuejs, // Replace with the actual image path
+      subTitle:'Challenges for your project',
+      items: [
+        {
+          mainItem: 'User Interface Optimization Challenge',
+          subItems: ['Improve UI for responsiveness and accessibility', 
+          'Enhance usability for 1.2k participants', 
+          ]
+        },
+        {mainItem:'Handling Efficiency Challenge',
+            subItems: ['Optimize data retrieval and rendering', 
+            'Implement data pagination and lazy loading', 
+            ]
+        },
+        {
+            mainItem:'Security and User Privacy Challenge',
+            subItems: ['Ensure data security and privacy',
+             'Propose encryption and access control strategies',
+              ]
+        },
+        {
+            mainItem:'Scalability Planning Challenge',
+            subItems: ['Plan for accommodating future user growth', 
+            'Consider load balancing and scalable architecture', 
+            ]
+        },
+        {
+            mainItem:'Community Engagement Challenge',
+            subItems: ['Foster active participation and engagement', 
+            ' Design features for community interaction', 
+            ]
+        },
+      ],
+      image: vuejs, 
       description: 'Master JavaScript programming with hands-on projects.',
-      instructor: 'Jane Smith',
-      duration: '10 weeks',
-      startDate: 'November 5, 2023',
-      location: 'Online',
       btnName:"Opened",
       participantCount:"800"
     },
     {
+        id:5,
       title: 'Reactjs Challenge',
-      image:reactjs, // Replace with the actual image path
+      subTitle:'Challenges for your project',
+      items: [
+        {
+          mainItem: 'User Interface Optimization Challenge',
+          subItems: ['Improve UI for responsiveness and accessibility', 
+          'Enhance usability for 1.2k participants', 
+          ]
+        },
+        {mainItem:'Handling Efficiency Challenge',
+            subItems: ['Optimize data retrieval and rendering', 
+            'Implement data pagination and lazy loading', 
+            ]
+        },
+        {
+            mainItem:'Security and User Privacy Challenge',
+            subItems: ['Ensure data security and privacy',
+             'Propose encryption and access control strategies',
+              ]
+        },
+        {
+            mainItem:'Scalability Planning Challenge',
+            subItems: ['Plan for accommodating future user growth', 
+            'Consider load balancing and scalable architecture', 
+            ]
+        },
+        {
+            mainItem:'Community Engagement Challenge',
+            subItems: ['Foster active participation and engagement', 
+            ' Design features for community interaction', 
+            ]
+        },
+      ],
+      image:reactjs, 
       description: 'Master JavaScript programming with hands-on projects.',
-      instructor: 'Jane Smith',
-      duration: '10 weeks',
-      startDate: 'November 5, 2023',
-      location: 'Online',
       btnName:"Opened",
       participantCount:"800"
     },
     {
+        id:6,
       title: 'PYTHON Challenge',
-      image: python2, // Replace with the actual image path
+      subTitle:'Challenges for your project',
+      items: [
+        {
+          mainItem: 'User Interface Optimization Challenge',
+          subItems: ['Improve UI for responsiveness and accessibility', 
+          'Enhance usability for 1.2k participants', 
+          ]
+        },
+        {mainItem:'Handling Efficiency Challenge',
+            subItems: ['Optimize data retrieval and rendering', 
+            'Implement data pagination and lazy loading', 
+            ]
+        },
+        {
+            mainItem:'Security and User Privacy Challenge',
+            subItems: ['Ensure data security and privacy',
+             'Propose encryption and access control strategies',
+              ]
+        },
+        {
+            mainItem:'Scalability Planning Challenge',
+            subItems: ['Plan for accommodating future user growth', 
+            'Consider load balancing and scalable architecture', 
+            ]
+        },
+        {
+            mainItem:'Community Engagement Challenge',
+            subItems: ['Foster active participation and engagement', 
+            ' Design features for community interaction', 
+            ]
+        },
+      ],
+      image: python2, 
       description: 'Master JavaScript programming with hands-on projects.',
-      instructor: 'Jane Smith',
-      duration: '10 weeks',
-      startDate: 'November 5, 2023',
-      location: 'Online',
       btnName:"Opened",
       participantCount:"800"
     },
     {
+      id:7,
       title: 'JAVA Challenge',
-      image: java, // Replace with the actual image path
+      subTitle:'Challenges for your project',
+      items: [
+        {
+          mainItem: 'User Interface Optimization Challenge',
+          subItems: ['Improve UI for responsiveness and accessibility', 
+          'Enhance usability for 1.2k participants', 
+          ]
+        },
+        {mainItem:'Handling Efficiency Challenge',
+            subItems: ['Optimize data retrieval and rendering', 
+            'Implement data pagination and lazy loading', 
+            ]
+        },
+        {
+            mainItem:'Security and User Privacy Challenge',
+            subItems: ['Ensure data security and privacy',
+             'Propose encryption and access control strategies',
+              ]
+        },
+        {
+            mainItem:'Scalability Planning Challenge',
+            subItems: ['Plan for accommodating future user growth', 
+            'Consider load balancing and scalable architecture', 
+            ]
+        },
+        {
+            mainItem:'Community Engagement Challenge',
+            subItems: ['Foster active participation and engagement', 
+            ' Design features for community interaction', 
+            ]
+        },
+      ],
+      image: java, 
       description: 'Master JavaScript programming with hands-on projects.',
       instructor: 'Jane Smith',
-      duration: '10 weeks',
-      startDate: 'November 5, 2023',
-      location: 'Online',
       btnName:"Opened",
       participantCount:"800"
     }
     
   ];
 
+export const storeImages = [
+    {
+        imageUrl: [anotherFrames,]
+    },
+  {
+    imageUrl: [frames, frames],
+  },
+];
+
+
+export const roadmaps= [
+  {
+    id:1,
+    name: 'Front End Development',
+    title: 'Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects',
+    role: 'Admin',
+    email: 'janecooper@example.com',
+    telephone: '+1-202-555-0170',
+    btnName:'Get Started',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+  },
+  {
+    id:2,
+    name:'Back end development',
+    title:"You will become a great backend developer with true understanding of services. Launch your own websites on Orralearn with hands on practice and YouTube curated courses.",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:3,
+    name:'Full Stack Web development',
+    title:"You will become a full-stack web developer, deploy applications  end-to-end, use CI/CD, code backends, frontends and learn to write at scale.",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:4,
+    name:'Mobile App development',
+    title:"Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:5,
+    name:'Back end development',
+    title:"Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  {
+    id:6,
+    name:'Back end development',
+    title:"Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects",
+    role:"user",
+    email:"abed@gmail.com",
+    telephone:"9058389203",
+    btnName:"Get Started",
+    imageUrl:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+  },
+  
+]
 export const categories = [
     {name: 'programming', title: 'Programming', described: 'programming-description'},
     {name: 'design', title: 'Design', described: 'design-description'},
