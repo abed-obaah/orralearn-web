@@ -5,7 +5,7 @@ import {
   getFirestore,
   onSnapshot,
 } from "firebase/firestore";
-import { getFunctions, httpsCallable } from "firebase/functions";
+import { getFunctions, httpsCallable } from "firebase/functions"
 
 export const getCheckoutUrl = async (app, priceId, userId) => {
   if (!userId) throw new Error("User is not authenticated");
