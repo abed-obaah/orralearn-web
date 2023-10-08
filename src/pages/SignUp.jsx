@@ -75,7 +75,8 @@ const SignUp = () => {
       userBio:"",
       email: "",
       password: "",
-      confirmPassword:""
+      confirmPassword:"",
+      id: "",
     },
     validate,
     enableReinitialize: true,
@@ -116,7 +117,8 @@ const SignUp = () => {
               bio: values.userBio,
               verified:false,
               subscribed:false,
-              followedSuggestions:true
+              followedSuggestions:true,
+              id: data.user.uid,
             });
             setLoading(false);
             //console.log(userDoc)

@@ -13,7 +13,7 @@ import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3";
 import axios from "axios";
 import { useStateContext } from "../context/contextProvider.jsx";
 
-import { getCheckoutUrl } from "../components/stripePayments.jsx"
+import { createCustomer, getCheckoutUrl } from "../components/stripePayments.jsx"
 import app from "../middleware/firebase.js";
 
 const includedFeatures = [
@@ -140,6 +140,7 @@ export default function Pricing() {
     }
   };
 
+ 
   const [activeTab, setActiveTab] = useState("monthly"); // For tab control
 
   const [selectedPlan, setSelectedPlan] = useState(plans[0]);
@@ -193,6 +194,17 @@ export default function Pricing() {
 
     fetchCountry();
   }, []);
+
+   useEffect(() => {
+   
+    const create = async () =>{
+     await createCustomer(app, userInfo.id, userInfo.email);
+
+    }
+    create();
+
+   }, [userInfo]);
+
 
   const priceId1 = "price_1NxzutENS5E2eJhNiuJL9Vq5";
   const priceId2 = "price_1Nxzu1ENS5E2eJhN7AIHWLXm";

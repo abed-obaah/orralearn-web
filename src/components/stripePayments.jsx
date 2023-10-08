@@ -40,6 +40,22 @@ export const getCheckoutUrl = async (app, priceId, userId) => {
   });
 };
 
+export const createCustomer = async (app, userId, email) => {
+  const functions = getFunctions(app, "us-central1");
+  const functionRef = httpsCallable(
+    functions,
+    "ext-firestore-stripe-payments-createCustomer"
+  );
+
+  try {
+    const { data } = await functionRef({ userId, email });
+    console.log("Customer created: ", data.customer);
+    return data.customer;
+  } catch (error) {
+    console.error(error);
+  }
+} 
+
 export const getPortalUrl = async (app) => {
   const auth = getAuth(app);
   const user = auth.currentUser;
