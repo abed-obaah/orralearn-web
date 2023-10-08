@@ -45,7 +45,6 @@ import AuthPricing from "./pages/auth-section/AuthPricing.jsx";
 import Account from "./components/settings/Account.jsx";
 import Payments from "./components/settings/Payments.jsx";
 
-
 function App() {
   const { isLoggedIn } = useStateContext();
   const location = useLocation();
