@@ -151,9 +151,9 @@ export default function Pricing() {
     currency: currency.currency,
     payment_options: "card,mobilemoney,ussd",
     customer: {
-      email: userInfo.email,
-      phone_number: userInfo.phone,
-      name: userInfo.username,
+      email: userInfo?.email,
+      phone_number: userInfo?.phone,
+      name: userInfo?.username,
     },
     customizations: {
       title: "Orralearn",
