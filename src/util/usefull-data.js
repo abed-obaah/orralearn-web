@@ -520,17 +520,28 @@ export const storeImages = [
 ];
 
 
-export const roadmaps= [
+export const roadmaps = [
   {
-    id:1,
+    id: 1,
     name: 'Front End Development',
-    title: 'Complete breakdown guide of becoming a frontend developer in 2023. Get the basics of web form the ground up with hands on practice + real projects',
-    role: 'Admin',
-    email: 'janecooper@example.com',
-    telephone: '+1-202-555-0170',
-    btnName:'Get Started',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    title: 'This is a roadmap to become a frontend developer from scratch. Our Tech stack focuses on modern technologies, HTML, CSS, JavaScript, React, etc.',
+    module: [
+      {
+        number: 1,
+      
+        description: 'Introduction to HTML and Basic Web Development'
+      },
+      {
+        number: 2,
+        description: 'Styling Web Pages with CSS'
+      },
+      {
+        number: 3,
+        description: 'JavaScript Fundamentals'
+      },
+     
+    ],
+    btnName: 'Get Started',
   },
   {
     id:2,

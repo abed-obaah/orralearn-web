@@ -102,49 +102,35 @@ export default function LearningPathsDetails() {
             </tr>
           </thead>
           <tbody>
-            {plans.map((plan, planIdx) => (
-              <tr key={plan.id}>
-                <td
-                  className={classNames(
-                    planIdx === 0 ? '' : 'border-t border-transparent',
-                    'relative py-4 pl-4 pr-3 text-sm sm:pl-6'
-                  )}
-                >
-                  <div className="font-medium text-gray-900">
-                    {plan.name}
-                    {plan.isCurrent ? <span className="ml-1 text-indigo-600">(Current Plan)</span> : null}
-                  </div>
-                  <div className="mt-1 flex flex-col text-gray-500 sm:block lg:hidden">
-                    <span>
-                      {plan.memory} / {plan.cpu}
-                    </span>
-                    <span className="hidden sm:inline">·</span>
-                    <span>{plan.storage}</span>
-                  </div>
-                  {planIdx !== 0 ? <div className="absolute -top-px left-6 right-0 h-px bg-gray-200" /> : null}
-                </td>
-               
-                <td
-                  className={classNames(
-                    planIdx === 0 ? '' : 'border-t border-gray-200',
-                    'hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell'
-                  )}
-                >
-                  {plan.cpu}
-                </td>
-                <td
-                  className={classNames(
-                    planIdx === 0 ? '' : 'border-t border-gray-200',
-                    'hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell'
-                  )}
-                >
-                  {plan.storage}
-                </td>
-                
-               
-              </tr>
-            ))}
-          </tbody>
+        {selectedRoadmap.module.map((module, moduleIdx) => (
+          <tr key={moduleIdx}>
+            <td
+              className={classNames(
+                moduleIdx === 0 ? "" : "border-t border-transparent",
+                "relative py-4 pl-4 pr-3 text-sm sm:pl-6"
+              )}
+            >
+              <div className="font-medium text-gray-900">{module.number}</div>
+            </td>
+            <td
+              className={classNames(
+                moduleIdx === 0 ? "" : "border-t border-gray-200",
+                "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+              )}
+            >
+              {module.topic}
+            </td>
+            <td
+              className={classNames(
+                moduleIdx === 0 ? "" : "border-t border-gray-200",
+                "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+              )}
+            >
+              {module.description}
+            </td>
+          </tr>
+        ))}
+      </tbody>
         </table>
       </div>
          </div>
